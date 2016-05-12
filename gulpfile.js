@@ -90,12 +90,12 @@ gulp.task('css', function() {
 gulp.task('serve', function () {
 	sync({
 		server: {
-			baseDir: 'app'
+			baseDir: ''
 		}
 	});
 
 	gulp.watch('app/sass/**/*.scss', ['sass', sync.reload]);
-	gulp.watch(['app/index.html', 'app/js/**/*.js'], sync.reload);
+	gulp.watch(['app/index.html', 'app/js/**/*.js', 'app/css/styles.css'], sync.reload);
 });
 
 gulp.task('publish', ['uglify', 'sass', 'css', 'html']);

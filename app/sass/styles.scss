@@ -1,0 +1,26 @@
+
+@import "bootstrap";
+@import "mdb";
+@import "ionicons";
+
+html {
+  height: 100%;
+}
+
+body {
+  background-image: linear-gradient(to bottom, #1345b7 0%, #1c85ee 100%);
+  background-repeat: no-repeat;
+  color: white;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+}
+
+.btn-default {
+  background-color: #41cd9e;
+
+  &:hover {
+    background-color: #41cd9e;
+  }
+}
