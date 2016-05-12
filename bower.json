@@ -12,8 +12,8 @@
   "authors": [
     "Dmitry Markov"
   ],
-  "license": "commercial",
-  "homepage": "",
+  "license": "proprietary",
+  "homepage": "http://mapshare.me/",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -22,11 +22,13 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "~3.3.6",
-    "font-awesome": "~4.5.0",
-    "angular": "~1.5.0",
-    "angular-ui-router": "~0.2.18",
-    "angular-resource": "~1.4.8",
-    "angular-mocks": "~1.4.8"
+    "bootstrap-sass": "^3.3.6",
+		"bootstrap-material-design": "*",
+		"ionicons": "^2.0.1",
+    "font-awesome": "^4.5.0",
+    "angular": "^1.5.5",
+    "angular-ui-router": "^0.2.18",
+    "angular-resource": "^1.4.8",
+    "angular-mocks": "^1.4.8"
   }
 }

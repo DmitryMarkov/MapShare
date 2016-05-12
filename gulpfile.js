@@ -2,7 +2,6 @@
 /*jslint node: true */
 'use strict';
 var gulp = require('gulp');
-//var watch = require('gulp-watch');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var replace = require('gulp-html-replace'); // like gulp-usemin
@@ -55,12 +54,7 @@ gulp.task('html', function () {
 
 gulp.task('concat', function () {
 	return gulp.src([
-      'app/js/jquery.js',
-      'app/js/jquery.mousewheel-3.0.6.pack.js',
-      'app/js/jquery.fancybox.pack.js',
-      'app/js/bootstrap.js',
-      'app/js/jquery.mask.min.js',
-      'app/js/app-form.js',
+      'app/**/*.js',
       'app/js/app.js'
   ])
 		.pipe(concat('app.min.js'))
@@ -86,22 +80,12 @@ gulp.task('sass', function () {
 gulp.task('css', function() {
   return gulp.src([
       'app/css/bootstrap.css',
-      'app/css/bootstrap-theme.css',
-      'app/css/jquery.fancybox.css',
-      'app/css/24309080.css',
-      'app/css/styles.old.css',
       'app/css/styles.css'
   ])
     .pipe(concat('styles.min.css'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist/css'));
 });
-
-/*gulp.task('html-min', function() {
-  gulp.src('dist/index.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist'))
-});*/
 
 gulp.task('serve', function () {
 	sync({
