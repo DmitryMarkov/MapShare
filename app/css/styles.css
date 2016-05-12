@@ -7481,8 +7481,12 @@ Colors
   background-color: #0099CC !important; }
 
 .default-color {
-  background-color: #2BBBAD !important; }
+  background-color: #41cd9e !important; }
 
+/*$default-color: #2BBBAD;
+.default-color {
+    background-color: #2BBBAD!important;
+}*/
 .default-color-dark {
   background-color: #00695c !important; }
 
@@ -8244,27 +8248,27 @@ body.modal-open {
 **********************/
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Thin.woff2") format("woff2"), url("../font/roboto/Roboto-Thin.woff") format("woff"), url("../font/roboto/Roboto-Thin.ttf") format("truetype");
+  src: url("../fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("../fonts/roboto/Roboto-Thin.woff") format("woff"), url("../fonts/roboto/Roboto-Thin.ttf") format("truetype");
   font-weight: 200; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Light.woff2") format("woff2"), url("../font/roboto/Roboto-Light.woff") format("woff"), url("../font/roboto/Roboto-Light.ttf") format("truetype");
+  src: url("../fonts/roboto/Roboto-Light.woff2") format("woff2"), url("../fonts/roboto/Roboto-Light.woff") format("woff"), url("../fonts/roboto/Roboto-Light.ttf") format("truetype");
   font-weight: 300; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Regular.woff2") format("woff2"), url("../font/roboto/Roboto-Regular.woff") format("woff"), url("../font/roboto/Roboto-Regular.ttf") format("truetype");
+  src: url("../fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("../fonts/roboto/Roboto-Regular.woff") format("woff"), url("../fonts/roboto/Roboto-Regular.ttf") format("truetype");
   font-weight: 400; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Medium.woff2") format("woff2"), url("../font/roboto/Roboto-Medium.woff") format("woff"), url("../font/roboto/Roboto-Medium.ttf") format("truetype");
+  src: url("../fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("../fonts/roboto/Roboto-Medium.woff") format("woff"), url("../fonts/roboto/Roboto-Medium.ttf") format("truetype");
   font-weight: 500; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Bold.woff2") format("woff2"), url("../font/roboto/Roboto-Bold.woff") format("woff"), url("../font/roboto/Roboto-Bold.ttf") format("truetype");
+  src: url("../fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto/Roboto-Bold.woff") format("woff"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700; }
 
 /*********************
@@ -8352,9 +8356,9 @@ button.btn-floating {
 
 .btn-default {
   color: #fff;
-  background: #2BBBAD; }
+  background: #41cd9e; }
   .btn-default:hover, .btn-default:focus {
-    background-color: #30cfc0 !important;
+    background-color: #55d2a8 !important;
     color: #fff !important; }
 
 .btn-primary {
@@ -15553,9 +15557,15 @@ body {
   height: 100%;
   min-height: 100%;
   width: 100%;
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  font-family: "Lato", "Roboto", "Helvetica Neue", sans-serif; }
 
-.btn-default {
-  background-color: #41cd9e; }
-  .btn-default:hover {
-    background-color: #41cd9e; }
+/*.btn-default {
+  background-color: #41cd9e;
+
+  &:hover {
+    background-color: #41cd9e;
+  }
+}*/
+a {
+  color: white; }

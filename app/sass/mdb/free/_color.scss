@@ -122,12 +122,16 @@ $info-color-dark: #0099CC;
 .info-color-dark {
     background-color: #0099CC!important;
 }
-
+// My Color (dm)
+$default-color: #41cd9e;
+.default-color {
+    background-color: #41cd9e!important;
+}
 // MDB Colors
-$default-color: #2BBBAD;
+/*$default-color: #2BBBAD;
 .default-color {
     background-color: #2BBBAD!important;
-}
+}*/
 
 $default-color-dark: #00695c;
 .default-color-dark {

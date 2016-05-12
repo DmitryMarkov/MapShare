@@ -3,24 +3,33 @@
 @import "mdb";
 @import "ionicons";
 
+// my variables
+$myDarkBlue: #1345b7;
+$myLightBlue: #1c85ee;
+
 html {
   height: 100%;
 }
 
 body {
-  background-image: linear-gradient(to bottom, #1345b7 0%, #1c85ee 100%);
+  background-image: linear-gradient(to bottom, $myDarkBlue 0%, $myLightBlue 100%);
   background-repeat: no-repeat;
   color: white;
   height: 100%;
   min-height: 100%;
   width: 100%;
   background-attachment: fixed;
+  font-family: "Lato", "Roboto", "Helvetica Neue", sans-serif;
 }
 
-.btn-default {
+/*.btn-default {
   background-color: #41cd9e;
 
   &:hover {
     background-color: #41cd9e;
   }
+}*/
+
+a {
+  color: white;
 }

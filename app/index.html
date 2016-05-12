@@ -30,8 +30,8 @@
     <!-- endbuild -->
 
     <!--  OpenGraph meta  -->
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
+    <meta property="og:title" content="MapShare.me" />
+    <meta property="og:description" content="Create and share your beautiful-styled travel map!" />
   	<meta property="og:type" content="website" />
     <meta property="og:site_name" content="MapShare.me" />
     <meta property="og:image" content="http://mapshare.me/images/og-head.jpg" />
@@ -43,7 +43,7 @@
     <!--  Twitter Card  -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MapShare.me" />
-    <meta name="twitter:description" content="" />
+    <meta name="twitter:description" content="Create and share your beautiful-styled travel map!" />
     <meta name="twitter:image:src" content="http://mapshare.me/images/og-head.jpg" />
     <meta name="twitter:domain" content="http://mapshare.me" />
 
@@ -55,11 +55,80 @@
     <![endif]-->
 	</head>
 	<body>
-    <div class="container">
-      <div class="row">
-        <div>MapShare</div>
-        <button class="btn btn-default waves-effect waves-light">Start Now</button>
+    <!-- Sidebar navigation -->
+    <ul id="slide-out" class="side-nav fixed admin-side-nav light-side-nav">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+            <img src="http://my.markov.ru/wp-content/uploads/2016/04/look100.png" class="img-responsive img-circle">
+            <div class="rgba-stylish-strong"><p class="user white-text">Admin<br>
+            admin@gmail.com</p></div>
+        </div>
+        <!--/. Logo -->
 
+        <!-- Side navigation links -->
+        <ul class="collapsible collapsible-accordion">
+            <li><a href="#" class="waves-effect"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-money"></i> Sales</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-line-chart"></i> Conversion</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-users"></i> Website Traffic</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-search"></i> SEO</a></li>
+            <li><a href="#" class="waves-effect"><i class="fa fa-share-alt"></i> Social</a></li>
+        </ul>
+        <!--/. Side navigation links -->
+    <div class="container">
+      <img src="images/og-head.jpg" style="position: absolute; left: -9999px;">
+      <div class="row">
+        <nav class="navbar navbar-default transparent">
+            <div class="container">
+              <div class="navbar-header pull-left">
+                <!-- SideNav slide-out button -->
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="icon ion-android-menu"></i></a>
+                <!--/. SideNav slide-out button -->
+              </div>
+              <div>
+                <a class="navbar-brand waves-effect waves-light" href="#home">MapShare</a>
+              </div>
+          </div>
+        </nav>
+
+<!-- Home page -->
+        <section id="home">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <img src="images/worldmap.png" />
+                <h3>Create and share your beatiful-styled travel map!</h3>
+                <button class="btn btn-default waves-effect waves-light btn-block">Start Now</button>
+                <p>or<br />download our app</p>
+                <a class="btn btn-link white">AppStore</a> <a class="btn btn-link white">Google Play</a>
+              </div>
+            </div>
+          </div>
+        </section>
+<!-- /Home page -->
+
+<!-- Footer -->
+        <footer>
+          <nav class="navbar navbar-default navbar-fixed-bottom transparent">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-3 text-center">
+                  <a href="#countries"><i class="icon ion-android-globe"></i><br />Countries</a>
+                </div>
+                <div class="col-xs-3 text-center">
+                  <a href="#maps"><i class="icon ion-map"></i><br />Maps</a>
+                </div>
+                <div class="col-xs-3 text-center">
+                  <a href="#wishlist"><i class="icon ion-android-checkbox-outline"></i><br />Wishlist</a>
+                </div>
+                <div class="col-xs-3 text-center">
+                  <a href="#stats"><i class="icon ion-stats-bars"></i><br />Stats</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </footer>
+<!-- /Footer -->
 
 
       </div>
