@@ -16,32 +16,39 @@ var del = require('del');
 
 
 var notify = function(error) {
-  var message = 'In: ';
-  var title = 'Error: ';
+  var message = 'In: ', title = 'Error: ';
 
-  if(error.description) {
+  if (error.description) {
     title += error.description;
-  } else if (error.message) {
+  }
+  else if (error.message) {
     title += error.message;
   }
 
-  if(error.filename) {
+  if (error.filename) {
     var file = error.filename.split('/');
     message += file[file.length-1];
   }
 
-  if(error.lineNumber) {
+  if (error.lineNumber) {
     message += '\nOn Line: ' + error.lineNumber;
   }
 
   notifier.notify({title: title, message: message});
 };
 
-/*gulp.task('clean', function (cb) {
-	del(['dist/css', 'dist/js', 'dist/*.html'], cb);
-});*/
+gulp.task('clean', function() {
+	del(['dist/**/*']);
+});
 
-gulp.task('html', function () {
+gulp.task('copy', ['clean'], function() {
+  gulp.src('app/fonts/**/*.{ttf,woff,eof,svg}*')
+    .pipe(gulp.dest('./dist/fonts'));
+  gulp.src('app/images/**/*')
+    .pipe(gulp.dest('./dist/images'));
+});
+
+gulp.task('html', function() {
 	return gulp.src('app/index.html')
 		.pipe(replace({
 			js: 'js/app.min.js',
@@ -52,9 +59,11 @@ gulp.task('html', function () {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('concat', function () {
+gulp.task('concat', function() {
 	return gulp.src([
-      'app/**/*.js',
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+      'static/mdb/js/mdbpf.min.js',
       'app/js/app.js'
   ])
 		.pipe(concat('app.min.js'))
@@ -62,16 +71,16 @@ gulp.task('concat', function () {
 });
 
 
-gulp.task('uglify', ['concat'], function () {
+gulp.task('uglify', ['concat'], function() {
 	return gulp.src('dist/js/*')
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));
 });
 
 
-gulp.task('sass', function () {
+gulp.task('sass', function() {
   gulp.src('app/sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass().on('error', notify))
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('app/css'));
 });
@@ -79,7 +88,7 @@ gulp.task('sass', function () {
 
 gulp.task('css', function() {
   return gulp.src([
-      'app/css/bootstrap.css',
+      'static/mdb/mdbf.min.css',
       'app/css/styles.css'
   ])
     .pipe(concat('styles.min.css'))
@@ -87,7 +96,7 @@ gulp.task('css', function() {
     .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('serve', function () {
+gulp.task('serve', function() {
 	sync({
 		server: {
 			baseDir: ''
@@ -98,6 +107,6 @@ gulp.task('serve', function () {
 	gulp.watch(['app/index.html', 'app/js/**/*.js', 'app/css/styles.css'], sync.reload);
 });
 
-gulp.task('publish', ['uglify', 'sass', 'css', 'html']);
+gulp.task('publish', ['copy','uglify', 'sass', 'css', 'html']);
 
 gulp.task('default', ['serve']);

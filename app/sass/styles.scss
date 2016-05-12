@@ -1,8 +1,11 @@
 
-@import "materialize";
+
 @import "bootstrap";
 @import "mdb";
 @import "ionicons";
+//@import "materialize";
+
+//@import "components/sideNav";
 
 // my variables
 $myDarkBlue: #1345b7;
@@ -33,4 +36,40 @@ body {
 
 a {
   color: white;
+}
+
+header {
+  .logo {
+    font-weight: 600;
+  }
+}
+
+.logo-wrapper {
+  background: url("") no-repeat center center;
+  background-color: darkgrey;
+  background-size: cover;
+}
+
+.navbar {
+  margin-bottom: 2px;
+}
+
+#home {
+  h1, h3, h5 {
+    font-weight: 100;
+  }
+  button {
+    width: 80%
+  }
+  .btn {
+    padding: 5px 12px;
+  }
+}
+
+footer {
+  nav {
+    i {
+      font-size: 1.8em;
+    }
+  }
 }

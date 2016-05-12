@@ -2,39 +2,50 @@
 
 // Mixins
 // @import "components/prefixer";
-@import "components/mixins";
+//@import "components/mixins";
 @import "components/color";
 
 // Variables;
-@import "components/variables";
+//@import "components/variables";
 
+$sidenav-font-color: #444 !default;
+$sidenav-bg-color: #fff !default;
+$sidenav-padding-right: 30px !default;
+$sidenav-item-height: 64px !default;
+// Raised buttons
+$button-raised-background: $secondary-color !default;
+$button-raised-background-hover: lighten($button-raised-background, 5%) !default;
+$button-raised-color: #fff !default;
+// Flat buttons
+$button-flat-color: #343434 !default;
+$button-flat-disabled-color: lighten(#999, 10%) !default;
 // Reset
-@import "components/normalize";
+//@import "components/normalize";
 
 // components
-@import "components/global";
-@import "components/icons-material-design";
-@import "components/grid";
-@import "components/navbar";
-@import "components/roboto";
-@import "components/typography";
-@import "components/cards";
-@import "components/toast";
-@import "components/tabs";
-@import "components/tooltip";
-@import "components/buttons";
-@import "components/dropdown";
-@import "components/waves";
-@import "components/modal";
-@import "components/collapsible";
-@import "components/chips";
-@import "components/materialbox";
-@import "components/forms/forms";
-@import "components/table_of_contents";
+//@import "components/global";
+//@import "components/icons-material-design";
+//@import "components/grid";
+//import "components/navbar";
+//@import "components/roboto";
+//@import "components/typography";
+//@import "components/cards";
+//@import "components/toast";
+//@import "components/tabs";
+//@import "components/tooltip";
+//@import "components/buttons";
+//@import "components/dropdown";
+//@import "components/waves";
+//@import "components/modal";
+//@import "components/collapsible";
+//@import "components/chips";
+//@import "components/materialbox";
+//@import "components/forms/forms";
+//@import "components/table_of_contents";
 @import "components/sideNav";
-@import "components/preloader";
-@import "components/slider";
-@import "components/carousel";
+//@import "components/preloader";
+//@import "components/slider";
+//@import "components/carousel";
 @import "components/date_picker/default";
 @import "components/date_picker/default.date";
 @import "components/date_picker/default.time";
