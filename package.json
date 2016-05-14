@@ -18,7 +18,7 @@
     "share"
   ],
   "author": "Dmitry Markov",
-  "license": "proprietary",
+  "license": "UNLICENSED",
   "dependencies": {
     "del": "^2.2.0"
   },

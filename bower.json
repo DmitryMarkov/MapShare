@@ -12,8 +12,9 @@
   "authors": [
     "Dmitry Markov"
   ],
-  "license": "proprietary",
+  "license": "UNLICENSED",
   "homepage": "http://mapshare.me/",
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -28,8 +29,8 @@
     "font-awesome": "^4.5.0",
     "angular": "^1.5.5",
     "angular-ui-router": "^0.2.18",
-    "angular-resource": "^1.4.8",
-    "angular-mocks": "^1.4.8",
+    "angular-resource": "^1.5.0",
+    "angular-mocks": "^1.5.0",
     "Materialize": "materialize#~0.97.6"
   }
 }
