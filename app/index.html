@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="mapshare">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,14 +15,20 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
+    <style>
+      .ng-hide {
+          display: none!important;
+      }
+    </style>
+
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic,700' rel='stylesheet' type='text/css' />
 
     <!-- Material Design fonts -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons" />
-    <!-- Font Awesome -->
 
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- build:css -->
@@ -57,6 +63,10 @@
   </head>
   <body>
 
+    <!--<div ui-view="header"></div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>-->
+
 <!-- Sidebar navigation -->
     <ul id="slide-out" class="side-nav fixed admin-side-nav light-side-nav">
         <!-- Logo -->
@@ -79,61 +89,58 @@
     </ul>
 <!--/. Sidebar navigation -->
 
-    <div class="container">
-      <img src="images/og-head.jpg" style="position: absolute; left: -9999px;">
-      <div class="row">
-        <header>
-        <nav class="navbar navbar-default transparent">
-            <div class="container">
-              <div class="navbar-header pull-left">
-                <a href="#" data-activates="slide-out" class="navbar-brand button-collapse"><i class="icon ion-android-menu"></i></a>
-                <a class="navbar-brand waves-effect waves-light logo" href="#home">MapShare</a>
-              </div>
-          </div>
-        </nav>
-        </header>
-<!-- Home page -->
-        <section id="home">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 text-center">
-                <img src="images/worldmap.png" />
-                <h5>Create and share<br /> your beatiful-styled<br /> travel map!</h5>
-                <button class="btn btn-default waves-effect waves-light btn-block">Start Now</button>
-                <h6>or<br />download our app</h6>
-                <a class="btn btn-link white"><img src="images/app_apple.png" /></a> <a class="btn btn-link white"><img src="images/app_google.png" /></a>
-              </div>
-            </div>
-          </div>
-        </section>
-<!-- /. Home page -->
 
+    <img src="images/og-head.jpg" style="position: absolute; left: -9999px;">
+
+    <header>
+    <nav class="navbar navbar-default transparent">
+        <div class="container">
+          <div class="navbar-header pull-left">
+            <a href="#" data-activates="slide-out" class="navbar-brand button-collapse"><i class="icon ion-android-menu"></i></a>
+            <a class="navbar-brand waves-effect waves-light logo" href="#home">MapShare</a>
+          </div>
+      </div>
+    </nav>
+    </header>
+<!-- Home page -->
+    <section id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <img src="images/worldmap.png" />
+            <h5>Create and share<br /> your beatiful-styled<br /> travel map!</h5>
+            <button class="btn btn-default waves-effect waves-light btn-block">Start Now</button>
+            <h6>or<br />download our app</h6>
+            <a class="btn btn-link white"><img src="images/app_apple.png" /></a> <a class="btn btn-link white"><img src="images/app_google.png" /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- /. Home page -->
+<div ng-controller="MainCtrl as mc"> {{ mc.countries[0] }}</div>
 <!-- Footer -->
-        <footer>
-          <nav class="navbar navbar-default navbar-fixed-bottom transparent">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-3 text-center">
-                  <a href="#countries"><i class="icon ion-android-globe"></i><br />Countries</a>
-                </div>
-                <div class="col-xs-3 text-center">
-                  <a href="#maps"><i class="icon ion-map"></i><br />Maps</a>
-                </div>
-                <div class="col-xs-3 text-center">
-                  <a href="#wishlist"><i class="icon ion-android-checkbox-outline"></i><br />Wishlist</a>
-                </div>
-                <div class="col-xs-3 text-center">
-                  <a href="#stats"><i class="icon ion-stats-bars"></i><br />Stats</a>
-                </div>
-              </div>
+    <footer>
+      <nav class="navbar navbar-default navbar-fixed-bottom transparent">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-3 text-center">
+              <a href="#countries"><i class="icon ion-android-globe"></i><br />Countries</a>
             </div>
-          </nav>
-        </footer>
+            <div class="col-xs-3 text-center">
+              <a href="#maps"><i class="icon ion-map"></i><br />Maps</a>
+            </div>
+            <div class="col-xs-3 text-center">
+              <a href="#wishlist"><i class="icon ion-android-checkbox-outline"></i><br />Wishlist</a>
+            </div>
+            <div class="col-xs-3 text-center">
+              <a href="#stats"><i class="icon ion-stats-bars"></i><br />Stats</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </footer>
 <!-- /. Footer -->
 
-
-      </div>
-    </div>
 
 
     <!-- build:js -->

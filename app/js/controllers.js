@@ -1,42 +1,14 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('mapshare')
+  angular
+    .module('mapshare')
+    .controller('MainCtrl', MainCtrl);
 
+  /* @ngInject */
+  function MainCtrl($scope, CountriesService) {
 
-.controller('IndexController', ['$scope', 'countriesService', function($scope, countriesService) {
+    this.countries = CountriesService.getCountries();
+  }
 
-    $scope.countries = countriesService.getCountries();
-}])
-
-.controller('CountriesController', [
-   '$scope', 'countriesService', 'wishlistService', function(
-    $scope, countriesService, wishlistService) {
-
-
-}])
-
-.controller('MapsController', [function(){
-
-
-}])
-
-.controller('WishlistController', [function(){
-
-
-}])
-
-.controller('StatsController', [function(){
-
-
-}])
-
-.controller('LoginController', [function(){
-
-
-}])
-
-.controller('FeedbackController', [function(){
-
-
-}])
-;
+})();

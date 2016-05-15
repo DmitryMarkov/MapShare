@@ -1,20 +1,15 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('mapshare')
-  .constant("baseURL","http://localhost:3000/")
-  .constant("imageDIR", "images/")
+  angular.module('mapshare')
+    .constant("baseURL", "http://localhost:3000/")
+    .constant("imageDIR", "images/")
+    .service('CountriesService', countriesService);
 
-  .service('countriesService', ['$resource', 'baseURL', function($resource, CONFIG["BASEURL"]) {
-
+  function countriesService($resource) {
     this.getCountries = function() {
-      var countries = [];
+      var countries = ['Bulgaria','Albania','Estonia'];
       return countries;
     }
-
-  }])
-
-  .service('wishlistService', ['$resource', function($resource)  {
-
-
-  }])
-;
+  }
+})();
