@@ -2,8 +2,10 @@
   'use strict';
 
   angular
-    .module('mapshare', ['ui.router', 'ngResource'])
-    //.module('mapshare', ['ui.router', 'ngResource'])
+    .module('mapshare', [
+      'ui.router',
+      'ngResource'
+    ])
 
     .config(function ($stateProvider, $urlRouterProvider) {
       $stateProvider
@@ -17,7 +19,7 @@
             },
             'content': {
               templateUrl : 'views/home.html',
-              controller  : 'IndexController',
+              controller  : 'MainCrtl',
               resolve : {}
             },
             'footer': {
@@ -26,7 +28,6 @@
           }
 
         })
-
         // route for the page
         .state('app.page', {
           url: 'page',
@@ -37,7 +38,6 @@
             }
           }
         })
-
         // route for the current page
         .state('app.pages', {
           url: 'page/:id',
@@ -50,8 +50,7 @@
         });
 
       $urlRouterProvider.otherwise('/');
-    })
-  ;
+    });
 })();
 
 

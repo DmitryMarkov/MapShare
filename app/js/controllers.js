@@ -6,7 +6,7 @@
     .controller('MainCtrl', MainCtrl);
 
   /* @ngInject */
-  function MainCtrl($scope, CountriesService) {
+  function MainCtrl(CountriesService) {
 
     this.countries = CountriesService.getCountries();
   }
