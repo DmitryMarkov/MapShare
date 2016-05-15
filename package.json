@@ -20,7 +20,6 @@
   "author": "Dmitry Markov",
   "license": "UNLICENSED",
   "dependencies": {
-    "del": "^2.2.0"
   },
   "devDependencies": {
     "browser-sync": "^2.12.3",
@@ -29,10 +28,12 @@
     "gulp-concat": "^2.5.2",
     "gulp-html-replace": "^1.5.5",
     "gulp-htmlmin": "^1.3.0",
+    "gulp-ng-annotate": "^2.0.0",
     "gulp-sass": "^2.0.1",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.4",
-    "node-notifier": "^4.2.1"
+    "node-notifier": "^4.2.1",
+    "del": "^2.2.0"
   },
   "bugs": {
     "url": "https://github.com/DmitryMarkov/MapShare/issues"

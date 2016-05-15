@@ -1,18 +1,18 @@
 /*globals require*/
 /*jslint node: true */
 'use strict';
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var replace = require('gulp-html-replace'); // like gulp-usemin
-var sync = require('browser-sync');
-var htmlmin = require('gulp-htmlmin');
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    ngannotate = require('gulp-ng-annotate'),
+    replace = require('gulp-html-replace'), // like gulp-usemin
+    sync = require('browser-sync'),
+    htmlmin = require('gulp-htmlmin'),
 
-var sass = require('gulp-sass');
-var cleanCSS = require('gulp-clean-css');
-
-var notifier = require('node-notifier');
-var del = require('del');
+    sass = require('gulp-sass'),
+    cleanCSS = require('gulp-clean-css'),
+    notifier = require('node-notifier'),
+    del = require('del');
 
 
 var notify = function(error) {
@@ -73,6 +73,7 @@ gulp.task('concat', function() {
 
 gulp.task('uglify', ['concat'], function() {
 	return gulp.src('dist/js/*')
+    .pipe(ngannotate())
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));
 });
