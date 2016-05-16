@@ -46,10 +46,15 @@ gulp.task('copy', ['clean'], function() {
     .pipe(gulp.dest('./dist/fonts'));
   gulp.src('app/images/**/*')
     .pipe(gulp.dest('./dist/images'));
+  gulp.src(['app/*.ico', 'app/robots.txt'])
+    .pipe(gulp.dest('./dist'));
+  gulp.src(['app/templates/*.html'])
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('./dist/templates'));
 });
 
 gulp.task('html', function() {
-	return gulp.src('app/index.html')
+	return gulp.src(['app/index.html'])
 		.pipe(replace({
 			js: 'js/app.min.js',
      css: 'css/styles.min.css'
@@ -64,7 +69,10 @@ gulp.task('concat', function() {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
       'static/mdb/js/mdbpf.min.js',
-      'app/js/app.js'
+      'bower_components/angular/angular.min.js',
+      'bower_components/angular-ui-router/release/angular-ui-router.min.js',
+      'bower_components/angular-resource/angular-resource.min.js',
+      'app/js/*.js'
   ])
 		.pipe(concat('app.min.js'))
 		.pipe(gulp.dest('dist/js'));
@@ -104,7 +112,7 @@ gulp.task('serve', function() {
 		}
 	});
 
-	gulp.watch('app/sass/**/*.scss', ['sass', sync.reload]);
+	gulp.watch('app/sass/**/*.scss', ['sass']);
 	gulp.watch(['app/index.html', 'app/js/**/*.js', 'app/css/styles.css'], sync.reload);
 });
 
