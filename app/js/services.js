@@ -2,14 +2,26 @@
   'use strict';
 
   angular.module('mapshare')
-    .constant("baseURL", "http://localhost:3000/")
-    .constant("imageDIR", "images/")
-    .service('CountriesService', countriesService);
+    .factory('CountriesService', CountriesService);
 
-  function countriesService($resource) {
-    this.getCountries = function() {
+  /**
+   * @name countriesService
+   * @desc Retrieve countries list
+   */
+
+  /* @ngInject */
+  function CountriesService($resource, CONFIG) {
+    var service = {
+      getCountries: getCountries
+    };
+
+    return service;
+    ////
+
+    function getCountries() {
       var countries = ['Bulgaria','Albania','Estonia'];
       return countries;
     }
+
   }
 })();

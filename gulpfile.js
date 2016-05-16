@@ -113,7 +113,7 @@ gulp.task('serve', function() {
 	});
 
 	gulp.watch('app/sass/**/*.scss', ['sass']);
-	gulp.watch(['app/index.html', 'app/js/**/*.js', 'app/css/styles.css'], sync.reload);
+	gulp.watch(['app/index.html', 'app/templates/*.html', 'app/js/**/*.js', 'app/css/styles.css'], sync.reload);
 });
 
 gulp.task('publish', ['copy','uglify', 'sass', 'css', 'html']);
