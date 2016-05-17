@@ -128,7 +128,8 @@
         }
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider
+      .otherwise('/'); // todo: 404 page
   }
 })();
 

@@ -81,7 +81,7 @@ gulp.task('concat', function() {
 
 gulp.task('uglify', ['concat'], function() {
 	return gulp.src('dist/js/*')
-    .pipe(ngannotate())
+    .pipe(ngannotate({add:true}))
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));
 });

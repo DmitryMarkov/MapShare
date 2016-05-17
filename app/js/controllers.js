@@ -13,8 +13,16 @@
 
   /* @ngInject */
   function MainCtrl(CountriesService) {
+    var vm = this;
+    vm.countries = [];
 
-    this.countries = CountriesService.getCountries();
+    activate();
+
+    function activate() {
+
+      vm.countries = CountriesService.getCountries();
+      return vm.countries;
+    }
   }
 
   /* @ngInject */
