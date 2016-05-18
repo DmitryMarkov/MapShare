@@ -15592,3 +15592,13 @@ header .logo {
 
 footer nav i {
   font-size: 1.8em; }
+
+.switch label input[type=checkbox]:checked + .lever:after {
+  background-color: #41CD9e; }
+
+.min-chart {
+  margin-top: 10px;
+  margin-bottom: 40px; }
+
+.btn {
+  border-radius: 5px; }

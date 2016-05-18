@@ -10,6 +10,7 @@
 // my variables
 $myDarkBlue: #1345b7;
 $myLightBlue: #1c85ee;
+$mainGreen: #41CD9e;
 
 html {
   height: 100%;
@@ -72,4 +73,17 @@ footer {
       font-size: 1.8em;
     }
   }
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: $mainGreen;
+}
+
+.min-chart {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.btn {
+  border-radius: 5px;
 }

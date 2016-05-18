@@ -4,11 +4,13 @@
   angular
     .module('mapshare')
     .controller('MainCtrl', MainCtrl)
+    .controller('HeaderController', HeaderController)
     .controller('MapsController', MapsController)
     .controller('MapDetailController', MapsController)
     .controller('WishlistController', WishlistController)
     .controller('StatsController', StatsController)
     .controller('AboutController', AboutController)
+    .controller('SettingsController', SettingsController)
     .controller('FeedbackController', FeedbackController);
 
   /* @ngInject */
@@ -26,6 +28,16 @@
   }
 
   /* @ngInject */
+  function HeaderController() {
+    // Initialize collapse button
+    $(".button-collapse").sideNav({
+        menuWidth: 240, // Default is 240
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      });
+    // todo
+  }
+
+  /* @ngInject */
   function MapsController() {
 
     // todo
@@ -39,6 +51,13 @@
 
   /* @ngInject */
   function StatsController() {
+    // initialize charts
+    $('.min-chart#chart-sales').easyPieChart({
+        barColor: "#41cd9e",
+        onStep: function (from, to, percent) {
+            $(this.el).find('.percent').text(Math.round(percent));
+        }
+    });
 
     // todo
   }
@@ -51,10 +70,17 @@
   }
 
   /* @ngInject */
-  function AboutController(CONFIG, MESSAGES) {
-    var vm = this;
+  function SettingsController() {
 
-    vm.about = MESSAGES.EN.about; // TODO: replace 'EN' with actual lang
+    // todo
+  }
+
+  /* @ngInject */
+  function AboutController($scope, CONFIG, MESSAGES) {
+    var vm = this,
+        language = $scope.init.language;
+
+    vm.about = MESSAGES[language].about; // TODO: replace 'EN' with actual lang
     vm.version = CONFIG.APPVER;
   }
 

@@ -16,7 +16,8 @@
         url: '/',
         views: {
           'header': {
-            templateUrl : 'templates/_header.html'
+            templateUrl : 'templates/_header.html',
+            controller  : 'HeaderController'
           },
           'content': {
             templateUrl : 'templates/home.html',
@@ -66,8 +67,7 @@
         url: 'stats',
         views: {
           'content@': {
-            //templateUrl : 'views/stats.html',
-            template: '<p>This is stats</p>',
+            templateUrl : 'templates/stats.tmpl.html',
             controller  : 'StatsController'
           }
         }
@@ -88,9 +88,8 @@
         url: 'settings',
         views: {
           'content@': {
-            //templateUrl : 'views/stats.html',
-            template: '<p>This is settings</p>',
-            controller  : 'StatsController'
+            templateUrl : 'templates/settings.tmpl.html',
+            controller  : 'SettingsController'
           }
         }
       })
