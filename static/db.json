@@ -1,3 +1,56 @@
 {
-  "api": ["test"]
+  "countries": [
+    {
+      "EN": [
+        {
+          "id": 0,
+          "name": "Albania",
+          "continent": "Europe",
+          "rating": 0,
+          "map": "maps/albania.svg"
+        },
+        {
+          "id": 1,
+          "name": "Canada",
+          "continent": "North America",
+          "rating": 0,
+          "map": "maps/canada.svg"
+        },
+        {
+          "id": 2,
+          "name": "Bulgaria",
+          "continent": "Europe",
+          "rating": 5,
+          "map": "maps/bulgaria.svg"
+        }
+      ]
+    },
+     {
+      "RU": [
+        {
+          "id": 0,
+          "name": "Албания",
+          "continent": "Европа",
+          "rating": 0,
+          "map": "maps/albania.svg",
+          "wishlist": true
+        },
+        {
+          "id": 1,
+          "name": "Канада",
+          "continent": "Северная Америка",
+          "rating": 0,
+          "map": "maps/canada.svg"
+        },
+        {
+          "id": 2,
+          "name": "Болгария",
+          "continent": "Европа",
+          "rating": 5,
+          "map": "maps/bulgaria.svg"
+        }
+      ]
+    }
+  ],
+  "wishlist": []
 }
