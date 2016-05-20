@@ -7,6 +7,7 @@
           "name": "Albania",
           "continent": "Europe",
           "rating": 0,
+          "countryCode": "AL",
           "map": "maps/albania.svg"
         },
         {
@@ -14,6 +15,7 @@
           "name": "Canada",
           "continent": "North America",
           "rating": 0,
+          "countryCode": "CA",
           "map": "maps/canada.svg"
         },
         {
@@ -21,6 +23,7 @@
           "name": "Bulgaria",
           "continent": "Europe",
           "rating": 5,
+          "countryCode": "BG",
           "map": "maps/bulgaria.svg"
         }
       ]
@@ -32,6 +35,7 @@
           "name": "Албания",
           "continent": "Европа",
           "rating": 0,
+          "countryCode": "AL",
           "map": "maps/albania.svg",
           "wishlist": true
         },
@@ -40,6 +44,7 @@
           "name": "Канада",
           "continent": "Северная Америка",
           "rating": 0,
+          "countryCode": "CA",
           "map": "maps/canada.svg"
         },
         {
@@ -47,10 +52,48 @@
           "name": "Болгария",
           "continent": "Европа",
           "rating": 5,
+          "countryCode": "BG",
           "map": "maps/bulgaria.svg"
         }
       ]
     }
   ],
-  "wishlist": []
+  "maps" : [
+    {
+      "id": 1,
+      "userId": 1,
+      "date": "date",
+      "countries": [
+        {
+          "AL", "CA", "BG"
+        }
+      ],
+      "styleId": 1,
+      "wishlist": [
+        {
+          "RU"
+        }
+      ],
+      "favorites": [
+        {
+          "BG"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email" : "test@test.com",
+      "name" : "Dmitry Markov",
+      "password": "test123",
+      "lastLogin" : "date",
+      "visited" : [
+        "BG", "CA"
+      ],
+      "wishlist": [
+        "RU"
+      ]
+    }
+  ]
 }
