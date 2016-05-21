@@ -46,7 +46,7 @@ gulp.task('copy', ['clean'], function() {
     .pipe(gulp.dest('./dist/fonts'));
   gulp.src('app/images/**/*')
     .pipe(gulp.dest('./dist/images'));
-  gulp.src(['app/*.ico', 'app/robots.txt'])
+  gulp.src(['app/*.ico', 'app/robots.txt', 'app/lang/*.json'])
     .pipe(gulp.dest('./dist'));
   gulp.src(['app/templates/*.html'])
     .pipe(htmlmin({collapseWhitespace: true}))

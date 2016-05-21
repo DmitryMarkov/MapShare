@@ -26,7 +26,8 @@
       //TODO: make a check of imported value
       init.language = $localStorage.language || 'EN';
 
-      $http.get('js/json/' + init.language + '.json')
+      //TODO: throw exseption if not found
+      $http.get('lang/' + init.language + '.json')
        .then(function(res) {
           init.messages = res.data;
         });

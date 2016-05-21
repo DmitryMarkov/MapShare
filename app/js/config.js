@@ -6,7 +6,7 @@
 
       "APPNAME"   : "MapShare",
       "APPVER"    : "0.1.0",
-      "BASEURL"   : "http://localhost:3000/",
+      "BASEURL"   : "http://localhost:3030/",
       "IMAGEDIR"  : "images/",
       "DOCDIR"    : "docs/"
     });

@@ -62,8 +62,8 @@
 
     var vm = this;
     vm.continents = continents;
-    $scope.cnt = continents;
-    console.log(continents);
+    //$scope.cnt = continents;
+    //console.log(continents);
   }
 
   /* @ngInject */

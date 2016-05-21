@@ -1,0 +1,19 @@
+{
+  "error" : "something goes wrong",
+
+  "home_title": "Create and share<br /> your beatiful-styled<br /> travel map!",
+  "home_button": "Start now",
+  "home_caption": "or<br />download our app",
+
+  "about" : "MapShare website and application.",
+
+  "menu_countries": "Countries",
+  "menu_maps": "Maps",
+  "menu_wishlist": "Wishlist",
+  "menu_stats": "Stats",
+
+  "side_settings": "Settings",
+  "side_about": "About",
+  "side_feedback": "Feedback",
+  "side_logout": "Logout"
+}
