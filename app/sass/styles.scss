@@ -49,6 +49,9 @@ header {
   nav {
 //    background-color: $myDarkBlue;
     background-image: linear-gradient(to bottom, $myDarkBlue 0%, rgb(20,74,187) 100%);
+    &.navbar {
+      padding: 0.5rem 0;
+    }
 
     &.navbar .navbar-brand {
       height: 36px;

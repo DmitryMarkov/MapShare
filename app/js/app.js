@@ -4,9 +4,22 @@
   angular
     .module('mapshare', [
       'ui.router',
+      'ngStorage',
       'ngResource'
     ])
+    .run(initFn)
     .config(routeConfig);
+
+  /* @ngInject */
+  function initFn($localStorage, $rootScope) {
+
+    var init = {};
+
+    init.language = $localStorage.language;
+
+    $rootScope.init = init;
+
+  }
 
   /* @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
@@ -17,7 +30,8 @@
         views: {
           'header': {
             templateUrl : 'templates/_header.html',
-            controller  : 'HeaderController'
+            controller  : 'HeaderController',
+            controllerAs: 'vm'
           },
           'content': {
             templateUrl : 'templates/home.html',

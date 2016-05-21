@@ -14319,6 +14319,8 @@ a {
 
 header nav {
   background-image: linear-gradient(to bottom, #1345b7 0%, #144abb 100%); }
+  header nav.navbar {
+    padding: 0.5rem 0; }
   header nav.navbar .navbar-brand {
     height: 36px; }
 

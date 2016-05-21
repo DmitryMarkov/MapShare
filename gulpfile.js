@@ -67,8 +67,9 @@ gulp.task('html', function() {
 gulp.task('concat', function() {
 	return gulp.src([
       'bower_components/jquery/dist/jquery.js',
-      'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-      'static/mdb/js/mdbpf.min.js',
+      'bower_components/tether/dist/js/tether.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
+      'static/mdb/js/mdbf2.min.js',
       'bower_components/angular/angular.min.js',
       'bower_components/angular-ui-router/release/angular-ui-router.min.js',
       'bower_components/angular-resource/angular-resource.min.js',
@@ -97,7 +98,6 @@ gulp.task('sass', function() {
 
 gulp.task('css', function() {
   return gulp.src([
-      'static/mdb/mdbf.min.css',
       'app/css/styles.css'
   ])
     .pipe(concat('styles.min.css'))

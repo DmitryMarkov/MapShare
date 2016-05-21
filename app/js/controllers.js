@@ -28,13 +28,26 @@
   }
 
   /* @ngInject */
-  function HeaderController() {
+  function HeaderController($scope, $state, $localStorage) {
+
     // Initialize collapse button
     $(".button-collapse").sideNav({
         menuWidth: 240, // Default is 240
-        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        closeOnClick: true // Closes side-nav on <a> clicks
       });
+
     // todo
+    var vm = this, lang = 'EN';
+
+    vm.setLang = setLang;
+
+    function setLang(lang) {
+      $scope.init.language = lang;
+      $localStorage.language = lang;
+      $state.transitionTo($state.current, $state.$current.params, { reload: true, inherit: true, notify: true });
+    }
+
+
   }
 
   /* @ngInject */
