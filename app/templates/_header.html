@@ -2,7 +2,7 @@
     <ul id="slide-out" class="side-nav fixed admin-side-nav light-side-nav">
         <!-- Logo -->
         <div class="logo-wrapperr">
-          <img src="http://my.markov.ru/wp-content/uploads/2016/04/look100.png" class="img-responsive img-circle">
+          <img src="images/db/look100.png" class="img-responsive img-circle">
           <div class="rgba-stylish-strong"><p class="user white-text">dima@markov.ru<br />
             logged via facebook</p></div>
         </div>
@@ -10,10 +10,10 @@
 
         <!-- Side navigation links -->
         <ul class="collapsible collapsible-accordion">
-            <li><a ui-sref="app.settings" class="waves-effect"><i class="fa icon ion-ios-gear"></i> Settings</a></li>
-            <li><a ui-sref="app.feedback" class="waves-effect"><i class="fa icon ion-chatboxes"></i> Feedback</a></li>
-            <li><a ui-sref="app.about" class="waves-effect"><i class="fa icon ion-help-circled"></i> About</a></li>
-            <li><a ui-sref="app.logout" class="waves-effect"><i class="fa icon ion-android-exit"></i> Logout</a></li>
+            <li><a ui-sref="app.settings" class="waves-effect"><i class="fa icon ion-ios-gear"></i> {{ ::init.messages.side_settings }}</a></li>
+            <li><a ui-sref="app.feedback" class="waves-effect"><i class="fa icon ion-chatboxes"></i> {{ ::init.messages.side_feedback }}</a></li>
+            <li><a ui-sref="app.about" class="waves-effect"><i class="fa icon ion-help-circled"></i> {{ ::init.messages.side_about }}</a></li>
+            <li><a ui-sref="app.logout" class="waves-effect"><i class="fa icon ion-android-exit"></i> {{ ::init.messages.side_logout }}</a></li>
         </ul>
         <!--/. Side navigation links -->
 

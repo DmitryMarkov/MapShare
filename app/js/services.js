@@ -2,8 +2,38 @@
   'use strict';
 
   angular.module('mapshare')
+    .factory('InitializeService', InitializeService)
     .factory('CountriesService', CountriesService)
     .factory('SampleHttpService', SampleHttpService);
+
+  /**
+   * @name InitializeService
+   * @desc Retrieve startup data
+   */
+
+  /* @ngInject */
+  function InitializeService($resource, CONFIG, $localStorage, $rootScope, $http) {
+    var service = {
+      initialize: initialize
+    };
+
+    return service;
+    ////
+
+    function initialize() {
+
+      var init = {};
+      //TODO: make a check of imported value
+      init.language = $localStorage.language || 'EN';
+
+      $http.get('js/json/' + init.language + '.json')
+       .then(function(res) {
+          init.messages = res.data;
+        });
+      $rootScope.init = init;
+    }
+
+  }
 
   /**
    * @name countriesService
@@ -11,7 +41,7 @@
    */
 
   /* @ngInject */
-  function CountriesService($resource, CONFIG) {
+  function CountriesService($resource, CONFIG, $http) {
     var service = {
       getCountries: getCountries
     };

@@ -1,0 +1,12 @@
+{
+    "error" : "something goes wrong",
+    "about" : "MapShare website and application.",
+    "menu_countries": "Countries",
+    "menu_maps": "Maps",
+    "menu_wishlist": "Wishlist",
+    "menu_stats": "Stats",
+    "side_settings": "Settings",
+    "side_about": "About",
+    "side_feedback": "Feedback",
+    "side_logout": "Logout"
+}

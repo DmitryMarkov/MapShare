@@ -11,13 +11,9 @@
     .config(routeConfig);
 
   /* @ngInject */
-  function initFn($localStorage, $rootScope) {
+  function initFn(InitializeService) {
 
-    var init = {};
-
-    init.language = $localStorage.language;
-
-    $rootScope.init = init;
+    InitializeService.initialize();
 
   }
 
@@ -39,7 +35,20 @@
             resolve : {}
           },
           'footer': {
-            templateUrl : 'templates/_footer.html'
+            templateUrl : 'templates/_footer.html',
+            controller  : 'FooterController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      // route for countries
+      .state('app.countries', {
+        url: 'countries',
+        views: {
+          'content@': {
+            templateUrl : 'templates/countries.tmpl.html',
+            controller  : 'CountriesController',
+            controllerAs: 'vm'
           }
         }
       })
@@ -49,7 +58,8 @@
         views: {
           'content@': {
             templateUrl : 'templates/maps.tmpl.html',
-            controller  : 'MapsController'
+            controller  : 'MapsController',
+            controllerAs: 'vm'
           }
         }
       })
@@ -70,7 +80,8 @@
         views: {
           'content@': {
             templateUrl : 'templates/wishlist.tmpl.html',
-            controller  : 'WishlistController'
+            controller  : 'WishlistController',
+            controllerAs: 'vm'
           }
         }
       })
@@ -80,7 +91,8 @@
         views: {
           'content@': {
             templateUrl : 'templates/stats.tmpl.html',
-            controller  : 'StatsController'
+            controller  : 'StatsController',
+            controllerAs: 'vm'
           }
         }
       })
@@ -101,7 +113,8 @@
         views: {
           'content@': {
             templateUrl : 'templates/settings.tmpl.html',
-            controller  : 'SettingsController'
+            controller  : 'SettingsController',
+            controllerAs: 'vm'
           }
         }
       })

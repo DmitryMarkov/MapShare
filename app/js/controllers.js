@@ -5,6 +5,8 @@
     .module('mapshare')
     .controller('MainCtrl', MainCtrl)
     .controller('HeaderController', HeaderController)
+    .controller('FooterController', FooterController)
+    .controller('CountriesController', CountriesController)
     .controller('MapsController', MapsController)
     .controller('MapDetailController', MapsController)
     .controller('WishlistController', WishlistController)
@@ -37,7 +39,7 @@
       });
 
     // todo
-    var vm = this, lang = 'EN';
+    var vm = this;
 
     vm.setLang = setLang;
 
@@ -48,6 +50,27 @@
     }
 
 
+  }
+
+  /* @ngInject */
+  function FooterController($scope) {
+    var vm = this,
+        language = $scope.init.language;
+  }
+
+  /* @ngInject */
+  function CountriesController(CountriesService) {
+
+    var vm = this;
+    vm.countries = [];
+
+    activate();
+
+    function activate() {
+
+      vm.countries = CountriesService.getCountries();
+      return vm.countries;
+    }
   }
 
   /* @ngInject */
@@ -89,11 +112,10 @@
   }
 
   /* @ngInject */
-  function AboutController($scope, CONFIG, MESSAGES) {
+  function AboutController($scope, CONFIG) {
     var vm = this,
         language = $scope.init.language;
 
-    vm.about = MESSAGES[language].about; // TODO: replace 'EN' with actual lang
     vm.version = CONFIG.APPVER;
   }
 
