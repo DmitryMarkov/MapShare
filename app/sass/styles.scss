@@ -28,6 +28,11 @@ body {
   font-family: "Lato", "Roboto", "Helvetica Neue", sans-serif;
 }
 
+section {
+  padding-top: 50px;
+  padding-bottom: 72px;
+}
+
 /*.btn-default {
   background-color: #41cd9e;
 
@@ -41,9 +46,21 @@ a {
 }
 
 header {
+  nav {
+//    background-color: $myDarkBlue;
+    background-image: linear-gradient(to bottom, $myDarkBlue 0%, rgb(20,74,187) 100%);
+
+    &.navbar .navbar-brand {
+      height: 36px;
+    }
+  }
   .logo {
     font-weight: 600;
   }
+}
+
+.side-nav {
+  z-index: 1999;
 }
 
 .logo-wrapper {
@@ -52,9 +69,6 @@ header {
   background-size: cover;
 }
 
-.navbar {
-  margin-bottom: 2px;
-}
 
 #home {
   h1, h3, h5 {
@@ -70,6 +84,8 @@ header {
 
 footer {
   nav {
+//    background-color: $myLightBlue;
+    background-image: linear-gradient(to bottom, rgb(27,126,232) 0%, $myLightBlue 100%);
     i {
       font-size: 1.8em;
     }
@@ -90,6 +106,13 @@ footer {
 
 .btn {
   border-radius: 5px;
+}
+
+#maps {
+  color: #0275d8;
+  .card .card-title {
+    color: #0275d8;
+  }
 }
 
 #wishlist {

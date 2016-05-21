@@ -14303,6 +14303,10 @@ body {
   background-attachment: fixed;
   font-family: "Lato", "Roboto", "Helvetica Neue", sans-serif; }
 
+section {
+  padding-top: 50px;
+  padding-bottom: 72px; }
+
 /*.btn-default {
   background-color: #41cd9e;
 
@@ -14313,16 +14317,21 @@ body {
 a {
   color: white; }
 
+header nav {
+  background-image: linear-gradient(to bottom, #1345b7 0%, #144abb 100%); }
+  header nav.navbar .navbar-brand {
+    height: 36px; }
+
 header .logo {
   font-weight: 600; }
+
+.side-nav {
+  z-index: 1999; }
 
 .logo-wrapper {
   background: url("") no-repeat center center;
   background-color: darkgrey;
   background-size: cover; }
-
-.navbar {
-  margin-bottom: 2px; }
 
 #home h1, #home h3, #home h5 {
   font-weight: 100; }
@@ -14333,11 +14342,12 @@ header .logo {
 #home .btn {
   padding: 5px 12px; }
 
-footer nav i {
-  font-size: 1.8em; }
-
-footer nav a:hover, footer nav a:active {
-  color: white; }
+footer nav {
+  background-image: linear-gradient(to bottom, #1b7ee8 0%, #1c85ee 100%); }
+  footer nav i {
+    font-size: 1.8em; }
+  footer nav a:hover, footer nav a:active {
+    color: white; }
 
 .switch label input[type=checkbox]:checked + .lever:after {
   background-color: #41CD9e; }
@@ -14348,6 +14358,11 @@ footer nav a:hover, footer nav a:active {
 
 .btn {
   border-radius: 5px; }
+
+#maps {
+  color: #0275d8; }
+  #maps .card .card-title {
+    color: #0275d8; }
 
 #wishlist {
   color: #0275d8; }

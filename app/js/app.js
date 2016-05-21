@@ -34,8 +34,7 @@
         url: 'maps',
         views: {
           'content@': {
-            //templateUrl : 'views/maps.html',
-            template: '<p>This is maps page</p>',
+            templateUrl : 'templates/maps.tmpl.html',
             controller  : 'MapsController'
           }
         }
