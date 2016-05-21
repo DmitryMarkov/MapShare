@@ -34,6 +34,7 @@
     "Materialize": "materialize#~0.97.6",
     "tether": "~1.3.2",
     "jquery": "2.2.3",
-    "ngstorage": "~0.3.10"
+    "ngstorage": "~0.3.10",
+    "angular-sanitize": "~1.5.5"
   }
 }

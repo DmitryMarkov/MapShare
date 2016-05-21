@@ -89,6 +89,9 @@ footer {
   nav {
 //    background-color: $myLightBlue;
     background-image: linear-gradient(to bottom, rgb(27,126,232) 0%, $myLightBlue 100%);
+    &.navbar {
+      padding: 0.5rem 0;
+    }
     i {
       font-size: 1.8em;
     }
@@ -109,6 +112,12 @@ footer {
 
 .btn {
   border-radius: 5px;
+}
+
+#countries {
+  ul {
+    margin-left: 2rem;
+  }
 }
 
 #maps {

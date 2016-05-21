@@ -6,9 +6,8 @@
 
       "APPNAME"   : "MapShare",
       "APPVER"    : "0.1.0",
-      "BASEURL"   : "http://localhost:3030/",
+      "BASEURL"   : "http://localhost:3000/",
       "IMAGEDIR"  : "images/",
-      "DOCDIR"    : "docs/",
-      "LANGUAGE"  : "EN"
+      "DOCDIR"    : "docs/"
     });
 })();

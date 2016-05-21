@@ -16,7 +16,7 @@
     .controller('FeedbackController', FeedbackController);
 
   /* @ngInject */
-  function MainCtrl(CountriesService) {
+  function MainCtrl() {
     var vm = this;
     vm.countries = [];
 
@@ -24,13 +24,13 @@
 
     function activate() {
 
-      vm.countries = CountriesService.getCountries();
-      return vm.countries;
+
+      return null;
     }
   }
 
   /* @ngInject */
-  function HeaderController($scope, $state, $localStorage) {
+  function HeaderController($scope, $state, $localStorage, InitializeService) {
 
     // Initialize collapse button
     $(".button-collapse").sideNav({
@@ -38,14 +38,13 @@
         closeOnClick: true // Closes side-nav on <a> clicks
       });
 
-    // todo
     var vm = this;
-
     vm.setLang = setLang;
 
     function setLang(lang) {
       $scope.init.language = lang;
       $localStorage.language = lang;
+      InitializeService.initialize();
       $state.transitionTo($state.current, $state.$current.params, { reload: true, inherit: true, notify: true });
     }
 
@@ -59,18 +58,12 @@
   }
 
   /* @ngInject */
-  function CountriesController(CountriesService) {
+  function CountriesController($scope, continents) {
 
     var vm = this;
-    vm.countries = [];
-
-    activate();
-
-    function activate() {
-
-      vm.countries = CountriesService.getCountries();
-      return vm.countries;
-    }
+    vm.continents = continents;
+    $scope.cnt = continents;
+    console.log(continents);
   }
 
   /* @ngInject */

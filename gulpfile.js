@@ -73,6 +73,8 @@ gulp.task('concat', function() {
       'bower_components/angular/angular.min.js',
       'bower_components/angular-ui-router/release/angular-ui-router.min.js',
       'bower_components/angular-resource/angular-resource.min.js',
+      'bower_components/ngstorage/ngStorage.js',
+      'bower_components/angular-sanitize/angular-sanitize.js',
       'app/js/*.js'
   ])
 		.pipe(concat('app.min.js'))

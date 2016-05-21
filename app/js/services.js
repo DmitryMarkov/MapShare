@@ -41,7 +41,14 @@
    */
 
   /* @ngInject */
-  function CountriesService($resource, CONFIG, $http) {
+  function CountriesService($resource, CONFIG, $rootScope) {
+
+    return $resource(CONFIG.BASEURL + 'continents');
+
+  }
+
+  /* @ngInject */
+  function CountriesServiceOld($resource, CONFIG, $http, $rootScope) {
     var service = {
       getCountries: getCountries
     };
@@ -51,9 +58,16 @@
 
     function getCountries() {
       var countries = ['Bulgaria','Albania','Estonia'];
-      return countries;
-    }
+      var earth = {};
 
+      $http.get(CONFIG.BASEURL + $rootScope.init.language + '/1')
+       .then(function(res) {
+          earth = res.data;
+          console.log(res.data.continents);
+        });
+      console.log(earth);
+      return earth;
+    }
   }
 
   /* @ngInject */

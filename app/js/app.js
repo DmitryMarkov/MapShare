@@ -5,7 +5,8 @@
     .module('mapshare', [
       'ui.router',
       'ngStorage',
-      'ngResource'
+      'ngResource',
+      'ngSanitize'
     ])
     .run(initFn)
     .config(routeConfig);
@@ -48,7 +49,12 @@
           'content@': {
             templateUrl : 'templates/countries.tmpl.html',
             controller  : 'CountriesController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            resolve: {
+              continents: ['CountriesService', function(CountriesService) {
+                return CountriesService.query();
+              }]
+            }
           }
         }
       })

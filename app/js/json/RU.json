@@ -1,12 +1,19 @@
 {
-    "error" : "что-то пошло не так",
-    "about" : "Сайт и приложение MapShare.",
-    "menu_countries": "Страны",
-    "menu_maps": "Карты",
-    "menu_wishlist": "Вишлист",
-    "menu_stats": "Статистика",
-    "side_settings": "Настройки",
-    "side_about": "О программе",
-    "side_feedback": "Обратная связь",
-    "side_logout": "Выход"
+  "error" : "что-то пошло не так",
+
+  "home_title": "Создай и поделись<br /> своей уникальной<br /> картой путешествий!",
+  "home_button": "Начать",
+  "home_caption": "или<br />скачай приложение",
+
+  "about" : "Сайт и приложение MapShare.",
+
+  "menu_countries": "Страны",
+  "menu_maps": "Карты",
+  "menu_wishlist": "Вишлист",
+  "menu_stats": "Статистика",
+
+  "side_settings": "Настройки",
+  "side_about": "О программе",
+  "side_feedback": "Обратная связь",
+  "side_logout": "Выход"
 }

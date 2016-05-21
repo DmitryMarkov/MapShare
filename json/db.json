@@ -1,5 +1,212 @@
 {
+  "RU": [
+    {
+      "id": 1,
+      "continents": [
+        {
+          "id": "1",
+          "name": "Africa",
+          "countries": [
+            {
+              "id": "EG",
+              "name": "Egypt"
+            },
+            {
+              "id": "TN",
+              "name": "Tunisia"
+            }
+          ]
+        },
+        {
+          "id": "2",
+          "name": "Asia",
+          "countries": [
+            {
+              "id": "CN",
+              "name": "China"
+            },
+            {
+              "id": "JP",
+              "name": "Japan"
+            }
+          ]
+        },
+        {
+          "id": "3",
+          "name": "Europe",
+          "countries": [
+            {
+              "id": "AL",
+              "name": "Albania"
+            },
+            {
+              "id": "BG",
+              "name": "Bulgaria"
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "name": "North America",
+          "countries": [
+            {
+              "id": "US",
+              "name": "USA"
+            },
+            {
+              "id": "CA",
+              "name": "Canada"
+            }
+          ]
+        },
+        {
+          "id": "5",
+          "name": "South America",
+          "countries": [
+            {
+              "id": "BR",
+              "name": "Brazil"
+            },
+            {
+              "id": "AR",
+              "name": "Argentina"
+            }
+          ]
+        },
+        {
+          "id": "6",
+          "name": "Oceania",
+          "countries": [
+            {
+              "id": "AU",
+              "name": "Australia"
+            },
+            {
+              "id": "NZ",
+              "name": "New Zeland"
+            }
+          ]
+        },
+        {
+          "id": "7",
+          "name": "Lands & Territories",
+          "countries": [
+            {
+              "id": "AQ",
+              "name": "Antarctica"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "continents": [
+    {
+      "id": "1",
+      "name": "Africa",
+      "countries": [
+        {
+          "id": "EG",
+          "name": "Egypt"
+        },
+        {
+          "id": "TN",
+          "name": "Tunisia"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Asia",
+      "countries": [
+        {
+          "id": "CN",
+          "name": "China"
+        },
+        {
+          "id": "JP",
+          "name": "Japan"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Europe",
+      "countries": [
+        {
+          "id": "AL",
+          "name": "Albania"
+        },
+        {
+          "id": "BG",
+          "name": "Bulgaria"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "North America",
+      "countries": [
+        {
+          "id": "US",
+          "name": "USA"
+        },
+        {
+          "id": "CA",
+          "name": "Canada"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "South America",
+      "countries": [
+        {
+          "id": "BR",
+          "name": "Brazil"
+        },
+        {
+          "id": "AR",
+          "name": "Argentina"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Oceania",
+      "countries": [
+        {
+          "id": "AU",
+          "name": "Australia"
+        },
+        {
+          "id": "NZ",
+          "name": "New Zeland"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Lands & Territories",
+      "countries": [
+        {
+          "id": "AQ",
+          "name": "Antarctica"
+        }
+      ]
+    }
+  ],
   "countries": [
+    {
+      "id": "EN",
+      "continents": []
+    },
+    {
+      "id": "RU",
+      "continents": []
+    }
+  ],
+  "countries2": [
     {
       "EN": [
         {

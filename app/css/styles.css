@@ -14346,6 +14346,8 @@ header .logo {
 
 footer nav {
   background-image: linear-gradient(to bottom, #1b7ee8 0%, #1c85ee 100%); }
+  footer nav.navbar {
+    padding: 0.5rem 0; }
   footer nav i {
     font-size: 1.8em; }
   footer nav a:hover, footer nav a:active {
@@ -14360,6 +14362,9 @@ footer nav {
 
 .btn {
   border-radius: 5px; }
+
+#countries ul {
+  margin-left: 2rem; }
 
 #maps {
   color: #0275d8; }

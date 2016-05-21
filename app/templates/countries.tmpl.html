@@ -2,8 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        This is countries
-        <p ng-repeat="country in vm.countries">{{ ::country }}</p>
+        <div ng-repeat="continent in vm.continents">
+          <p>{{ ::continent.name }}</p>
+          <ul ng-repeat="country in continent.countries">
+            <li class="right">{{ ::country.name }}</li>
+          </ul>
+        </div>
 
       </div>
     </div>
