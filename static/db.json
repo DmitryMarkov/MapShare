@@ -36,8 +36,7 @@
           "continent": "Европа",
           "rating": 0,
           "countryCode": "AL",
-          "map": "maps/albania.svg",
-          "wishlist": true
+          "map": "maps/albania.svg"
         },
         {
           "id": 1,
@@ -93,6 +92,9 @@
       ],
       "wishlist": [
         "RU"
+      ],
+      "favs": [
+        "BG"
       ]
     }
   ]

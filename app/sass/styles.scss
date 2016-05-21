@@ -1,7 +1,8 @@
 
 
-@import "bootstrap";
+@import "bootstrap/bootstrap";
 @import "mdb";
+@import "../../static/mdb/mdbf2.min.css";
 @import "ionicons";
 //@import "materialize";
 
@@ -72,6 +73,9 @@ footer {
     i {
       font-size: 1.8em;
     }
+    a:hover, a:active {
+      color: white;
+    }
   }
 }
 
@@ -86,4 +90,16 @@ footer {
 
 .btn {
   border-radius: 5px;
+}
+
+#wishlist {
+  color: #0275d8;
+  .label {
+    font-size: 100%;
+    border-radius: 10rem;
+  }
+}
+
+.navbar .navbar-brand {
+  color: rgba(255,255,255,1);
 }

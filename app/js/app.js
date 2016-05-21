@@ -56,8 +56,7 @@
         url: 'wishlist',
         views: {
           'content@': {
-            //templateUrl : 'views/wishlist.html',
-            template: '<p>This is wishlist</p>',
+            templateUrl : 'templates/wishlist.tmpl.html',
             controller  : 'WishlistController'
           }
         }
