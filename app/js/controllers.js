@@ -16,9 +16,10 @@
     .controller('FeedbackController', FeedbackController);
 
   /* @ngInject */
-  function MainCtrl() {
+  function MainCtrl($rootScope) {
     var vm = this;
     vm.countries = [];
+    $rootScope.header = '';
 
     activate();
 
@@ -45,7 +46,10 @@
       $scope.init.language = lang;
       $localStorage.language = lang;
       InitializeService.initialize();
-      $state.transitionTo($state.current, $state.$current.params, { reload: true, inherit: true, notify: true });
+      $state.transitionTo(
+        $state.current,
+        $state.$current.params,
+        { reload: true, inherit: true, notify: true });
     }
 
 
@@ -58,28 +62,26 @@
   }
 
   /* @ngInject */
-  function CountriesController($scope, continents) {
+  function CountriesController($rootScope, continents) {
 
     var vm = this;
     vm.continents = continents;
-    //$scope.cnt = continents;
-    //console.log(continents);
+
+    $rootScope.header = $rootScope.init.messages.menu_countries;
   }
 
   /* @ngInject */
-  function MapsController() {
-
-    // todo
+  function MapsController($rootScope) {
+    $rootScope.header = $rootScope.init.messages.menu_maps;
   }
 
   /* @ngInject */
-  function WishlistController() {
-
-    // todo
+  function WishlistController($rootScope) {
+    $rootScope.header = $rootScope.init.messages.menu_wishlist;
   }
 
   /* @ngInject */
-  function StatsController() {
+  function StatsController($rootScope) {
     // initialize charts
     $('.min-chart#chart-sales').easyPieChart({
         barColor: "#41cd9e",
@@ -88,26 +90,26 @@
         }
     });
 
-    // todo
+    $rootScope.header = $rootScope.init.messages.menu_stats;
   }
 
 
   /* @ngInject */
-  function FeedbackController() {
-
-    // todo
+  function FeedbackController($rootScope) {
+    $rootScope.header = $rootScope.init.messages.side_feedback;
   }
 
   /* @ngInject */
-  function SettingsController() {
+  function SettingsController($rootScope) {
+    $rootScope.header = $rootScope.init.messages.side_settings;
 
-    // todo
   }
 
   /* @ngInject */
-  function AboutController($scope, CONFIG) {
-    var vm = this,
-        language = $scope.init.language;
+  function AboutController($rootScope, CONFIG) {
+    var vm = this;
+
+    $rootScope.header = $rootScope.init.messages.side_about;
 
     vm.version = CONFIG.APPVER;
   }

@@ -14327,6 +14327,9 @@ header nav {
 header .logo {
   font-weight: 600; }
 
+header .header {
+  padding-top: 0.6rem; }
+
 .side-nav {
   z-index: 1999; }
 

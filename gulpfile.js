@@ -42,7 +42,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('copy', ['clean'], function() {
-  gulp.src('app/fonts/**/*.{ttf,woff,eof,svg}*')
+  gulp.src(['app/fonts/**/*.{ttf,woff,eof,svg}*','bower_components/font-awesome/fonts/*.{ttf,woff,eof,svg}'])
     .pipe(gulp.dest('./dist/fonts'));
   gulp.src('app/images/**/*')
     .pipe(gulp.dest('./dist/images'));
@@ -100,6 +100,7 @@ gulp.task('sass', function() {
 
 gulp.task('css', function() {
   return gulp.src([
+      'bower_components/font-awesome/css/font-awesome.css',
       'app/css/styles.css'
   ])
     .pipe(concat('styles.min.css'))

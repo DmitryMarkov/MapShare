@@ -32,6 +32,7 @@
           init.messages = res.data;
         });
       $rootScope.init = init;
+      //$rootScope.header = 'Home';
     }
 
   }
@@ -58,7 +59,7 @@
     ////
 
     function getCountries() {
-      var countries = ['Bulgaria','Albania','Estonia'];
+      //var countries = ['Bulgaria','Albania','Estonia'];
       var earth = {};
 
       $http.get(CONFIG.BASEURL + $rootScope.init.language + '/1')
