@@ -30,8 +30,8 @@
       $http.get('lang/' + init.language + '.json')
        .then(function(res) {
           init.messages = res.data;
+          $rootScope.init = init;
         });
-      $rootScope.init = init;
       //$rootScope.header = 'Home';
     }
 

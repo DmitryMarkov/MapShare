@@ -1,10 +1,10 @@
 
 
-@import "bootstrap/bootstrap";
+//@import "bootstrap/bootstrap";
 @import "mdb";
-@import "../../static/mdb/mdbf2.min.css";
 @import "ionicons";
 //@import "materialize";
+@import "../../static/mdb/mdbf2.min.css";
 
 //@import "components/sideNav";
 
@@ -118,8 +118,10 @@ footer {
 }
 
 #countries {
-  ul {
-    margin-left: 2rem;
+  small {
+    color: rgba(255,255,255,0.6);
+    padding-left: 0.7rem;
+    font-style: italic;
   }
 }
 
@@ -140,4 +142,19 @@ footer {
 
 .navbar .navbar-brand {
   color: rgba(255,255,255,1);
+}
+
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  transition: all linear 0.5s;
+  line-height: 0;
+  opacity: 0;
 }

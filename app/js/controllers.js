@@ -11,6 +11,7 @@
     .controller('MapDetailController', MapsController)
     .controller('WishlistController', WishlistController)
     .controller('StatsController', StatsController)
+    .controller('CountriesAddController', CountriesAddController)
     .controller('AboutController', AboutController)
     .controller('SettingsController', SettingsController)
     .controller('FeedbackController', FeedbackController);
@@ -68,6 +69,24 @@
     vm.continents = continents;
 
     $rootScope.header = $rootScope.init.messages.menu_countries;
+  }
+
+  /* @ngInject */
+  function CountriesAddController($rootScope, continents) {
+
+    $rootScope.header = $rootScope.init.messages.header_addcountries;
+
+    var vm = this;
+    vm.show = [];
+    vm.continents = continents;
+    vm.toggleContinent = toggleContinent;
+
+    function toggleContinent(cid) {
+      vm.show[cid] = !vm.show[cid];
+      console.log(cid);
+      console.log(vm.show[cid]);
+    }
+
   }
 
   /* @ngInject */

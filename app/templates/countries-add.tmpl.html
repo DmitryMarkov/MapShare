@@ -1,0 +1,18 @@
+<section id="countries">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div ng-repeat="continent in vm.continents" ng-init="vm.show[continent.id] = false">
+          <p ng-click="vm.toggleContinent(continent.id)"><i class="icon ion-ios-plus-outline"></i> {{ ::continent.name }}</p>
+          <ul ng-repeat="country in continent.countries" ng-show="vm.show[{{ continent.id}}]" class="ng-hide animate-show">
+            <li>
+              <input type="checkbox" class="filled-in" id="checkbox['{{ country.id}}']">
+              <label for="checkbox['{{ country.id}}']">{{ ::country.name }}</label>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

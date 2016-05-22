@@ -6,7 +6,8 @@
       'ui.router',
       'ngStorage',
       'ngResource',
-      'ngSanitize'
+      'ngSanitize',
+      'ngAnimate'
     ])
     .run(initFn)
     .config(routeConfig);
@@ -151,9 +152,14 @@
         url: 'addcountries',
         views: {
           'content@': {
-            //templateUrl : 'views/stats.html',
-            template: '<p>Add countries</p>',
-            controller  : 'StatsController'
+            templateUrl : 'templates/countries-add.tmpl.html',
+            controller  : 'CountriesAddController',
+            controllerAs: 'vm',
+            resolve: {
+              continents: ['CountriesService', function(CountriesService) {
+                return CountriesService.query();
+              }]
+            }
           }
         }
       });
