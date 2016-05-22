@@ -2,9 +2,43 @@
   'use strict';
 
   angular.module('mapshare')
+    .factory('AuthorizeService', AuthorizeService)
     .factory('InitializeService', InitializeService)
     .factory('CountriesService', CountriesService)
+    .factory('UsersService', UsersService)
+    .factory('MapsService', MapsService)
     .factory('SampleHttpService', SampleHttpService);
+
+  /**
+   * @name AuthorizeService
+   * @desc Retrieve users
+   */
+
+  /* @ngInject */
+  function AuthorizeService($resource, CONFIG, $localStorage, $rootScope, $http) {
+    var service = {
+      initialize: initialize
+    };
+
+    return service;
+    ////
+
+    function initialize() {
+
+      var user = {};
+
+      // TODO: restore user session
+      var userId = 1;
+
+      //TODO: throw exseption if not found
+      $http.get(CONFIG.BASEURL + 'users/' + userId)
+       .then(function(res) {
+          user = res.data;
+          $rootScope.user = user;
+        });
+    }
+
+  }
 
   /**
    * @name InitializeService
@@ -23,22 +57,31 @@
     function initialize() {
 
       var init = {};
+
       //TODO: make a check of imported value
       init.language = $localStorage.language || 'EN';
 
       //TODO: throw exseption if not found
       $http.get('lang/' + init.language + '.json')
-       .then(function(res) {
+        .then(function(res) {
           init.messages = res.data;
           $rootScope.init = init;
-        });
-      //$rootScope.header = 'Home';
+      });
+
+
+    $rootScope.tabSelect = function (tab) {
+      $rootScope.tab = tab;
+    }
+
+    $rootScope.isSelected = function (tab) {
+      return ($rootScope.tab === tab);
+    }
     }
 
   }
 
   /**
-   * @name countriesService
+   * @name CountriesService
    * @desc Retrieve countries list
    */
 
@@ -46,6 +89,34 @@
   function CountriesService($resource, CONFIG, $rootScope) {
 
     return $resource(CONFIG.BASEURL + 'continents');
+
+  }
+
+  /**
+   * @name UsersService
+   * @desc Retrieve user info
+   */
+
+  /* @ngInject */
+  function UsersService($resource, CONFIG, $rootScope) {
+
+    return $resource(CONFIG.BASEURL + 'users/:id', null, {
+      'update': {
+          method: 'PUT'
+      }
+  });
+
+  }
+
+  /**
+   * @name MapsService
+   * @desc Retrieve map lists
+   */
+
+  /* @ngInject */
+  function MapsService($resource, CONFIG, $rootScope) {
+
+    return $resource(CONFIG.BASEURL + 'maps');
 
   }
 

@@ -4,24 +4,21 @@
       <div class="col-xs-12">
 
         <!--Card-->
-        <div class="card">
+        <div class="card" ng-repeat="map in user.maps">
 
             <!--Card image-->
             <div class="view overlay hm-white-slight">
                 <img src="images/cv-map.jpg" class="img-fluid" alt="">
-                <a>
-                    <div class="mask"></div>
-                </a>
             </div>
             <!--/.Card image-->
 
             <!--Social shares button-->
-            <a class="activator"><i class="fa fa-share-alt"></i></a>
+            <a class="activator"><i class="ion ion-android-share-alt"></i></a>
 
             <!--Card content-->
             <div class="card-block">
                 <!--Title-->
-                <h5 class="card-title">21.05.2016</h5>
+                <h5 class="card-title">{{ map.date | date:'dd.MM.yyyy' }}</h5>
               <hr />
             </div>
             <!--/.Card content-->
@@ -36,9 +33,9 @@
 
                     <!--Social Icons-->
                     <ul class="inline-ul">
-                        <li><a class="btn-floating btn-small btn-fb"><i class="fa fa-facebook"> </i></a></li>
-                        <li><a class="btn-floating btn-small btn-tw"><i class="fa fa-twitter"> </i></a></li>
-                        <li><a class="btn-floating btn-small btn-ins"><i class="fa fa-instagram"> </i></a></li>
+                        <li><a class="btn-floating btn-small btn-fb" onclick="toastr.info('Not so fast...', '', {positionClass: 'toast-bottom-center', timeOut: 1500});"><i class="fa fa-facebook"> </i></a></li>
+                        <li><a class="btn-floating btn-small btn-tw" onclick="toastr.info('Not so fast...', '', {positionClass: 'toast-bottom-center', timeOut: 1500});"><i class="fa fa-twitter"> </i></a></li>
+                        <li><a class="btn-floating btn-small btn-ins" onclick="toastr.info('Not so fast...', '', {positionClass: 'toast-bottom-center', timeOut: 1500});"><i class="fa fa-instagram"> </i></a></li>
                     </ul>
 
                 </div>
@@ -49,7 +46,6 @@
 
         </div>
         <!--/.Card-->
-
       </div>
     </div>
   </div>

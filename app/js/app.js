@@ -13,8 +13,10 @@
     .config(routeConfig);
 
   /* @ngInject */
-  function initFn(InitializeService) {
+  function initFn(InitializeService, AuthorizeService) {
 
+    AuthorizeService.initialize();
+    // maybbe put user in scope?
     InitializeService.initialize();
 
   }
@@ -66,7 +68,12 @@
           'content@': {
             templateUrl : 'templates/maps.tmpl.html',
             controller  : 'MapsController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            resolve: {
+              continents: ['CountriesService', function(CountriesService) {
+                return CountriesService.query();
+              }]
+            }
           }
         }
       })
@@ -109,8 +116,7 @@
         views: {
           'content@': {
             //templateUrl : 'views/stats.html',
-            template: '<p>You have been logged off.</p>',
-            controller  : 'StatsController'
+            template: '<p>You have been logged off.</p>'
           }
         }
       })

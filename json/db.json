@@ -268,7 +268,7 @@
     {
       "id": 1,
       "userId": 1,
-      "date": "date",
+      "date": "2016-05-20T17:57:28.556094Z",
       "countries": [
         "AL",
         "CA",
@@ -289,7 +289,7 @@
       "email": "test@test.com",
       "name": "Dmitry Markov",
       "password": "test123",
-      "lastLogin": "date",
+      "lastLogin": "2016-05-20T17:57:28.556094Z",
       "visited": [
         "BG",
         "CA"
@@ -299,6 +299,29 @@
       ],
       "favs": [
         "BG"
+      ],
+      "settings": [
+        {
+          "language": "RU"
+        }
+      ],
+      "maps": [
+        {
+          "id": 1,
+          "date": "2016-05-20T17:57:28.556094Z",
+          "countries": [
+            "AL",
+            "CA",
+            "BG"
+          ],
+          "styleId": 1,
+          "wishlist": [
+            "RU"
+          ],
+          "favorites": [
+            "BG"
+          ]
+        }
       ]
     }
   ]

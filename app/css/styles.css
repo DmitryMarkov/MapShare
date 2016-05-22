@@ -9793,8 +9793,15 @@ footer nav {
     padding: 0.5rem 0; }
   footer nav i {
     font-size: 1.8em; }
+  footer nav a {
+    display: inline-block;
+    width: 100%; }
   footer nav a:hover, footer nav a:active {
     color: white; }
+  footer nav a.active {
+    background-color: white;
+    color: #1c85ee;
+    border-radius: 6px; }
 
 .switch label input[type=checkbox]:checked + .lever:after {
   background-color: #41CD9e; }
@@ -9811,10 +9818,14 @@ footer nav {
   padding-left: 0.7rem;
   font-style: italic; }
 
-#maps {
+#countries label, #countries .nav-tabs .nav-link.active {
+  color: white; }
+
+#maps .card {
   color: #0275d8; }
-  #maps .card .card-title {
-    color: #0275d8; }
+
+#maps .card .card-title {
+  color: #0275d8; }
 
 #wishlist {
   color: #0275d8; }
@@ -9836,3 +9847,6 @@ footer nav {
   transition: all linear 0.5s;
   line-height: 0;
   opacity: 0; }
+
+#toast-container {
+  margin-bottom: 80px; }

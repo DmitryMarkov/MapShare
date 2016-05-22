@@ -13,7 +13,7 @@
         <li><a ui-sref="app.settings" class="waves-effect"><i class="fa icon ion-ios-gear"></i> {{ ::init.messages.side_settings }}</a></li>
         <li><a ui-sref="app.feedback" class="waves-effect"><i class="fa icon ion-chatboxes"></i> {{ ::init.messages.side_feedback }}</a></li>
         <li><a ui-sref="app.about" class="waves-effect"><i class="fa icon ion-help-circled"></i> {{ ::init.messages.side_about }}</a></li>
-        <li><a ui-sref="app.logout" class="waves-effect"><i class="fa icon ion-android-exit"></i> {{ ::init.messages.side_logout }}</a></li>
+        <li><a class="waves-effect" onclick="toastr.info('Not so fast...', '', {positionClass: 'toast-bottom-center', timeOut: 1500});"><i class="fa icon ion-android-exit"></i> {{ ::init.messages.side_logout }}</a></li>
     </ul>
     <!--/. Side navigation links -->
 </ul>

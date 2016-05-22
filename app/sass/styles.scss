@@ -98,8 +98,17 @@ footer {
     i {
       font-size: 1.8em;
     }
+    a {
+      display: inline-block;
+      width: 100%;
+    }
     a:hover, a:active {
       color: white;
+    }
+    a.active {
+      background-color: white;
+      color: $myLightBlue;
+      border-radius: 6px;
     }
   }
 }
@@ -123,10 +132,16 @@ footer {
     padding-left: 0.7rem;
     font-style: italic;
   }
+  label, .nav-tabs .nav-link.active {
+    color: white;
+  }
+
 }
 
 #maps {
-  color: #0275d8;
+  .card {
+    color: #0275d8;
+  }
   .card .card-title {
     color: #0275d8;
   }
@@ -157,4 +172,8 @@ footer {
   transition: all linear 0.5s;
   line-height: 0;
   opacity: 0;
+}
+
+#toast-container {
+  margin-bottom: 80px;
 }

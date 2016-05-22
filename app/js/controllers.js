@@ -21,6 +21,7 @@
     var vm = this;
     vm.countries = [];
     $rootScope.header = '';
+    $rootScope.tabSelect(0);
 
     activate();
 
@@ -58,8 +59,11 @@
 
   /* @ngInject */
   function FooterController($scope) {
-    var vm = this,
-        language = $scope.init.language;
+    var vm = this;
+
+    //vm.tab;
+    //vm.select = select;
+    //vm.isSelected = isSelected;
   }
 
   /* @ngInject */
@@ -69,12 +73,14 @@
     vm.continents = continents;
 
     $rootScope.header = $rootScope.init.messages.menu_countries;
+    $rootScope.tabSelect(1);
   }
 
   /* @ngInject */
   function CountriesAddController($rootScope, continents) {
 
     $rootScope.header = $rootScope.init.messages.header_addcountries;
+    $rootScope.tabSelect(1);
 
     var vm = this;
     vm.show = [];
@@ -83,20 +89,26 @@
 
     function toggleContinent(cid) {
       vm.show[cid] = !vm.show[cid];
-      console.log(cid);
-      console.log(vm.show[cid]);
     }
 
   }
 
   /* @ngInject */
-  function MapsController($rootScope) {
+  function MapsController($rootScope, continents) {
     $rootScope.header = $rootScope.init.messages.menu_maps;
+    $rootScope.tabSelect(2);
+
+    var vm = this;
+    vm.continents = continents;
+    //vm.user = user;
+
+    //console.log(user);
   }
 
   /* @ngInject */
   function WishlistController($rootScope) {
     $rootScope.header = $rootScope.init.messages.menu_wishlist;
+    $rootScope.tabSelect(3);
   }
 
   /* @ngInject */
@@ -110,17 +122,20 @@
     });
 
     $rootScope.header = $rootScope.init.messages.menu_stats;
+    $rootScope.tabSelect(4);
   }
 
 
   /* @ngInject */
   function FeedbackController($rootScope) {
     $rootScope.header = $rootScope.init.messages.side_feedback;
+    $rootScope.tabSelect(0);
   }
 
   /* @ngInject */
   function SettingsController($rootScope) {
     $rootScope.header = $rootScope.init.messages.side_settings;
+    $rootScope.tabSelect(0);
 
   }
 
@@ -129,6 +144,7 @@
     var vm = this;
 
     $rootScope.header = $rootScope.init.messages.side_about;
+    $rootScope.tabSelect(0);
 
     vm.version = CONFIG.APPVER;
   }
