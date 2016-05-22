@@ -42,12 +42,14 @@ gulp.task('clean', function() {
 });
 
 gulp.task('copy', ['clean'], function() {
-  gulp.src(['app/fonts/**/*.{ttf,woff,eof,svg}*','bower_components/font-awesome/fonts/*.{ttf,woff,eof,svg}'])
+  gulp.src(['app/fonts/**/*.{ttf,woff,eof,svg}*','bower_components/font-awesome/fonts/*.{ttf,woff,woff2,eof,svg}'])
     .pipe(gulp.dest('./dist/fonts'));
   gulp.src('app/images/**/*')
     .pipe(gulp.dest('./dist/images'));
-  gulp.src(['app/*.ico', 'app/robots.txt', 'app/lang/*.json'])
+  gulp.src(['app/*.ico', 'app/robots.txt'])
     .pipe(gulp.dest('./dist'));
+  gulp.src(['app/lang/*.json'])
+    .pipe(gulp.dest('./dist/lang'));
   gulp.src(['app/templates/*.html'])
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('./dist/templates'));
@@ -102,6 +104,8 @@ gulp.task('sass', function() {
 gulp.task('css', function() {
   return gulp.src([
       'bower_components/font-awesome/css/font-awesome.css',
+      'bower_components/bootstrap/dist/css/bootstrap.css',
+      'static/mdb/mdbf2.min.css',
       'app/css/styles.css'
   ])
     .pipe(concat('styles.min.css'))
