@@ -5,6 +5,10 @@ node_modules
 jspm_packages
 bower_components
 
+ionic/node_modules/
+ionic/platforms/
+ionic/plugins/
+
 
 .DS_Store*
 Thumbs.db
