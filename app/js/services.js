@@ -68,14 +68,13 @@
           $rootScope.init = init;
       });
 
+      $rootScope.tabSelect = function (tab) {
+        $rootScope.tab = tab;
+      }
 
-    $rootScope.tabSelect = function (tab) {
-      $rootScope.tab = tab;
-    }
-
-    $rootScope.isSelected = function (tab) {
-      return ($rootScope.tab === tab);
-    }
+      $rootScope.isSelected = function (tab) {
+        return ($rootScope.tab === tab);
+      }
     }
 
   }

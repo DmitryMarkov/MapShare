@@ -84,11 +84,39 @@
 
     var vm = this;
     vm.show = [];
+    vm.countries = {};
+    vm.visited = [];
+
+
+    var values = vm.visited = $rootScope.user.visited;
+    //var log = {};
+    angular.forEach(values, function(value, key) {
+      this[value] = value;
+    }, vm.countries);
+    //console.log(vm.countries);
+      //console.log(vm.visited);
+
     vm.continents = continents;
     vm.toggleContinent = toggleContinent;
+    vm.addCountries = addCountries;
 
     function toggleContinent(cid) {
       vm.show[cid] = !vm.show[cid];
+    }
+
+    function addCountries(cid) {
+      if (vm.visited.indexOf(cid) == -1) {
+        vm.visited.push(cid);
+      } else {
+        var index = vm.visited.indexOf(cid);
+        vm.visited.splice(index, 1);
+      }
+
+      //vm.visited.push(cid);
+     // console.log(cid);
+      //console.log(vm.countries);
+      //console.log(vm.visited);
+      //console.log($rootScope.user.visited);
     }
 
   }

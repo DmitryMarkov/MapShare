@@ -35,8 +35,7 @@
           },
           'content': {
             templateUrl : 'templates/home.html',
-            controller  : 'MainCtrl',
-            resolve : {}
+            controller  : 'MainCtrl'
           },
           'footer': {
             templateUrl : 'templates/_footer.html',

@@ -116,7 +116,8 @@ gulp.task('css', function() {
 gulp.task('serve', function() {
 	sync({
 		server: {
-			baseDir: ''
+			baseDir: '',
+      ghostMode: false
 		}
 	});
 
