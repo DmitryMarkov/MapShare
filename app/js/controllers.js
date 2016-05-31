@@ -13,6 +13,7 @@
     .controller('StatsController', StatsController)
     .controller('CountriesAddController', CountriesAddController)
     .controller('AboutController', AboutController)
+    .controller('LoginController', LoginController)
     .controller('SettingsController', SettingsController)
     .controller('FeedbackController', FeedbackController);
 
@@ -43,6 +44,7 @@
 
     var vm = this;
     vm.setLang = setLang;
+    vm.logout = logout;
 
     function setLang(lang) {
       $scope.init.language = lang;
@@ -52,6 +54,10 @@
         $state.current,
         $state.$current.params,
         { reload: true, inherit: true, notify: true });
+    }
+
+    function logout() {
+      console.log('logged out');
     }
 
 
@@ -158,6 +164,13 @@
   function FeedbackController($rootScope) {
     $rootScope.header = $rootScope.init.messages.side_feedback;
     $rootScope.tabSelect(0);
+  }
+
+  /* @ngInject */
+  function LoginController($rootScope) {
+    $rootScope.header = $rootScope.init.messages.side_login;
+    $rootScope.tabSelect(0);
+
   }
 
   /* @ngInject */

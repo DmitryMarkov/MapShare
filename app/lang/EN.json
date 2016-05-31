@@ -17,5 +17,6 @@
   "side_settings": "Settings",
   "side_about": "About",
   "side_feedback": "Feedback",
-  "side_logout": "Logout"
+  "side_logout": "Logout",
+  "side_login": "Log in"
 }

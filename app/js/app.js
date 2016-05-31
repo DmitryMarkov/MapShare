@@ -110,12 +110,13 @@
         }
       })
       // route for logout
-      .state('app.logout', {
-        url: 'logout',
+      .state('app.login', {
+        url: 'login',
         views: {
           'content@': {
-            //templateUrl : 'views/stats.html',
-            template: '<p>You have been logged off.</p>'
+            templateUrl : 'templates/login.tmpl.html',
+            controller  : 'LoginController',
+            controllerAs: 'vm'
           }
         }
       })

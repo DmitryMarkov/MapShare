@@ -16,8 +16,14 @@
 
   /* @ngInject */
   function AuthorizeService($resource, CONFIG, $localStorage, $rootScope, $http) {
+    //var TOKEN_KEY = 'Token';
+
+
     var service = {
-      initialize: initialize
+      initialize: initialize,
+      login: login,
+      logout: logout,
+      register: register
     };
 
     return service;
@@ -25,17 +31,75 @@
 
     function initialize() {
 
-      var user = {};
+     // var user = {};
+      var auth = $localStorage.auth || {};
 
-      // TODO: restore user session
-      var userId = 1;
+      $rootScope.isAuthenticated = false;
 
-      //TODO: throw exseption if not found
-      $http.get(CONFIG.BASEURL + 'users/' + userId)
-       .then(function(res) {
-          user = res.data;
-          $rootScope.user = user;
+      if (auth.token != undefined) {
+        $rootScope.isAuthenticated = true;
+        $http.defaults.headers.common['x-access-token'] = auth.token;
+        console.log(auth);
+      }
+      else {
+        auth.userId = 1; // for test purposes only
+        //$rootScope.isAuthenticated = true; //for test only
+
+        console.log(auth);
+      }
+
+      //var userId = 1;
+
+      //TODO: throw exeption if not found
+      $http.get(CONFIG.BASEURL + 'users/' + auth.userId)
+       .then(function(response) {
+          $rootScope.user = response.data;
         });
+    }
+
+    function login(loginData) {
+      $resource(CONFIG.BASEURL + 'auth/login')
+      .save(loginData,
+        function(response){
+          $localStorage.auth = {
+            username:loginData.username,
+            userId: loginData._id,
+            token: response.token
+          };
+          $rootScope.isAuthenticated = true;
+          $rootScope.userId = loginData._id;
+          $rootScope.$broadcast('login:Successful');
+      },
+        function(response){
+          $rootScope.isAuthenticated = false;
+          $rootScope.errMessage = $rootScope.init.messages.error + response.data.err.message;
+          // TODO: use toastr
+      });
+    }
+
+    function logout() {
+      $resource(CONFIG.BASEURL + 'auth/logout')
+        .get(function(response) {});
+      $rootScope.isAuthenticated = false;
+      delete $localStorage.auth;
+      $rootScope.userId = undefined;
+      $rootScope.user = undefined;
+      $http.defaults.headers.common['x-access-token'] = undefined;
+    }
+
+    function register(registerData) {
+      $resource(CONFIG.BASEURL + 'auth/login')
+      .save(registerData,
+        function(response){
+          service.login({
+            username:registerData.username,
+            password:registerData.password});
+          $rootScope.$broadcast('registration:Successful');
+      },
+        function(response){
+          $rootScope.errMessage = $rootScope.init.messages.error + response.data.err.message;
+          // TODO: use toastr
+      });
     }
 
   }

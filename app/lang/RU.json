@@ -17,5 +17,6 @@
   "side_settings": "Настройки",
   "side_about": "О программе",
   "side_feedback": "Обратная связь",
-  "side_logout": "Выход"
+  "side_logout": "Выход",
+  "side_login": "Войти"
 }
