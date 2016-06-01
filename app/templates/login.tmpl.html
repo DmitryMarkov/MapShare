@@ -2,7 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        Log in form
+        <form ng-submit="doLogin()">
+          <p>Enter your credentials</p>
+          <div class="md-form">
+            <label id="email" class="">E-mail</label>
+            <input type="text" id="email" class="form-control" ng-model="loginData.email">
+          </div>
+          <div class="md-form">
+            <label id="password" class="">Password</label>
+            <input type="text" id="password" class="form-control" ng-model="loginData.password">
+          </div>
+          <input type="checkbox" class="filled-in" id="rememberMe" ng-model="rememberMe">
+          <label for="rememberMe">Remember me</label>
+          <button type="submit" class="btn btn-default btn-block">Sign in</button>
+          <button type="button" class="btn btn-default-outline waves-effect btn-block white" ng-click="openRegister()">Register</button>
+        </form>
       </div>
     </div>
   </div>

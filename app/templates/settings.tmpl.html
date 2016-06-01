@@ -2,13 +2,31 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div class="switch">
-          <label>
-            Test switch
-            <input type="checkbox" onclick="toastr.info('Test mode on :-)', '', {positionClass: 'toast-bottom-center', timeOut: 1500});">
-            <span class="lever"></span>
-          </label>
+        <p>Settings</p>
+        <div class="md-form">
+          <label id="name" class="">Your name</label>
+          <input type="text" id="name" class="form-control" ng-model="settingsData.name">
         </div>
+        <div class="md-form">
+          <!--     TODO: Implement Search     -->
+          <label id="country" class="">Home Country</label>
+          <input type="text" id="country" class="form-control" ng-model="settingsData.country">
+        </div>
+        <p>Choose language</p>
+        <input name="group1" type="radio" id="radio1" checked>
+        <label for="radio1">English</label><br />
+        <input name="group1" type="radio" id="radio2">
+        <label for="radio2">Russian</label>
+
+<!--
+        <select class="mdb-select">
+          <option value="" disabled selected>Choose language</option>
+          <option value="1" data-ng-click="alert('PWNED')">English</option>
+          <option value="2" onclick="toastr.info('Test mode on :-)', '', {positionClass: 'toast-bottom-center', timeOut: 1500});">Русский</option>
+        </select>
+        <label>Choose language</label>
+-->
+
       </div>
     </div>
   </div>

@@ -178,6 +178,8 @@
     $rootScope.header = $rootScope.init.messages.side_settings;
     $rootScope.tabSelect(0);
 
+    $('.mdb-select').material_select();
+
   }
 
   /* @ngInject */
