@@ -283,11 +283,21 @@
       ]
     }
   ],
+  "auth": [
+    {
+      "id": "login",
+      "users": []
+    }
+  ],
+  "login": [],
+  "logout": [],
+  "register": [],
   "users": [
     {
       "id": 1,
       "email": "test@test.com",
       "name": "Dmitry Markov",
+      "home_country": "RU",
       "password": "test123",
       "lastLogin": "2016-05-20T17:57:28.556094Z",
       "visited": [

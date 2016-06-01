@@ -95,12 +95,9 @@
 
 
     var values = vm.visited = $rootScope.user.visited;
-    //var log = {};
     angular.forEach(values, function(value, key) {
       this[value] = value;
     }, vm.countries);
-    //console.log(vm.countries);
-      //console.log(vm.visited);
 
     vm.continents = continents;
     vm.toggleContinent = toggleContinent;
@@ -114,14 +111,15 @@
       if (vm.visited.indexOf(cid) == -1) {
         vm.visited.push(cid);
       } else {
-        var index = vm.visited.indexOf(cid);
+        var index = vm.visited.indexOf(cid); // TODO: remove double iSearch
         vm.visited.splice(index, 1);
       }
 
+
       //vm.visited.push(cid);
-     // console.log(cid);
+      // console.log(cid);
       //console.log(vm.countries);
-      //console.log(vm.visited);
+      console.log(vm.visited);
       //console.log($rootScope.user.visited);
     }
 
@@ -164,12 +162,43 @@
   function FeedbackController($rootScope) {
     $rootScope.header = $rootScope.init.messages.side_feedback;
     $rootScope.tabSelect(0);
+
+    var vm = this;
+    vm.feedbackData = {
+      email: '',
+      password: '',
+      textarea: ''
+    };
+
+    vm.doFeedback = doFeedback;
+
+    function doFeedback() {
+      console.log('do feedback');
+    }
   }
 
   /* @ngInject */
   function LoginController($rootScope) {
     $rootScope.header = $rootScope.init.messages.side_login;
     $rootScope.tabSelect(0);
+
+    var vm = this;
+    vm.loginData = {
+      email: '',
+      password: ''
+    };
+    vm.rememberMe = true;
+
+    vm.doLogin = doLogin;
+    vm.openRegister = openRegister;
+
+    function doLogin() {
+      console.log('do login');
+    }
+
+    function openRegister() {
+      console.log('open register');
+    }
 
   }
 
@@ -178,7 +207,20 @@
     $rootScope.header = $rootScope.init.messages.side_settings;
     $rootScope.tabSelect(0);
 
-    $('.mdb-select').material_select();
+    var vm = this;
+    vm.settingsData = {
+      name: '',
+      country: '',
+      language: true
+    }
+
+    vm.setLanguage = setLanguage;
+
+    function setLanguage(lang) {
+      console.log(lang);
+    }
+
+    //$('.mdb-select').material_select();
 
   }
 

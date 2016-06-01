@@ -5,17 +5,17 @@
         <p>Settings</p>
         <div class="md-form">
           <label id="name" class="">Your name</label>
-          <input type="text" id="name" class="form-control" ng-model="settingsData.name">
+          <input type="text" id="name" class="form-control" ng-model="vm.settingsData.name">
         </div>
         <div class="md-form">
           <!--     TODO: Implement Search     -->
-          <label id="country" class="">Home Country</label>
-          <input type="text" id="country" class="form-control" ng-model="settingsData.country">
+          <label id="country" class="">Home country</label>
+          <input type="text" id="country" class="form-control" ng-model="vm.settingsData.country">
         </div>
         <p>Choose language</p>
-        <input name="group1" type="radio" id="radio1" checked>
+        <input name="language" type="radio" id="radio1" checked ng-click="vm.setLanguage('EN')">
         <label for="radio1">English</label><br />
-        <input name="group1" type="radio" id="radio2">
+        <input name="language" type="radio" id="radio2" ng-click="vm.setLanguage('RU')">
         <label for="radio2">Russian</label>
 
 <!--
