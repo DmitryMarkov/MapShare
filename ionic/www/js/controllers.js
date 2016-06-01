@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('mapshare.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('CountriesController', function($scope) {
   $scope.playlists = [
     { title: 'Albania', id: 1 },
     { title: 'Bulgaria', id: 2 },
@@ -52,5 +52,11 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('MapsController', function($scope, $stateParams) {
+})
+
+.controller('WishlistController', function($scope, $stateParams) {
+})
+
+.controller('StatsController', function($scope, $stateParams) {
 });

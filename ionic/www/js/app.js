@@ -4,7 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers'])
+angular.module('starter', [
+  'ionic',
+  'ionic.service.core',
+  'mapshare.controllers',
+  'mapshare.services'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,7 +26,11 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers'])
     }
   });
 })
+.config(['$ionicConfigProvider', function($ionicConfigProvider) {
 
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
+
+}])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -32,42 +41,90 @@ angular.module('starter', ['ionic','ionic.service.core', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.home', {
+    url: '/home',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
+      'mainContent': {
+        templateUrl: 'templates/home.html'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.countries', {
+      url: '/countries',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
+        'mainContent': {
+          templateUrl: 'templates/countries.html',
+          controller: 'CountriesController',
+          controllerAs: 'vm'
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.maps', {
+      url: '/maps',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+        'mainContent': {
+          templateUrl: 'templates/maps.html',
+          controller: 'MapsController',
+          controllerAs: 'vm'
         }
       }
     })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.wishlist', {
+    url: '/wishlist',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+      'mainContent': {
+        templateUrl: 'templates/wishlist.html',
+        controller: 'WishlistController',
+        controllerAs: 'vm'
+      }
+    }
+  })
+
+  .state('app.stats', {
+    url: '/stats',
+    views: {
+      'mainContent': {
+        templateUrl: 'templates/stats.html',
+        controller: 'StatsController',
+        controllerAs: 'vm'
+      }
+    }
+  })
+
+  .state('app.feedback', {
+    url: '/feedback',
+    views: {
+      'mainContent': {
+        templateUrl: 'templates/feedback.html',
+        controller: 'StatsController',
+        controllerAs: 'vm'
+      }
+    }
+  })
+
+  .state('app.about', {
+    url: '/about',
+    views: {
+      'mainContent': {
+        templateUrl: 'templates/about.html',
+        controller: 'StatsController',
+        controllerAs: 'vm'
+      }
+    }
+  })
+
+  .state('app.settings', {
+    url: '/settings',
+    views: {
+      'mainContent': {
+        templateUrl: 'templates/settings.html',
+        controller: 'StatsController',
+        controllerAs: 'vm'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });

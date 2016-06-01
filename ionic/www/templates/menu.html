@@ -9,25 +9,45 @@
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
+    <ion-nav-view name="mainContent"></ion-nav-view>
+
+    <ion-tabs class="tabs-calm tabs-icon-top">
+
+      <ion-tab title="Countries" icon-on="ion-android-globe" icon-off="ion-android-globe" href="#/countries">
+        <!-- Tab 1 content -->
+      </ion-tab>
+
+      <ion-tab title="Maps" icon-on="ion-map" icon-off="ion-map" href="#/maps">
+        <!-- Tab 2 content -->
+      </ion-tab>
+
+      <ion-tab title="Wishlist" icon-on="ion-android-checkbox-outline" icon-off="ion-android-checkbox-outline" href="#/tab/home">
+        <!-- Tab 3 content -->
+      </ion-tab>
+
+      <ion-tab title="Stats" icon-on="ion-stats-bars" icon-off="ion-stats-bars" href="#/tab/home">
+        <!-- Tab 3 content -->
+      </ion-tab>
+
+    </ion-tabs>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">Not logged in</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
         <ion-item menu-close ng-click="login()">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/search">
+        <ion-item menu-close href="#/app/feedback">
           Feedback
         </ion-item>
-        <ion-item menu-close href="#/app/browse">
+        <ion-item menu-close href="#/app/about">
           About
         </ion-item>
-        <ion-item menu-close href="#/app/playlists">
+        <ion-item menu-close href="#/app/settings">
           Settings
         </ion-item>
       </ion-list>
