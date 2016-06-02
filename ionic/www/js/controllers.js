@@ -37,7 +37,20 @@ angular.module('mapshare.controllers', [])
     // code if using a login system
     $timeout(function() {
       $scope.closeLogin();
-    }, 1000);
+    }, 300);
+  };
+
+  $scope.feedback = function() {
+    $scope.modal.show();
+  };
+
+
+  $scope.settings = function() {
+    $scope.modal.show();
+  };
+
+  $scope.about = function() {
+    $scope.modal.show();
   };
 })
 

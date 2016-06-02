@@ -9,24 +9,25 @@
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-nav-view name="mainContent"></ion-nav-view>
+
+<!--    <ion-nav-view name="mainContent"></ion-nav-view>-->
 
     <ion-tabs class="tabs-calm tabs-icon-top">
 
-      <ion-tab title="Countries" icon-on="ion-android-globe" icon-off="ion-android-globe" href="#/countries">
-        <!-- Tab 1 content -->
+      <ion-tab title="Countries" icon-on="ion-android-globe" icon-off="ion-android-globe" href="#/app/countries">
+        <ion-nav-view name="countries-tab"></ion-nav-view>
       </ion-tab>
 
-      <ion-tab title="Maps" icon-on="ion-map" icon-off="ion-map" href="#/maps">
-        <!-- Tab 2 content -->
+      <ion-tab title="Maps" icon-on="ion-map" icon-off="ion-map" href="#/app/maps">
+        <ion-nav-view name="maps-tab"></ion-nav-view>
       </ion-tab>
 
-      <ion-tab title="Wishlist" icon-on="ion-android-checkbox-outline" icon-off="ion-android-checkbox-outline" href="#/tab/home">
-        <!-- Tab 3 content -->
+      <ion-tab title="Wishlist" icon-on="ion-android-checkbox-outline" icon-off="ion-android-checkbox-outline" href="#/app/wishlist">
+        <ion-nav-view name="wishlist-tab"></ion-nav-view>
       </ion-tab>
 
-      <ion-tab title="Stats" icon-on="ion-stats-bars" icon-off="ion-stats-bars" href="#/tab/home">
-        <!-- Tab 3 content -->
+      <ion-tab title="Stats" icon-on="ion-stats-bars" icon-off="ion-stats-bars" href="#/app/stats">
+        <ion-nav-view name="stats-tab"></ion-nav-view>
       </ion-tab>
 
     </ion-tabs>
@@ -41,13 +42,13 @@
         <ion-item menu-close ng-click="login()">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/feedback">
+        <ion-item menu-close ng-click="feedback()">
           Feedback
         </ion-item>
-        <ion-item menu-close href="#/app/about">
+        <ion-item menu-close ng-click="about()">
           About
         </ion-item>
-        <ion-item menu-close href="#/app/settings">
+        <ion-item menu-close ng-click="settings()">
           Settings
         </ion-item>
       </ion-list>

@@ -44,16 +44,38 @@ angular.module('starter', [
   .state('app.home', {
     url: '/home',
     views: {
-      'mainContent': {
+      'countries-tab': {
         templateUrl: 'templates/home.html'
       }
     }
   })
-
+  /*.state('tabs', {
+    url: "/tab",
+    abstract: true,
+    templateUrl: "templates/tabs.html"
+  })*/
+  /*.state('tabs.countries', {
+    url: "/countries",
+    views: {
+      'countries-tab': {
+        templateUrl: "templates/countries.html",
+        controller: 'CountriesController'
+      }
+    }
+  })
+  .state('tabs.maps', {
+    url: "/maps",
+    views: {
+      'mainContent': {
+        templateUrl: "templates/maps.html",
+        controller: 'MapsController'
+      }
+    }
+  })*/
   .state('app.countries', {
       url: '/countries',
       views: {
-        'mainContent': {
+        'countries-tab': {
           templateUrl: 'templates/countries.html',
           controller: 'CountriesController',
           controllerAs: 'vm'
@@ -63,7 +85,7 @@ angular.module('starter', [
     .state('app.maps', {
       url: '/maps',
       views: {
-        'mainContent': {
+        'maps-tab': {
           templateUrl: 'templates/maps.html',
           controller: 'MapsController',
           controllerAs: 'vm'
@@ -74,7 +96,7 @@ angular.module('starter', [
   .state('app.wishlist', {
     url: '/wishlist',
     views: {
-      'mainContent': {
+      'wishlist-tab': {
         templateUrl: 'templates/wishlist.html',
         controller: 'WishlistController',
         controllerAs: 'vm'
@@ -85,18 +107,25 @@ angular.module('starter', [
   .state('app.stats', {
     url: '/stats',
     views: {
-      'mainContent': {
+      'stats-tab': {
         templateUrl: 'templates/stats.html',
         controller: 'StatsController',
         controllerAs: 'vm'
       }
     }
   })
-
+   .state('app.single', {
+    url: "/playlists/:playlistId",
+    views: {
+      'countries-tab': {
+        templateUrl: "templates/stats.html"
+      }
+    }
+  })
   .state('app.feedback', {
     url: '/feedback',
     views: {
-      'mainContent': {
+      'countries-tab': {
         templateUrl: 'templates/feedback.html',
         controller: 'StatsController',
         controllerAs: 'vm'
@@ -107,7 +136,7 @@ angular.module('starter', [
   .state('app.about', {
     url: '/about',
     views: {
-      'mainContent': {
+      'countries-tab': {
         templateUrl: 'templates/about.html',
         controller: 'StatsController',
         controllerAs: 'vm'
@@ -118,7 +147,7 @@ angular.module('starter', [
   .state('app.settings', {
     url: '/settings',
     views: {
-      'mainContent': {
+      'countries-tab': {
         templateUrl: 'templates/settings.html',
         controller: 'StatsController',
         controllerAs: 'vm'
@@ -126,5 +155,5 @@ angular.module('starter', [
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/countries');
 });
