@@ -1,5 +1,29 @@
-<ion-view view-title="Feedback">
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Feedback</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeFeedback()">Close</button>
+    </div>
+  </ion-header-bar>
   <ion-content>
-    <h1>Feedback</h1>
+    <form ng-submit="doFeedback()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Username</span>
+          <input type="email" ng-model="feedbackData.username" placeholder="Username">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">E-mail</span>
+          <input type="text" ng-model="feedbackData.email" placeholder="Email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Feedback</span>
+          <textarea ng-model="feedbackData.feedback"></textarea>
+        </label>
+        <label class="item">
+          <button class="button button-full button-balanced" type="submit">Send</button>
+        </label>
+      </div>
+    </form>
   </ion-content>
-</ion-view>
+</ion-modal-view>

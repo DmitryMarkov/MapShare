@@ -33,24 +33,59 @@ angular.module('mapshare.controllers', [])
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 300);
+    $scope.closeLogin();
   };
+
+  // Feedback modal
+  $ionicModal.fromTemplateUrl('templates/feedback.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.feedbackModal = modal;
+  });
 
   $scope.feedback = function() {
-    $scope.modal.show();
+    $scope.feedbackModal.show();
+  };
+  $scope.closeFeedback = function() {
+    $scope.feedbackModal.hide();
+  };
+  $scope.doFeedback = function() {
+    console.log('Doing feedback');
+
+    $scope.closeFeedback();
   };
 
+  // Setting modal
+  $ionicModal.fromTemplateUrl('templates/settings.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.settingsModal = modal;
+  });
 
   $scope.settings = function() {
-    $scope.modal.show();
+    $scope.settingsModal.show();
+  };
+  $scope.closeSettings = function() {
+    $scope.settingsModal.hide();
+  };
+  $scope.doSettings = function() {
+    console.log('Doing settings');
+
+    $scope.closeSettings();
   };
 
+  // About modal
+  $ionicModal.fromTemplateUrl('templates/about.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.aboutModal = modal;
+  });
+
   $scope.about = function() {
-    $scope.modal.show();
+    $scope.aboutModal.show();
+  };
+  $scope.closeAbout = function() {
+    $scope.aboutModal.hide();
   };
 })
 

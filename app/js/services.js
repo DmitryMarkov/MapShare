@@ -167,7 +167,14 @@
       'update': {
           method: 'PUT'
       }
-  });
+    });
+
+    /*var service = {
+      initialize: initialize
+    };
+
+    return service;*/
+    ////
 
   }
 

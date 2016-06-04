@@ -1,6 +1,7 @@
 <ion-view view-title="MapShare">
   <ion-content>
-    <ion-list>
+    <div ng-if="noCountries">Start now</div>
+    <ion-list ng-if="!noCountries">
       <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
         {{playlist.title}}
       </ion-item>

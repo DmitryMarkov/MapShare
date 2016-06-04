@@ -2,12 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <div ng-repeat="continent in vm.continents" ng-init="vm.show[continent.id] = false">
+        <div ng-repeat="continent in vm.continents | orderBy: continent.name" ng-init="vm.show[continent.id] = false">
           <p ng-click="vm.toggleContinent(continent.id)"><i class="icon " ng-class="{
             'ion-ios-minus-outline': vm.show[continent.id],
             'ion-ios-plus-outline': !vm.show[continent.id]
             }"></i> {{ ::continent.name }}</p>
-          <ul ng-repeat="country in continent.countries" ng-show="vm.show[{{ continent.id}}]" class="ng-hide animate-show">
+          <ul ng-repeat="country in continent.countries | orderBy: country.name" ng-show="vm.show[{{ continent.id}}]" class="ng-hide animate-show">
             <li>
               <input type="checkbox" class="filled-in" id="checkbox['{{ country.id}}']" ng-model="vm.countries[country.id]" ng-true-value="'{{ country.id }}'" ng-click="vm.addCountries(country.id)">
               <label for="checkbox['{{ country.id }}']">{{ ::country.name }}</label>

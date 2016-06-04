@@ -1,5 +1,40 @@
-<ion-view view-title="Settings">
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Settings</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeSettings()">Close</button>
+    </div>
+  </ion-header-bar>
   <ion-content>
-    <h1>Settings</h1>
+    <ul class="list">
+
+      <li class="item item-toggle">
+         Synchronisation
+         <label class="toggle toggle-assertive">
+           <input type="checkbox" ng-model="settingsData.sync">
+           <div class="track">
+             <div class="handle"></div>
+           </div>
+         </label>
+      </li>
+
+      ...
+
+    </ul>
+
+    <div class="list">
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Language
+        </div>
+        <select>
+          <option selected>System</option>
+          <option>English</option>
+          <option>Русский</option>
+        </select>
+      </label>
+
+    </div>
   </ion-content>
-</ion-view>
+</ion-modal-view>

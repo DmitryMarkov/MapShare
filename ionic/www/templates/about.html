@@ -1,5 +1,13 @@
-<ion-view view-title="About">
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">About</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeAbout()">Close</button>
+    </div>
+  </ion-header-bar>
   <ion-content>
-    <h1>About</h1>
+    <p>{{ ::init.messages.about }}</p>
+    <p>Version {{ ::vm.version }}.</p>
+    <p>Init: {{ ::init.language }}</p>
   </ion-content>
-</ion-view>
+</ion-modal-view>

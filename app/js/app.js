@@ -94,7 +94,12 @@
           'content@': {
             templateUrl : 'templates/wishlist.tmpl.html',
             controller  : 'WishlistController',
-            controllerAs: 'vm'
+            controllerAs: 'vm',
+            resolve: {
+              currentUser: ['UsersService', function(UsersService) {
+                return UsersService.get();
+              }]
+            }
           }
         }
       })

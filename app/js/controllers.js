@@ -138,9 +138,34 @@
   }
 
   /* @ngInject */
-  function WishlistController($rootScope) {
+  function WishlistController($rootScope, currentUser) {
     $rootScope.header = $rootScope.init.messages.menu_wishlist;
     $rootScope.tabSelect(3);
+
+    var vm = this;
+    vm.wishlist = $rootScope.user.wishlist;
+    vm.wishlist = $rootScope.user.visited;
+
+    vm.doVisited = doVisited;
+    vm.justDelete = justDelete;
+
+    function doVisited(visited) {
+      console.log('wish was released');
+      vm.visited.push(visited);
+      vm.wishlist.splice(vm.wishlist.indexOf(visited),1);
+
+      //...
+      $rootScope.user.wishlist = vm.wishlist;
+      $rootScope.user.visited = vm.visited;
+      currentUser.put($rootScope.user);
+
+    }
+
+    function justDelete(deleted) {
+      console.log('wish was deleted');
+      vm.wishlist.splice(vm.wishlist.indexOf(deleted),1);
+
+    }
   }
 
   /* @ngInject */
