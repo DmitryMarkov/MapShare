@@ -8,7 +8,7 @@
     .controller('FooterController', FooterController)
     .controller('CountriesController', CountriesController)
     .controller('MapsController', MapsController)
-    .controller('MapDetailController', MapsController)
+    .controller('MapDetailsController', MapDetailsController)
     .controller('WishlistController', WishlistController)
     .controller('StatsController', StatsController)
     .controller('CountriesAddController', CountriesAddController)
@@ -132,6 +132,90 @@
 
     var vm = this;
     vm.continents = continents;
+    //vm.user = user;
+
+    //console.log(user);
+  }
+
+  /* @ngInject */
+  function MapDetailsController($rootScope, $stateParams, continents) {
+    $rootScope.header = $rootScope.init.messages.menu_maps;
+    $rootScope.tabSelect(2);
+
+    var vm = this;
+    vm.continents = continents;
+    vm.id = $stateParams.id;
+    vm.map = null;
+    vm.maps = $rootScope.user.maps;
+    vm.mapsLength = $rootScope.user.maps.length;
+
+    for(var i = 0; i < vm.mapsLength; ++i) {
+      if(vm.maps[i].id == vm.id) {
+        vm.map = vm.maps[i];
+        break;
+      }
+    }
+
+    console.log(vm.map.countries);
+
+    var data = [
+        {
+            "hc-key": "fo",
+            "value": 0
+        },
+        {
+            "hc-key": "us",
+            "value": 1
+        },
+        {
+            "hc-key": "fr",
+            "value": 2
+        }
+    ]
+    $('#container').highcharts('Map', {
+
+        title : {
+            text : 'Visited countries'
+        },
+
+        subtitle : {
+            text : 'User: test@test.com'
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0,
+            max: 1
+        },
+
+        series : [{
+            data : data,
+            mapData: Highcharts.maps['custom/world-robinson-lowres'],
+            joinBy: 'hc-key',
+            name: 'Visited',
+            states: {
+                hover: {
+                    color: '#41CD9e'
+                }
+            },
+            dataLabels: {
+                enabled: false,
+                format: '{point.name}'
+            }
+        }]
+    });
+
+
+
+
+
+
     //vm.user = user;
 
     //console.log(user);

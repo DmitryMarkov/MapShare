@@ -81,9 +81,14 @@
         url: 'maps/:id',
         views: {
           'content@': {
-            //templateUrl : 'views/mapdetails.html',
-            template: '<p>This is map\'s detail page</p>',
-            controller  : 'MapDetailController'
+            templateUrl : 'templates/map-details.tmpl.html',
+            controller  : 'MapDetailsController',
+            controllerAs: 'vm',
+            resolve: {
+              continents: ['CountriesService', function(CountriesService) {
+                return CountriesService.query();
+              }]
+            }
           }
         }
       })
