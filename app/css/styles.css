@@ -9821,6 +9821,9 @@ footer nav {
 #countries label, #countries .nav-tabs .nav-link.active {
   color: white; }
 
+#countries .btn-floating {
+  background-color: #41CD9e; }
+
 #maps .card {
   color: #0275d8; }
 

@@ -9,13 +9,21 @@
             }"></i> {{ ::continent.name }}</p>
           <ul ng-repeat="country in continent.countries | orderBy: country.name" ng-show="vm.show[{{ continent.id}}]" class="ng-hide animate-show">
             <li>
-              <input type="checkbox" class="filled-in" id="checkbox['{{ country.id}}']" ng-model="vm.countries[country.id]" ng-true-value="'{{ country.id }}'" ng-click="vm.addCountries(country.id)">
+              <input type="checkbox"
+                     class="filled-in"
+                     id="checkbox['{{ country.id}}']"
+                     ng-model="vm.countries[country.id]"
+                     ng-true-value="'{{ country.id }}'"
+                     ng-click="vm.addCountries(country.id)">
               <label for="checkbox['{{ country.id }}']">{{ ::country.name }}</label>
             </li>
           </ul>
         </div>
         <div ng-show="vm.visited.length">
           Visited: {{ vm.visited.length }} <ng-pluralize count="vm.visited.length" when="{ one: 'country', other: 'countries' }"></ng-pluralize>
+        </div>
+        <div class="fixed-action-btn" style="bottom: 85px; right: 16px;">
+          <a class="btn-floating btn-small" ui-sref="app.addstyle"><i class="fa ion ion-arrow-right-c" ng-click="vm.chooseStyle(vm.visited)"></i></a>
         </div>
       </div>
     </div>

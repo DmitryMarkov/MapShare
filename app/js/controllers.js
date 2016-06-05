@@ -12,6 +12,8 @@
     .controller('WishlistController', WishlistController)
     .controller('StatsController', StatsController)
     .controller('CountriesAddController', CountriesAddController)
+    .controller('AddStyleController', AddStyleController)
+    .controller('FinishController', FinishController)
     .controller('AboutController', AboutController)
     .controller('LoginController', LoginController)
     .controller('SettingsController', SettingsController)
@@ -102,6 +104,7 @@
     vm.continents = continents;
     vm.toggleContinent = toggleContinent;
     vm.addCountries = addCountries;
+    vm.chooseStyle = chooseStyle;
 
     function toggleContinent(cid) {
       vm.show[cid] = !vm.show[cid];
@@ -115,6 +118,7 @@
         vm.visited.splice(index, 1);
       }
 
+      $rootScope.user.visited = vm.visited;
 
       //vm.visited.push(cid);
       // console.log(cid);
@@ -123,6 +127,36 @@
       //console.log($rootScope.user.visited);
     }
 
+    // TODO delete, test-only
+    function chooseStyle(visited) {
+      console.log($rootScope.user.visited);
+    }
+
+  }
+
+  /* @ngInject */
+  function AddStyleController($rootScope) {
+
+    var vm = this;
+    //vm.continents = continents;
+    $rootScope.header = "Choose style";
+    //$rootScope.header = $rootScope.init.messages.menu_countries;
+    $rootScope.tabSelect(1);
+
+    //console.log($rootScope.user.visited);
+  }
+
+  /* @ngInject */
+  function FinishController($rootScope) {
+
+    var vm = this;
+    //vm.continents = continents;
+    $rootScope.header = "Share the map";
+
+    //$rootScope.header = $rootScope.init.messages.menu_countries;
+    $rootScope.tabSelect(1);
+
+    //console.log($rootScope.user.visited);
   }
 
   /* @ngInject */
@@ -144,6 +178,7 @@
 
     var vm = this;
     vm.continents = continents;
+    // TODO: make variables local
     vm.id = $stateParams.id;
     vm.map = null;
     vm.maps = $rootScope.user.maps;
@@ -156,22 +191,30 @@
       }
     }
 
-    console.log(vm.map.countries);
+    //console.log(vm.map.countries);
+
+    var visitedLength = vm.map.countries.length;
+    var visited = vm.map.countries;
+    var data = [];
+
+    for(var i = 0; i < visitedLength; ++i) {
+      data[i] = {
+        "hc-key": visited[i].toLowerCase(),
+        "value" : 1
+      }
+    }
+
+    //console.log(data);
+
+    /* sample data format
 
     var data = [
         {
             "hc-key": "fo",
             "value": 0
-        },
-        {
-            "hc-key": "us",
-            "value": 1
-        },
-        {
-            "hc-key": "fr",
-            "value": 2
         }
-    ]
+    ]*/
+
     $('#container').highcharts('Map', {
 
         title : {

@@ -178,6 +178,28 @@
             }
           }
         }
+      })
+      // route for choose style
+      .state('app.addstyle', {
+        url: 'addstyle',
+        views: {
+          'content@': {
+            templateUrl : 'templates/add-style.tmpl.html',
+            controller  : 'AddStyleController',
+            controllerAs: 'vm'
+          }
+        }
+      })
+      // route for finish
+      .state('app.finishmap', {
+        url: 'finishmap',
+        views: {
+          'content@': {
+            templateUrl : 'templates/finish-map.tmpl.html',
+            controller  : 'FinishController',
+            controllerAs: 'vm'
+          }
+        }
       });
 
     $urlRouterProvider

@@ -135,7 +135,9 @@ footer {
   label, .nav-tabs .nav-link.active {
     color: white;
   }
-
+  .btn-floating {
+    background-color: $mainGreen;
+  }
 }
 
 #maps {
@@ -147,10 +149,12 @@ footer {
   }
 }
 
-#mapDetails .loading {
-  margin-top: 10em;
-  text-align: center;
-  color: gray;
+#mapDetails {
+  .loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+  }
 }
 
 #wishlist {

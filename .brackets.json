@@ -1,0 +1,5 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/adapters/standalone-framework.src.js"
+    ]
+}
