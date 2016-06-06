@@ -9761,14 +9761,19 @@ header nav {
   background-image: linear-gradient(to bottom, #1345b7 0%, #144abb 100%); }
   header nav.navbar {
     padding: 0.5rem 0; }
-  header nav.navbar .navbar-brand {
-    height: 36px; }
+    header nav.navbar .navbar-brand {
+      height: 36px; }
+      header nav.navbar .navbar-brand .ion-android-menu:before {
+        display: inline-block; }
 
 header .logo {
   font-weight: 600; }
 
 header .header {
   padding-top: 0.6rem; }
+
+header .button-collapse {
+  display: block; }
 
 .side-nav {
   z-index: 1999; }
@@ -9786,6 +9791,10 @@ header .header {
 
 #home .btn {
   padding: 5px 12px; }
+
+@media (min-width: 992px) {
+  #home .btn-block {
+    width: 296px; } }
 
 footer nav {
   background-image: linear-gradient(to bottom, #1b7ee8 0%, #1c85ee 100%); }
@@ -9840,6 +9849,10 @@ footer nav {
   #wishlist .label {
     font-size: 100%;
     border-radius: 10rem; }
+
+@media (min-width: 992px) {
+  #stats .btn-block {
+    width: 60%; } }
 
 .navbar .navbar-brand {
   color: white; }
@@ -9898,3 +9911,9 @@ textarea.md-textarea {
 
 [type=radio]:not(:checked) + label:before {
   border: 2px solid white; }
+
+.fixed-action-btn {
+  bottom: 85px;
+  right: 5%; }
+  .fixed-action-btn .btn-floating {
+    background-color: #41CD9e; }

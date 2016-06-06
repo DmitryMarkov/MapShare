@@ -44,6 +44,9 @@
         closeOnClick: true // Closes side-nav on <a> clicks
       });
 
+    //sideNav('hide');
+
+
     var vm = this;
     vm.setLang = setLang;
     vm.logout = logout;

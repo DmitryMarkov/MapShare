@@ -10866,7 +10866,7 @@ a.pswp__share--download:hover {
 }
 
 .side-nav.fixed {
-  left: 0;
+  left: -250px;
   position: fixed
 }
 
@@ -11041,9 +11041,9 @@ a.pswp__share--download:hover {
   }
 }
 
-@media (min-width: 993px) {
+@media (min-width: 992px) {
   .navbar .button-collapse {
-    display:none
+    display:block;
   }
 }
 
