@@ -7,7 +7,8 @@
       'ngStorage',
       'ngResource',
       'ngSanitize',
-      'ngAnimate'
+      'ngAnimate',
+      'easypiechart'
     ])
     .run(initFn)
     .config(routeConfig);

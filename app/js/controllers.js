@@ -299,17 +299,30 @@
   }
 
   /* @ngInject */
-  function StatsController($rootScope) {
-    // initialize charts
-    $('.min-chart#chart-sales').easyPieChart({
-        barColor: "#41cd9e",
-        onStep: function (from, to, percent) {
-            $(this.el).find('.percent').text(Math.round(percent));
-        }
-    });
+  function StatsController($rootScope, $scope) {
+
+    var vm = this;
+    vm.worldPercent = 22;
+    vm.europePercent = 56;
+    vm.americaPercent = 0;
+    vm.usersPercent = 100;
+    //$scope.percent2 = 100;
+
+    //$scope.percent = 65;
+    $scope.options = {
+      animate:{
+        duration:100,
+        enabled:true
+      },
+      barColor:'#41cd9e',
+      scaleColor:false,
+      lineWidth:5,
+      lineCap:'circle'
+    };
 
     $rootScope.header = $rootScope.init.messages.menu_stats;
     $rootScope.tabSelect(4);
+
   }
 
 
