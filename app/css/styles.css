@@ -9848,7 +9848,8 @@ footer nav {
   color: #0275d8; }
   #wishlist .label {
     font-size: 100%;
-    border-radius: 10rem; }
+    border-radius: 10rem;
+    margin-left: 0.6em; }
 
 @media (min-width: 992px) {
   #stats .btn-block {
