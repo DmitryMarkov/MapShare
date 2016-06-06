@@ -102,6 +102,9 @@
             controller  : 'WishlistController',
             controllerAs: 'vm',
             resolve: {
+              continents: ['CountriesService', function(CountriesService) {
+                return CountriesService.query();
+              }],
               currentUser: ['UsersService', function(UsersService) {
                 return UsersService.get();
               }]

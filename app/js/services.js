@@ -163,11 +163,17 @@
   /* @ngInject */
   function UsersService($resource, CONFIG, $rootScope) {
 
-    return $resource(CONFIG.BASEURL + 'users/:id', null, {
+    return $resource(CONFIG.BASEURL + 'users/1', null, {
       'update': {
           method: 'PUT'
       }
     });
+
+    /*return $resource(CONFIG.BASEURL + 'users/:id', null, {
+      'update': {
+          method: 'PUT'
+      }
+    });*/
 
     /*var service = {
       initialize: initialize

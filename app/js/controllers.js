@@ -123,11 +123,7 @@
 
       $rootScope.user.visited = vm.visited;
 
-      //vm.visited.push(cid);
-      // console.log(cid);
-      //console.log(vm.countries);
       console.log(vm.visited);
-      //console.log($rootScope.user.visited);
     }
 
     // TODO delete, test-only
@@ -179,6 +175,8 @@
     $rootScope.header = $rootScope.init.messages.menu_maps;
     $rootScope.tabSelect(2);
 
+    // TODO: change OG in header
+
     var vm = this;
     vm.continents = continents;
     // TODO: make variables local
@@ -206,8 +204,6 @@
         "value" : 1
       }
     }
-
-    //console.log(data);
 
     /* sample data format
 
@@ -256,45 +252,48 @@
             }
         }]
     });
-
-
-
-
-
-
-    //vm.user = user;
-
-    //console.log(user);
   }
 
   /* @ngInject */
-  function WishlistController($rootScope, currentUser) {
+  function WishlistController($rootScope, continents, currentUser) {
     $rootScope.header = $rootScope.init.messages.menu_wishlist;
     $rootScope.tabSelect(3);
 
     var vm = this;
     vm.wishlist = $rootScope.user.wishlist;
-    vm.wishlist = $rootScope.user.visited;
+    vm.visited = $rootScope.user.visited;
+    vm.continents = continents;
+
+    console.log(vm.wishlist);
 
     vm.doVisited = doVisited;
     vm.justDelete = justDelete;
+    vm.checkCountry = checkCountry;
 
     function doVisited(visited) {
       console.log('wish was released');
-      vm.visited.push(visited);
-      vm.wishlist.splice(vm.wishlist.indexOf(visited),1);
+      //vm.visited.push(visited);
+      //vm.wishlist.splice(vm.wishlist.indexOf(visited),1);
 
       //...
-      $rootScope.user.wishlist = vm.wishlist;
-      $rootScope.user.visited = vm.visited;
-      currentUser.put($rootScope.user);
+      //$rootScope.user.wishlist = vm.wishlist;
+      //$rootScope.user.visited = vm.visited;
+      //currentUser.put($rootScope.user);
 
     }
 
     function justDelete(deleted) {
       console.log('wish was deleted');
-      vm.wishlist.splice(vm.wishlist.indexOf(deleted),1);
+      //vm.wishlist.splice(vm.wishlist.indexOf(deleted),1);
 
+    }
+
+    function checkCountry(cid) {
+      //console.log(cid);
+
+      if(vm.wishlist.indexOf(cid) != -1) {
+        return true;
+      }
     }
   }
 
@@ -302,6 +301,7 @@
   function StatsController($rootScope, $scope) {
 
     var vm = this;
+    // TODO fetch real data
     vm.worldPercent = 22;
     vm.europePercent = 56;
     vm.americaPercent = 0;
@@ -316,7 +316,7 @@
       },
       barColor:'#41cd9e',
       scaleColor:false,
-      lineWidth:5,
+      lineWidth:4,
       lineCap:'circle'
     };
 
