@@ -348,7 +348,7 @@
 
 
   /* @ngInject */
-  function FeedbackController($rootScope) {
+  function FeedbackController($rootScope, UsersService) {
     $rootScope.header = $rootScope.init.messages.side_feedback;
     $rootScope.tabSelect(0);
 
@@ -367,15 +367,14 @@
     vm.doFeedback = doFeedback;
 
     function doFeedback() {
-      console.log('do feedback' + $rootScope.user.id);
+      console.log(vm.feedbackData.textarea);
 
       $rootScope.user.feedback.push(vm.feedbackData);
       //
-      //UserService.put({id: $rootScope.user.id}, $rootScope.user);
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
       // TODO: check if no error
-      toastr.info('Will send feedback', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
+      toastr.info('Feedback sent', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
-      vm.feedbackData.textarea = '';
       vm.submitted = true;
     }
   }
@@ -406,7 +405,7 @@
   }
 
   /* @ngInject */
-  function SettingsController($rootScope, $state, $localStorage, InitializeService) {
+  function SettingsController($rootScope, $state, $localStorage, InitializeService, UsersService) {
     $rootScope.header = $rootScope.init.messages.side_settings;
     $rootScope.tabSelect(0);
 
@@ -442,7 +441,7 @@
       $rootScope.user.name = vm.settingsData.name;
       $rootScope.user.home_country = vm.settingsData.country;
       //
-      //UserService.put({id: $rootScope.user.id}, $rootScope.user);
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
       // TODO: check if no error
 
       toastr.info('Settings saved', '', {positionClass: 'toast-bottom-center', timeOut: 1500});

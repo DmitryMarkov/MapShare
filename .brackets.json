@@ -5,6 +5,8 @@
         "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/adapters/standalone-framework.js",
         "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/boost.src.js",
         "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/broken-axis.js",
-        "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/broken-axis.src.js"
+        "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/broken-axis.src.js",
+        "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/canvas-tools.js",
+        "/Users/dmitrymarkov/dev/MapShare/app/js/controllers.js"
     ]
 }

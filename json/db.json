@@ -1,105 +1,4 @@
 {
-  "RU": [
-    {
-      "id": 1,
-      "continents": [
-        {
-          "id": "1",
-          "name": "Africa",
-          "countries": [
-            {
-              "id": "EG",
-              "name": "Egypt"
-            },
-            {
-              "id": "TN",
-              "name": "Tunisia"
-            }
-          ]
-        },
-        {
-          "id": "2",
-          "name": "Asia",
-          "countries": [
-            {
-              "id": "CN",
-              "name": "China"
-            },
-            {
-              "id": "JP",
-              "name": "Japan"
-            }
-          ]
-        },
-        {
-          "id": "3",
-          "name": "Europe",
-          "countries": [
-            {
-              "id": "AL",
-              "name": "Albania"
-            },
-            {
-              "id": "BG",
-              "name": "Bulgaria"
-            }
-          ]
-        },
-        {
-          "id": "4",
-          "name": "North America",
-          "countries": [
-            {
-              "id": "US",
-              "name": "USA"
-            },
-            {
-              "id": "CA",
-              "name": "Canada"
-            }
-          ]
-        },
-        {
-          "id": "5",
-          "name": "South America",
-          "countries": [
-            {
-              "id": "BR",
-              "name": "Brazil"
-            },
-            {
-              "id": "AR",
-              "name": "Argentina"
-            }
-          ]
-        },
-        {
-          "id": "6",
-          "name": "Oceania",
-          "countries": [
-            {
-              "id": "AU",
-              "name": "Australia"
-            },
-            {
-              "id": "NZ",
-              "name": "New Zeland"
-            }
-          ]
-        },
-        {
-          "id": "7",
-          "name": "Lands & Territories",
-          "countries": [
-            {
-              "id": "AQ",
-              "name": "Antarctica"
-            }
-          ]
-        }
-      ]
-    }
-  ],
   "continents": [
     {
       "id": "1",
@@ -196,93 +95,6 @@
       ]
     }
   ],
-  "countries": [
-    {
-      "id": "EN",
-      "continents": []
-    },
-    {
-      "id": "RU",
-      "continents": []
-    }
-  ],
-  "countries2": [
-    {
-      "EN": [
-        {
-          "id": 0,
-          "name": "Albania",
-          "continent": "Europe",
-          "rating": 0,
-          "countryCode": "AL",
-          "map": "maps/albania.svg"
-        },
-        {
-          "id": 1,
-          "name": "Canada",
-          "continent": "North America",
-          "rating": 0,
-          "countryCode": "CA",
-          "map": "maps/canada.svg"
-        },
-        {
-          "id": 2,
-          "name": "Bulgaria",
-          "continent": "Europe",
-          "rating": 5,
-          "countryCode": "BG",
-          "map": "maps/bulgaria.svg"
-        }
-      ]
-    },
-    {
-      "RU": [
-        {
-          "id": 0,
-          "name": "Албания",
-          "continent": "Европа",
-          "rating": 0,
-          "countryCode": "AL",
-          "map": "maps/albania.svg"
-        },
-        {
-          "id": 1,
-          "name": "Канада",
-          "continent": "Северная Америка",
-          "rating": 0,
-          "countryCode": "CA",
-          "map": "maps/canada.svg"
-        },
-        {
-          "id": 2,
-          "name": "Болгария",
-          "continent": "Европа",
-          "rating": 5,
-          "countryCode": "BG",
-          "map": "maps/bulgaria.svg"
-        }
-      ]
-    }
-  ],
-  "maps": [
-    {
-      "id": 1,
-      "userId": 1,
-      "date": "2016-05-20T17:57:28.556094Z",
-      "countries": [
-        "AL",
-        "CA",
-        "BG"
-      ],
-      "styleId": 1,
-      "wishlist": [
-        "RU"
-      ],
-      "favorites": [
-        "BG"
-      ]
-    }
-  ],
   "auth": [
     {
       "id": "login",
@@ -296,7 +108,7 @@
     {
       "id": 1,
       "email": "test@test.com",
-      "name": "Dmitry Markov",
+      "name": "Test Man",
       "home_country": "RU",
       "language": "RU",
       "password": "test123",
@@ -320,7 +132,23 @@
           "home_country": "RU"
         }
       ],
-      "feedback": [],
+      "feedback": [
+        {
+          "name": "Dmitry Markov",
+          "email": "test@test.com",
+          "textarea": ""
+        },
+        {
+          "name": "Dmitry Markov",
+          "email": "test@test.com",
+          "textarea": ""
+        },
+        {
+          "name": "Dmitry Markov",
+          "email": "test@test.com",
+          "textarea": "eqweqweqw"
+        }
+      ],
       "maps": [
         {
           "id": 1,

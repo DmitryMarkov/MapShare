@@ -54,6 +54,9 @@
       $http.get(CONFIG.BASEURL + 'users/' + auth.userId)
        .then(function(response) {
           $rootScope.user = response.data;
+        //console.log($rootScope.user.language);
+          if($rootScope.user.language)
+            $localStorage.language = $rootScope.user.language;
         });
     }
 
@@ -123,7 +126,7 @@
       var init = {};
       var lang = lang || $localStorage.language || 'EN';
 
-      console.log(lang);
+      //console.log(lang);
       //TODO: make a check of imported value
       //init.language = $localStorage.language || 'EN';
       init.language = lang;
