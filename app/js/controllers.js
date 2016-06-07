@@ -168,6 +168,8 @@
     //vm.user = user;
 
     //console.log(user);
+
+
   }
 
   /* @ngInject */
@@ -216,41 +218,49 @@
 
     $('#container').highcharts('Map', {
 
-        title : {
-            text : 'Visited countries'
-        },
+      title : {
+          text : ''
+      },
 
-        subtitle : {
-            text : 'User: test@test.com'
-        },
+      subtitle : {
+      },
 
-        mapNavigation: {
-            enabled: true,
-            buttonOptions: {
-                verticalAlign: 'bottom'
-            }
-        },
+      legend: {
+        enabled: false
+      },
 
-        colorAxis: {
-            min: 0,
-            max: 1
-        },
+      mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
+      },
 
-        series : [{
-            data : data,
-            mapData: Highcharts.maps['custom/world-robinson-lowres'],
-            joinBy: 'hc-key',
-            name: 'Visited',
-            states: {
-                hover: {
-                    color: '#41CD9e'
-                }
-            },
-            dataLabels: {
-                enabled: false,
-                format: '{point.name}'
-            }
-        }]
+      colorAxis: {
+        min: 0,
+        max: 1
+      },
+
+      credits: {
+        enabled: false
+      },
+
+
+      series : [{
+        data : data,
+        mapData: Highcharts.maps['custom/world-robinson-lowres'],
+        joinBy: 'hc-key',
+        name: 'Visited',
+        states: {
+          hover: {
+            color: '#41CD9e'
+          }
+        },
+        dataLabels: {
+          enabled: false,
+          format: '{point.name}'
+        }
+      }]
     });
   }
 
@@ -281,6 +291,7 @@
       //$rootScope.user.visited = vm.visited;
       //currentUser.put($rootScope.user);
       vm.wish[visited] = true;
+      toastr.info('Marked as visited', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
     }
 
@@ -288,6 +299,7 @@
       console.log('wish was deleted ' + deleted);
       //vm.wishlist.splice(vm.wishlist.indexOf(deleted),1);
       vm.wish[deleted] = true;
+      toastr.info('Will be deleted, for sure', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
     }
 

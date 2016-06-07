@@ -158,9 +158,30 @@ footer {
 #maps {
   .card {
     color: #0275d8;
+
+    .card-title {
+      color: #0275d8;
+    }
+    .activator {
+      color: white;
+      margin-top: 20px;
+      margin-right: 15px;
+      padding: 0.5em;
+      border-radius: 50%;
+      width: 50px;
+    }
   }
-  .card .card-title {
-    color: #0275d8;
+  .btn-floating {
+    background-color: $mainGreen;
+  }
+  .btn-ins:hover {
+    background-color: #3f729b;
+  }
+  .btn-tw:hover {
+    background-color: #55acee;
+  }
+  .btn-fb:hover {
+    background-color: #3b599b;
   }
 }
 

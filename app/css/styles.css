@@ -9835,9 +9835,27 @@ footer nav {
 
 #maps .card {
   color: #0275d8; }
+  #maps .card .card-title {
+    color: #0275d8; }
+  #maps .card .activator {
+    color: white;
+    margin-top: 20px;
+    margin-right: 15px;
+    padding: 0.5em;
+    border-radius: 50%;
+    width: 50px; }
 
-#maps .card .card-title {
-  color: #0275d8; }
+#maps .btn-floating {
+  background-color: #41CD9e; }
+
+#maps .btn-ins:hover {
+  background-color: #3f729b; }
+
+#maps .btn-tw:hover {
+  background-color: #55acee; }
+
+#maps .btn-fb:hover {
+  background-color: #3b599b; }
 
 #mapDetails .loading {
   margin-top: 10em;
