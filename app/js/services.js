@@ -118,12 +118,15 @@
     return service;
     ////
 
-    function initialize() {
+    function initialize(lang) {
 
       var init = {};
+      var lang = lang || $localStorage.language || 'EN';
 
+      console.log(lang);
       //TODO: make a check of imported value
-      init.language = $localStorage.language || 'EN';
+      //init.language = $localStorage.language || 'EN';
+      init.language = lang;
 
       //TODO: throw exseption if not found
       $http.get('lang/' + init.language + '.json')

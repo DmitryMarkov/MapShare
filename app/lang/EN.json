@@ -11,6 +11,7 @@
   "version" : "Verison: ",
 
   "btn_close": "close",
+  "btn_save": "save",
 
   "menu_countries": "Countries",
   "menu_maps": "Maps",
@@ -28,5 +29,10 @@
   "feedback_email": "E-mail",
   "feedback_textarea": "Feedback",
   "feedback_send": "Send",
-  "feedback_submitted": "Thank you for your feedback."
+  "feedback_submitted": "Thank you for your feedback.",
+
+  "settings_title": "My settings",
+  "settings_name": "Your name",
+  "settings_country": "Home country",
+  "settings_language": "Choose Language"
 }

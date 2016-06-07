@@ -14,7 +14,7 @@
     .config(routeConfig);
 
   /* @ngInject */
-  function initFn(InitializeService, AuthorizeService) {
+  function initFn(AuthorizeService, InitializeService) {
 
     AuthorizeService.initialize();
     // maybbe put user in scope?

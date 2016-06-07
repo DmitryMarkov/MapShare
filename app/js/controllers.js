@@ -372,7 +372,7 @@
       $rootScope.user.feedback.push(vm.feedbackData);
       //
       //UserService.put({id: $rootScope.user.id}, $rootScope.user);
-
+      // TODO: check if no error
       toastr.info('Will send feedback', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
       vm.feedbackData.textarea = '';
@@ -406,25 +406,49 @@
   }
 
   /* @ngInject */
-  function SettingsController($rootScope) {
+  function SettingsController($rootScope, $state, $localStorage, InitializeService) {
     $rootScope.header = $rootScope.init.messages.side_settings;
     $rootScope.tabSelect(0);
 
+    var name = $rootScope.user.name || '';
+    var country = $rootScope.user.home_country || '';
+    var language = $rootScope.init.language;
+
     var vm = this;
     vm.settingsData = {
-      name: '',
-      country: '',
-      language: true
+      name: name,
+      country: country,
+      language: language
     }
 
     vm.setLanguage = setLanguage;
+    vm.doSettings = doSettings;
 
     function setLanguage(lang) {
       console.log(lang);
+      $rootScope.init.language = lang;
+      $localStorage.language = lang;
+      InitializeService.initialize(lang);
+
+      $state.go($state.current, {}, {reload: true});
+      /*$state.transitionTo(
+        $state.current,
+        $state.$current.params,
+        { reload: true, inherit: true, notify: true });*/
     }
 
-    //$('.mdb-select').material_select();
+    function doSettings() {
 
+      $rootScope.user.name = vm.settingsData.name;
+      $rootScope.user.home_country = vm.settingsData.country;
+      //
+      //UserService.put({id: $rootScope.user.id}, $rootScope.user);
+      // TODO: check if no error
+
+      toastr.info('Settings saved', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
+
+      $state.go($state.current, {}, {reload: true});
+    }
   }
 
   /* @ngInject */

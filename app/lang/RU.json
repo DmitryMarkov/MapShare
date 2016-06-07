@@ -11,6 +11,7 @@
   "version" : "Версия: ",
 
   "btn_close": "закрыть",
+  "btn_save": "сохранить",
 
   "menu_countries": "Страны",
   "menu_maps": "Карты",
@@ -28,5 +29,10 @@
   "feedback_email": "E-mail",
   "feedback_textarea": "Текст сообщения",
   "feedback_send": "Отправить",
-  "feedback_submitted": "Спасибо! Мы обязательно ответим."
+  "feedback_submitted": "Спасибо! Мы обязательно ответим.",
+
+  "settings_title": "Мои настройки",
+  "settings_name": "Ваше имя",
+  "settings_country": "Страна, где вы живете",
+  "settings_language": "Выберите язык"
 }
