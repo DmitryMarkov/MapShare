@@ -29,8 +29,6 @@
     activate();
 
     function activate() {
-
-
       return null;
     }
   }
@@ -45,7 +43,6 @@
       });
 
     //sideNav('hide');
-
 
     var vm = this;
     vm.setLang = setLang;
@@ -64,8 +61,6 @@
     function logout() {
       console.log('logged out');
     }
-
-
   }
 
   /* @ngInject */
@@ -82,9 +77,21 @@
 
     var vm = this;
     vm.continents = continents;
+    vm.visited = $rootScope.user.visited;
 
     $rootScope.header = $rootScope.init.messages.menu_countries;
     $rootScope.tabSelect(1);
+
+
+    vm.checkCountry = checkCountry;
+
+    function checkCountry(cid) {
+
+      if(vm.visited.indexOf(cid) != -1) {
+        return true;
+      }
+    }
+
   }
 
   /* @ngInject */
@@ -244,7 +251,6 @@
       credits: {
         enabled: false
       },
-
 
       series : [{
         data : data,

@@ -5,11 +5,15 @@
 
 
         <div ng-repeat="continent in vm.continents">
-          <div ng-repeat="country in continent.countries">
+          <div ng-repeat="country in continent.countries"
+               ng-if="vm.checkCountry(country.id)">
             <p>{{ ::country.name }} <small>{{ ::continent.name }}</small></p>
           </div>
         </div>
 
+        <div class="fixed-action-btn" style="">
+          <a class="btn-floating btn-small" ui-sref="app.addcountries"><i class="fa ion ion-plus"></i></a>
+        </div>
       </div>
     </div>
   </div>

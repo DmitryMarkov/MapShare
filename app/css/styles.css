@@ -9790,7 +9790,22 @@ header .button-collapse {
   width: 80%; }
 
 #home .btn {
-  padding: 5px 12px; }
+  padding: 5px 12px;
+  width: 136px;
+  height: 44px; }
+
+#home .btn.appstore {
+  background-image: url("../images/app_apple.png");
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+#home .btn.appstore:hover, #home .btn.appstore:active, #home .btn.google-play:hover, #home .btn.google-play:active {
+  background-image: url("../images/app-soon.png"); }
+
+#home .btn.google-play {
+  background-image: url("../images/app_google.png");
+  background-position: center center;
+  background-repeat: no-repeat; }
 
 @media (min-width: 992px) {
   #home .btn-block {

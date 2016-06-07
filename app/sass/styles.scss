@@ -94,6 +94,25 @@ header {
   }
   .btn {
     padding: 5px 12px;
+    width: 136px;
+    height: 44px;
+  }
+
+  .btn.appstore {
+    background-image: url('../images/app_apple.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .btn.appstore:hover, .btn.appstore:active, .btn.google-play:hover, .btn.google-play:active {
+    background-image: url('../images/app-soon.png');
+  }
+
+  .btn.google-play {
+    background-image: url('../images/app_google.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+
   }
 
   @media(min-width: 992px) {
