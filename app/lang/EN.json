@@ -10,6 +10,8 @@
   "about" : "MapShare website and application.",
   "version" : "Verison: ",
 
+  "btn_close": "close",
+
   "menu_countries": "Countries",
   "menu_maps": "Maps",
   "menu_wishlist": "Wishlist",
@@ -19,5 +21,12 @@
   "side_about": "About",
   "side_feedback": "Feedback",
   "side_logout": "Logout",
-  "side_login": "Log in"
+  "side_login": "Log in",
+
+  "feedback_title": "You can send us feedback",
+  "feebback_name": "Name",
+  "feedback_email": "E-mail",
+  "feedback_textarea": "Feedback",
+  "feedback_send": "Send",
+  "feedback_submitted": "Thank you for your feedback."
 }

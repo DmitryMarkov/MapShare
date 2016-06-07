@@ -298,6 +298,7 @@
       "email": "test@test.com",
       "name": "Dmitry Markov",
       "home_country": "RU",
+      "language": "RU",
       "password": "test123",
       "lastLogin": "2016-05-20T17:57:28.556094Z",
       "visited": [
@@ -314,9 +315,12 @@
       ],
       "settings": [
         {
-          "language": "RU"
+          "language": "RU",
+          "name": "Dmitry Markov",
+          "home_country": "RU"
         }
       ],
+      "feedback": [],
       "maps": [
         {
           "id": 1,

@@ -3,6 +3,7 @@
         "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/adapters/standalone-framework.src.js",
         "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/boost.js",
         "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/adapters/standalone-framework.js",
-        "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/boost.src.js"
+        "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/boost.src.js",
+        "/Users/dmitrymarkov/dev/MapShare/bower_components/highcharts/modules/broken-axis.js"
     ]
 }

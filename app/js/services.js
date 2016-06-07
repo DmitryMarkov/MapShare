@@ -163,9 +163,9 @@
   /* @ngInject */
   function UsersService($resource, CONFIG, $rootScope) {
 
-    return $resource(CONFIG.BASEURL + 'users/1', null, {
+    return $resource(CONFIG.BASEURL + 'users/:id', {id:"@id"}, {
       'update': {
-          method: 'PUT'
+        method: 'PUT'
       }
     });
 

@@ -352,17 +352,31 @@
     $rootScope.header = $rootScope.init.messages.side_feedback;
     $rootScope.tabSelect(0);
 
+    var name = $rootScope.user.name || '';
+    var email = $rootScope.user.email || '';
+
     var vm = this;
+    vm.submitted = false;
+
     vm.feedbackData = {
-      email: '',
-      password: '',
+      name: name,
+      email: email,
       textarea: ''
     };
 
     vm.doFeedback = doFeedback;
 
     function doFeedback() {
-      console.log('do feedback');
+      console.log('do feedback' + $rootScope.user.id);
+
+      $rootScope.user.feedback.push(vm.feedbackData);
+      //
+      //UserService.put({id: $rootScope.user.id}, $rootScope.user);
+
+      toastr.info('Will send feedback', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
+
+      vm.feedbackData.textarea = '';
+      vm.submitted = true;
     }
   }
 
@@ -415,12 +429,13 @@
 
   /* @ngInject */
   function AboutController($rootScope, CONFIG) {
+
     var vm = this;
+    vm.version = CONFIG.APPVER;
 
     $rootScope.header = $rootScope.init.messages.side_about;
     $rootScope.tabSelect(0);
 
-    vm.version = CONFIG.APPVER;
   }
 
 })();

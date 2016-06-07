@@ -10,6 +10,8 @@
   "about" : "Сайт и приложение MapShare.",
   "version" : "Версия: ",
 
+  "btn_close": "закрыть",
+
   "menu_countries": "Страны",
   "menu_maps": "Карты",
   "menu_wishlist": "Вишлист",
@@ -19,5 +21,12 @@
   "side_about": "О программе",
   "side_feedback": "Обратная связь",
   "side_logout": "Выход",
-  "side_login": "Войти"
+  "side_login": "Войти",
+
+  "feedback_title": "Отправьте нам сообщение",
+  "feedback_name": "Имя",
+  "feedback_email": "E-mail",
+  "feedback_textarea": "Текст сообщения",
+  "feedback_send": "Отправить",
+  "feedback_submitted": "Спасибо! Мы обязательно ответим."
 }
