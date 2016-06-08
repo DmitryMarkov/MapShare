@@ -149,6 +149,8 @@
 
     //vm.continents = continents;
 
+    // TODO: save visited to DB
+
     var visitedLength =  $rootScope.user.visited.length;
     var visited =  $rootScope.user.visited;
     var visitedData = [];
@@ -224,8 +226,6 @@
 
     $('#container').highcharts('Map', {
 
-      //colors: ["#1c85ee", "#41CD9e"],
-
       title : {
           text : ''
       },
@@ -239,10 +239,14 @@
       },
 
       mapNavigation: {
-        enabled: true,
+        enabled: false,
         buttonOptions: {
             verticalAlign: 'bottom'
         }
+      },
+
+      exporting: {
+        enabled: false
       },
 
       plotOptions: {
@@ -272,13 +276,91 @@
   /* @ngInject */
   function FinishController($rootScope) {
 
-    var vm = this;
-    //vm.continents = continents;
-
     $rootScope.header = $rootScope.init.messages.header_finish;
     $rootScope.tabSelect(1);
 
-    //console.log($rootScope.user.visited);
+    var vm = this;
+
+    vm.saveMap = saveMap;
+    vm.copyLink = copyLink;
+
+    function saveMap() {
+      var chart = $('#container').highcharts();
+      chart.exportChart();
+    }
+
+    function copyLink(url) {
+      console.log(url);
+    }
+
+    console.log($rootScope.init.theme);
+    console.log(Highcharts.theme1);
+
+    var visitedLength =  $rootScope.user.visited.length;
+    var visited =  $rootScope.user.visited;
+    var visitedData = [];
+
+    for(var i = 0; i < visitedLength; ++i) {
+      visitedData[i] = {
+        "code": visited[i]
+      }
+    }
+
+    if ($rootScope.init.theme) {
+      if ($rootScope.init.theme == 2) Highcharts.setOptions(Highcharts.theme2);
+      else if ($rootScope.init.theme == 3) Highcharts.setOptions(Highcharts.theme3);
+      else Highcharts.setOptions(Highcharts.theme1);
+
+      // TODO: save map to db, get mapID, assing to btn
+    }
+
+    $('#container').highcharts('Map', {
+
+      title : {
+          text : ''
+      },
+
+      credits: {
+        enabled: false
+      },
+
+      legend: {
+        enabled: false
+      },
+
+      mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
+      },
+
+      exporting: {
+        enabled: false
+      },
+
+      plotOptions: {
+        map: {
+          joinBy: ['iso-a2', 'code'],
+          dataLabels: {
+            enabled: false
+          },
+          mapData: Highcharts.maps['custom/world-robinson'],
+          tooltip: {
+            headerFormat: '',
+            pointFormat: '<b>{point.name}</b>: {series.name}'
+          }
+
+        }
+      },
+
+      series : [{
+        name: $rootScope.init.messages.countries_visited,
+        data: visitedData
+      }
+               ]
+    });
+
   }
 
   /* @ngInject */
