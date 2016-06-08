@@ -178,17 +178,40 @@
     }
 
     Highcharts.theme1 = {
-      colors: ["#1c85ee", "#41CD9e", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
-        "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+      colors: ["#1c85ee", "#41CD9e", "#DF5353"],
+      plotOptions: {
+        map: {
+          nullColor: "#f8f8f8"
+        }
+      },
+      chart: {
+        plotBackgroundImage: undefined
+      }
     };
 
     Highcharts.theme2 = {
-      colors: ["#db0505", "#55BF3B", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
-        "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+      colors: ["#db0505", "#55BF3B", "#DF5353"],
+      plotOptions: {
+        map: {
+          nullColor: "#eeee05"
+        }
+      },
+      chart: {
+        plotBackgroundImage: undefined
+      }
+
     };
 
     Highcharts.theme3 = {
-      colors: ['#41CD9e', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+      colors: ['#41CD9e', '#50B432', '#ED561B'],
+      plotOptions: {
+        map: {
+          nullColor: "#e5dbc8"
+        }
+      },
+      chart: {
+        plotBackgroundImage: 'images/wave-pattern.jpg'
+      }
     };
 
     // Apply the theme
@@ -238,7 +261,7 @@
       },
 
       series : [{
-        name: 'Visited',
+        name: $rootScope.init.messages.countries_visited,
         data: visitedData
       }
                ]

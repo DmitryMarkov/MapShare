@@ -31,6 +31,10 @@
   "countries_two": "страны",
   "countries_many": "стран",
 
+  "countries_style1": "Стиль 1",
+  "countries_style2": "Стиль 2",
+  "countries_style3": "Стиль 3",
+
   "feedback_title": "Отправьте нам сообщение",
   "feedback_name": "Имя",
   "feedback_email": "E-mail",

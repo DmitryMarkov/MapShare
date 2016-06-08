@@ -31,6 +31,10 @@
   "countries_two": "countries",
   "countries_many": "countries",
 
+  "countries_style1": "Style 1",
+  "countries_style2": "Style 2",
+  "countries_style3": "Style 3",
+
   "feedback_title": "You can send us feedback",
   "feebback_name": "Name",
   "feedback_email": "E-mail",
