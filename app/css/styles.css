@@ -9848,6 +9848,14 @@ footer nav {
 #countries .btn-floating {
   background-color: #41CD9e; }
 
+#countries .col-xs-12 {
+  position: relative; }
+
+#countries #visitedLength {
+  position: fixed;
+  right: 5%;
+  top: 50px; }
+
 #maps .card {
   color: #0275d8; }
   #maps .card .card-title {

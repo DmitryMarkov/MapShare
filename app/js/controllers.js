@@ -114,7 +114,6 @@
     vm.continents = continents;
     vm.toggleContinent = toggleContinent;
     vm.addCountries = addCountries;
-    vm.chooseStyle = chooseStyle;
 
     function toggleContinent(cid) {
       vm.show[cid] = !vm.show[cid];
@@ -133,23 +132,109 @@
       console.log(vm.visited);
     }
 
-    // TODO delete, test-only
-    function chooseStyle(visited) {
-      console.log($rootScope.user.visited);
-    }
-
   }
 
   /* @ngInject */
   function AddStyleController($rootScope) {
 
-    var vm = this;
-    //vm.continents = continents;
-    $rootScope.header = "Choose style";
-    //$rootScope.header = $rootScope.init.messages.menu_countries;
+    $rootScope.header = $rootScope.init.messages.header_addstyles;
     $rootScope.tabSelect(1);
 
-    //console.log($rootScope.user.visited);
+    var vm = this;
+
+    vm.setTheme = setTheme;
+    //vm.countries = $rootScope.user.visited;
+    //vm.wishlist = $rootScope.user.wishlist;
+
+    //vm.continents = continents;
+
+    var visitedLength =  $rootScope.user.visited.length;
+    var visited =  $rootScope.user.visited;
+    var visitedData = [];
+
+    var wishlistLength = $rootScope.user.wishlist.length;
+    var wishlist = $rootScope.user.wishlist;
+    var wishlistData = [];
+
+    for(var i = 0; i < visitedLength; ++i) {
+      visitedData[i] = {
+        "code": visited[i]
+      }
+    }
+
+    for(var i = 0; i < wishlistLength; ++i) {
+      wishlistData[i] = {
+        "code": wishlist[i]
+      }
+    }
+
+    function setTheme(theme) {
+      console.log(theme);
+    }
+
+    Highcharts.theme1 = {
+      colors: ["#1c85ee", "#41CD9e", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+        "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+    };
+
+    Highcharts.theme2 = {
+      colors: ["#DDDF0D", "#55BF3B", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+        "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+    };
+
+    Highcharts.theme3 = {
+      colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+    };
+
+    // Apply the theme
+    //Highcharts.setOptions(Highcharts.theme);
+
+
+    $('#container').highcharts('Map', {
+
+      colors: ["#1c85ee", "#41CD9e"],
+
+      title : {
+          text : ''
+      },
+
+      credits: {
+        enabled: false
+      },
+
+      legend: {
+        enabled: false
+      },
+
+      mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
+      },
+
+      plotOptions: {
+        map: {
+          joinBy: ['iso-a2', 'code'],
+          dataLabels: {
+            enabled: false
+          },
+          mapData: Highcharts.maps['custom/world-robinson'],
+          tooltip: {
+            headerFormat: '',
+            pointFormat: '<b>{point.name}</b>: {series.name}'
+          }
+
+        }
+      },
+
+      series : [{
+        name: 'Visited',
+        data: visitedData
+      }
+               ]
+    });
+
   }
 
   /* @ngInject */
@@ -157,9 +242,8 @@
 
     var vm = this;
     //vm.continents = continents;
-    $rootScope.header = "Share the map";
 
-    //$rootScope.header = $rootScope.init.messages.menu_countries;
+    $rootScope.header = $rootScope.init.messages.header_finish;
     $rootScope.tabSelect(1);
 
     //console.log($rootScope.user.visited);
@@ -271,7 +355,7 @@
   }
 
   /* @ngInject */
-  function WishlistController($rootScope, continents, currentUser) {
+  function WishlistController($rootScope, continents) {
     $rootScope.header = $rootScope.init.messages.menu_wishlist;
     $rootScope.tabSelect(3);
 
@@ -310,8 +394,6 @@
     }
 
     function checkCountry(cid) {
-      //console.log(cid);
-
       if(vm.wishlist.indexOf(cid) != -1) {
         return true;
       }
@@ -349,6 +431,7 @@
 
   /* @ngInject */
   function FeedbackController($rootScope, UsersService) {
+
     $rootScope.header = $rootScope.init.messages.side_feedback;
     $rootScope.tabSelect(0);
 
@@ -370,7 +453,7 @@
       console.log(vm.feedbackData.textarea);
 
       $rootScope.user.feedback.push(vm.feedbackData);
-      //
+      // save data
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
       // TODO: check if no error
       toastr.info('Feedback sent', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
@@ -390,7 +473,6 @@
       password: ''
     };
     vm.rememberMe = true;
-
     vm.doLogin = doLogin;
     vm.openRegister = openRegister;
 
@@ -405,7 +487,11 @@
   }
 
   /* @ngInject */
-  function SettingsController($rootScope, $state, $localStorage, InitializeService, UsersService) {
+  function SettingsController($rootScope,
+                               $state,
+                               $localStorage,
+                               InitializeService,
+                               UsersService) {
     $rootScope.header = $rootScope.init.messages.side_settings;
     $rootScope.tabSelect(0);
 
@@ -424,8 +510,8 @@
     vm.doSettings = doSettings;
 
     function setLanguage(lang) {
-      console.log(lang);
       $rootScope.init.language = lang;
+      $rootScope.user.language = lang;
       $localStorage.language = lang;
       InitializeService.initialize(lang);
 
@@ -437,10 +523,12 @@
     }
 
     function doSettings() {
-
+      console.log(vm.settingsData.language);
       $rootScope.user.name = vm.settingsData.name;
-      $rootScope.user.home_country = vm.settingsData.country;
-      //
+      // TODO: impement in next version
+      //$rootScope.user.home_country = vm.settingsData.country;
+      $rootScope.user.language = vm.settingsData.language;
+      // save data
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
       // TODO: check if no error
 

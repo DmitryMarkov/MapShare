@@ -172,6 +172,14 @@ footer {
   .btn-floating {
     background-color: $mainGreen;
   }
+  .col-xs-12 {
+    position: relative;
+  }
+  #visitedLength {
+    position: fixed;
+    right: 5%;
+    top: 50px;
+  }
 }
 
 #maps {
