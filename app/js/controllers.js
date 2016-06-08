@@ -135,12 +135,13 @@
   }
 
   /* @ngInject */
-  function AddStyleController($rootScope) {
+  function AddStyleController($rootScope, $state) {
 
     $rootScope.header = $rootScope.init.messages.header_addstyles;
     $rootScope.tabSelect(1);
 
     var vm = this;
+    $rootScope.init.theme = $rootScope.init.theme || 0;
 
     vm.setTheme = setTheme;
     //vm.countries = $rootScope.user.visited;
@@ -169,7 +170,11 @@
     }
 
     function setTheme(theme) {
-      console.log(theme);
+      $rootScope.init.theme = theme;
+      if (theme == 2) Highcharts.setOptions(Highcharts.theme2);
+      else if (theme == 3) Highcharts.setOptions(Highcharts.theme3);
+      else Highcharts.setOptions(Highcharts.theme1);
+      $state.go($state.current, {}, { reload: true, inherit: true, notify: true });
     }
 
     Highcharts.theme1 = {
@@ -178,21 +183,25 @@
     };
 
     Highcharts.theme2 = {
-      colors: ["#DDDF0D", "#55BF3B", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+      colors: ["#db0505", "#55BF3B", "#DF5353", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
         "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
     };
 
     Highcharts.theme3 = {
-      colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
+      colors: ['#41CD9e', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263', '#6AF9C4']
     };
 
     // Apply the theme
-    //Highcharts.setOptions(Highcharts.theme);
+    if (!$rootScope.init.theme) {
+      Highcharts.setOptions(Highcharts.theme1);
+      $rootScope.init.theme = 1;
+    }
+
 
 
     $('#container').highcharts('Map', {
 
-      colors: ["#1c85ee", "#41CD9e"],
+      //colors: ["#1c85ee", "#41CD9e"],
 
       title : {
           text : ''

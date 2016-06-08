@@ -9959,3 +9959,6 @@ textarea.md-textarea {
   right: 5%; }
   .fixed-action-btn .btn-floating {
     background-color: #41CD9e; }
+
+.white.active {
+  background-color: #41CD9e !important; }

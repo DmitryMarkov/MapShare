@@ -2,11 +2,19 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <p>choose style</p>
         <div>
-          <button class="btn btn-link white" ng-click="vm.setTheme(1)">Style 1</button>
-          <button class="btn btn-link white" ng-click="vm.setTheme(2)">Style 2</button>
-          <button class="btn btn-link white" ng-click="vm.setTheme(3)">Style 3</button>
+          <button class="btn btn-link white"
+                  ng-click="vm.setTheme(1)"
+                  ng-class="{ active: init.theme == 1 }">
+            <i class="ion ion-trophy"></i><br />Style 1</button>
+          <button class="btn btn-link white"
+                  ng-click="vm.setTheme(2)"
+                  ng-class="{ active: init.theme == 2 }">
+            <i class="ion ion-trophy"></i><br />Style 2</button>
+          <button class="btn btn-link white"
+                  ng-click="vm.setTheme(3)"
+                  ng-class="{ active: init.theme == 3 }">
+            <i class="ion ion-trophy"></i><br />Style 3</button>
         </div>
         <div id="container"></div>
         <div class="fixed-action-btn" style="">
