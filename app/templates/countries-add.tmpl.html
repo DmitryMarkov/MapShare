@@ -11,6 +11,13 @@
             '4': init.messages.countries_two,
             'other': init.messages.countries_many
             }"></ng-pluralize></p>
+          <p>{{ ::init.messages.countries_wishlist }}: {{ vm.wishlist.length }} <ng-pluralize count="vm.wishlist.length" when="{
+            'one': init.messages.countries_one,
+            '2': init.messages.countries_two,
+            '3': init.messages.countries_two,
+            '4': init.messages.countries_two,
+            'other': init.messages.countries_many
+            }"></ng-pluralize></p>
         </div>
         <div ng-repeat="continent in vm.continents | orderBy: continent.name"
              ng-init="vm.show[continent.id] = false">
@@ -30,6 +37,14 @@
                      ng-true-value="'{{ country.id }}'"
                      ng-click="vm.addCountries(country.id)">
               <label for="checkbox['{{ country.id }}']">{{ ::country.name }}</label>
+              <a title="add to wishlist"
+                 class="addToWishlist"
+                 ng-show="!vm.countries[country.id]">
+                <span class="pull-xs-right"
+                      ng-click="vm.addWishlist(country.id)">
+                  <i class="ion ion-ios-heart-outline"></i>
+                </span>
+              </a>
             </li>
           </ul>
         </div>

@@ -117,7 +117,8 @@
         "BG",
         "CA",
         "AU",
-        "US"
+        "US",
+        "BR"
       ],
       "wishlist": [
         "AL",
@@ -173,6 +174,22 @@
             "JP"
           ],
           "styleId": 2
+        },
+        {
+          "id": "rmdz9rg9EYVMQEm8uxNwNxVmY1UR0B6G",
+          "date": "2016-06-09T11:51:45.833Z",
+          "countries": [
+            "BG",
+            "CA",
+            "AU",
+            "US"
+          ],
+          "wishlist": [
+            "AL",
+            "NZ",
+            "JP"
+          ],
+          "styleId": 1
         }
       ]
     }

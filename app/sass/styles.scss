@@ -84,7 +84,6 @@ header {
   background-size: cover;
 }
 
-
 #home {
   h1, h3, h5 {
     font-weight: 100;
@@ -179,6 +178,9 @@ footer {
     position: fixed;
     right: 5%;
     top: 50px;
+  }
+  .addToWishlist i {
+    font-size: 1.5em;
   }
 }
 

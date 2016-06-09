@@ -104,7 +104,7 @@
     vm.show = [];
     vm.countries = {};
     vm.visited = [];
-
+    vm.wishlist = $rootScope.user.wishlist;
 
     var values = vm.visited = $rootScope.user.visited;
     angular.forEach(values, function(value, key) {
@@ -114,6 +114,7 @@
     vm.continents = continents;
     vm.toggleContinent = toggleContinent;
     vm.addCountries = addCountries;
+    vm.addWishlist = addWishlist;
 
     function toggleContinent(cid) {
       vm.show[cid] = !vm.show[cid];
@@ -132,8 +133,10 @@
       $rootScope.user.visited = vm.visited;
 
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
+    }
 
-
+    function addWishlist(cid) {
+      console.log("Added to Wish");
     }
 
   }
@@ -277,12 +280,42 @@
     $rootScope.header = $rootScope.init.messages.header_finish;
     $rootScope.tabSelect(1);
 
-    // TODO: insert a proper link
+    if ($rootScope.init.theme) {
+
+      // object to save
+      var map = {};
+
+      // generates random ID (10 characters)
+      var result = '';
+      var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      for (var i = 10; i > 0; --i)
+        result += chars[Math.round(Math.random() * (chars.length - 1))];
+
+      map.id = result;
+      map.date = new Date().toISOString();
+      map.countries = $rootScope.user.visited;
+      map.wishlist = $rootScope.user.wishlist;
+      map.styleId = $rootScope.init.theme;
+
+      //TODO: save PNG map to server and paste link to map object
+
+      $rootScope.user.maps.push(map);
+
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
+
+      if ($rootScope.init.theme == 2)
+        Highcharts.setOptions(Highcharts.theme2);
+      else if ($rootScope.init.theme == 3)
+        Highcharts.setOptions(Highcharts.theme3);
+      else
+        Highcharts.setOptions(Highcharts.theme1);
+    }
+
     $('.show-popover').popover({
       html: true,
       title: '',
       template: '<div class="popover" role="tooltip"><div class="popover-arrow"></div><div class="popover-content"></div></div>',
-      content: 'http://mapshare.me/#/maps/1',
+      content: 'http://mapshare.me/#/maps/' + map.id,
       trigger: 'click'
     })
 
@@ -316,37 +349,6 @@
       visitedData[i] = {
         "code": visited[i]
       }
-    }
-
-    if ($rootScope.init.theme) {
-
-      // TODO: save map to db, get mapID, assing to btn
-      var map = {};
-
-      // generates random ID
-      var result = '';
-      var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      for (var i = 32; i > 0; --i)
-        result += chars[Math.round(Math.random() * (chars.length - 1))];
-
-      map.id = result;
-      map.date = new Date().toISOString();
-      map.countries = $rootScope.user.visited;
-      map.wishlist = $rootScope.user.wishlist;
-      map.styleId = $rootScope.init.theme;
-
-      //TODO: save PNG map to server and paste link to map object
-
-      $rootScope.user.maps.push(map);
-
-      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
-
-      if ($rootScope.init.theme == 2)
-        Highcharts.setOptions(Highcharts.theme2);
-      else if ($rootScope.init.theme == 3)
-        Highcharts.setOptions(Highcharts.theme3);
-      else
-        Highcharts.setOptions(Highcharts.theme1);
     }
 
     $('#container').highcharts('Map', {

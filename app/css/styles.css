@@ -9685,6 +9685,9 @@ footer nav {
   right: 5%;
   top: 50px; }
 
+#countries .addToWishlist i {
+  font-size: 1.5em; }
+
 #maps .card {
   color: #0275d8; }
   #maps .card .card-title {
