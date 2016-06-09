@@ -274,10 +274,24 @@
   }
 
   /* @ngInject */
-  function FinishController($rootScope) {
+  function FinishController($rootScope, $scope) {
 
     $rootScope.header = $rootScope.init.messages.header_finish;
     $rootScope.tabSelect(1);
+
+    // TODO: insert a proper link
+    $('.show-popover').popover({
+      html: true,
+      title: '',
+      template: '<div class="popover" role="tooltip"><div class="popover-arrow"></div><div class="popover-content"></div></div>',
+      content: 'http://mapshare.me/#/maps/1',
+      trigger: 'click'
+    })
+
+    $scope.$on("$locationChangeStart", function() {
+      $('.show-popover').popover('hide');
+    });
+
 
     var vm = this;
 
@@ -357,8 +371,8 @@
       series : [{
         name: $rootScope.init.messages.countries_visited,
         data: visitedData
-      }
-               ]
+        }
+      ]
     });
 
   }
@@ -382,7 +396,9 @@
     $rootScope.header = $rootScope.init.messages.menu_maps;
     $rootScope.tabSelect(2);
 
-    // TODO: change OG in header
+    // TODO: change OG in header (meta)
+    // http://www.michaelbromley.co.uk/blog/171/enable-rich-social-sharing-in-your-angularjs-app
+    // or https://github.com/tinusn/ui-router-metatags
 
     var vm = this;
     vm.continents = continents;
@@ -399,27 +415,57 @@
       }
     }
 
-    //console.log(vm.map.countries);
-
     var visitedLength = vm.map.countries.length;
     var visited = vm.map.countries;
-    var data = [];
+    var visitedData = [];
+    var theme = vm.map.styleId;
+
+    // TODO: get rid of duplicate theme setting
+    Highcharts.theme1 = {
+      colors: ["#1c85ee", "#41CD9e", "#DF5353"],
+      plotOptions: {
+        map: {
+          nullColor: "#f8f8f8"
+        }
+      },
+      chart: {
+        plotBackgroundImage: undefined
+      }
+    };
+
+    Highcharts.theme2 = {
+      colors: ["#db0505", "#55BF3B", "#DF5353"],
+      plotOptions: {
+        map: {
+          nullColor: "#eeee05"
+        }
+      },
+      chart: {
+        plotBackgroundImage: undefined
+      }
+    };
+
+    Highcharts.theme3 = {
+      colors: ['#41CD9e', '#50B432', '#ED561B'],
+      plotOptions: {
+        map: {
+          nullColor: "#e5dbc8"
+        }
+      },
+      chart: {
+        plotBackgroundImage: 'images/wave-pattern.jpg'
+      }
+    };
+
+    if (theme == 2) Highcharts.setOptions(Highcharts.theme2);
+    else if (theme == 3) Highcharts.setOptions(Highcharts.theme3);
+    else Highcharts.setOptions(Highcharts.theme1);
 
     for(var i = 0; i < visitedLength; ++i) {
-      data[i] = {
-        "hc-key": visited[i].toLowerCase(),
-        "value" : 1
+      visitedData[i] = {
+        "code": visited[i]
       }
     }
-
-    /* sample data format
-
-    var data = [
-        {
-            "hc-key": "fo",
-            "value": 0
-        }
-    ]*/
 
     $('#container').highcharts('Map', {
 
@@ -427,7 +473,8 @@
           text : ''
       },
 
-      subtitle : {
+      credits: {
+        enabled: false
       },
 
       legend: {
@@ -441,30 +488,30 @@
         }
       },
 
-      colorAxis: {
-        min: 0,
-        max: 1
+      exporting: {
+        enabled: true
       },
 
-      credits: {
-        enabled: false
+      plotOptions: {
+        map: {
+          joinBy: ['iso-a2', 'code'],
+          dataLabels: {
+            enabled: false
+          },
+          mapData: Highcharts.maps['custom/world-robinson'],
+          tooltip: {
+            headerFormat: '',
+            pointFormat: '<b>{point.name}</b>: {series.name}'
+          }
+
+        }
       },
 
       series : [{
-        data : data,
-        mapData: Highcharts.maps['custom/world-robinson-lowres'],
-        joinBy: 'hc-key',
-        name: 'Visited',
-        states: {
-          hover: {
-            color: '#41CD9e'
-          }
-        },
-        dataLabels: {
-          enabled: false,
-          format: '{point.name}'
+        name: $rootScope.init.messages.countries_visited,
+        data: visitedData
         }
-      }]
+      ]
     });
   }
 

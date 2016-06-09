@@ -14,6 +14,8 @@
 
   "btn_close": "закрыть",
   "btn_save": "сохранить",
+  "btn_return": "вернуться",
+  "btn_share": "поделиться",
 
   "menu_countries": "Страны",
   "menu_maps": "Карты",
@@ -34,6 +36,8 @@
   "countries_style1": "Стиль 1",
   "countries_style2": "Стиль 2",
   "countries_style3": "Стиль 3",
+
+  "map_share": "Поделиться картой",
 
   "feedback_title": "Отправьте нам сообщение",
   "feedback_name": "Имя",

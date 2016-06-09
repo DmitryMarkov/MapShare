@@ -14,6 +14,8 @@
 
   "btn_close": "close",
   "btn_save": "save",
+  "btn_return": "return back",
+  "btn_share": "share",
 
   "menu_countries": "Countries",
   "menu_maps": "Maps",
@@ -34,6 +36,8 @@
   "countries_style1": "Style 1",
   "countries_style2": "Style 2",
   "countries_style3": "Style 3",
+
+  "map_share": "Share the map",
 
   "feedback_title": "You can send us feedback",
   "feebback_name": "Name",
