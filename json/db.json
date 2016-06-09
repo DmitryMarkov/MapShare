@@ -115,7 +115,9 @@
       "lastLogin": "2016-05-20T17:57:28.556094Z",
       "visited": [
         "BG",
-        "CA"
+        "CA",
+        "AU",
+        "US"
       ],
       "wishlist": [
         "AL",
@@ -155,6 +157,22 @@
           "favorites": [
             "BG"
           ]
+        },
+        {
+          "id": "1RtwCKCASbNnG9MTacbPRz7U9WZhlQns",
+          "date": "2016-06-09T11:17:16.364Z",
+          "countries": [
+            "BG",
+            "CA",
+            "AU",
+            "US"
+          ],
+          "wishlist": [
+            "AL",
+            "NZ",
+            "JP"
+          ],
+          "styleId": 2
         }
       ]
     }

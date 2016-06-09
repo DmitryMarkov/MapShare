@@ -37,7 +37,9 @@
   "countries_style2": "Style 2",
   "countries_style3": "Style 3",
 
-  "map_share": "Share the map",
+  "map_share": "Share map",
+  "map_save": "Save as PNG",
+  "map_show": "Show link",
 
   "feedback_title": "You can send us feedback",
   "feebback_name": "Name",

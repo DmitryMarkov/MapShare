@@ -68,12 +68,7 @@
           'content@': {
             templateUrl : 'templates/maps.tmpl.html',
             controller  : 'MapsController',
-            controllerAs: 'vm',
-            resolve: {
-              continents: ['CountriesService', function(CountriesService) {
-                return CountriesService.query();
-              }]
-            }
+            controllerAs: 'vm'
           }
         }
       })
@@ -84,12 +79,7 @@
           'content@': {
             templateUrl : 'templates/map-details.tmpl.html',
             controller  : 'MapDetailsController',
-            controllerAs: 'vm',
-            resolve: {
-              continents: ['CountriesService', function(CountriesService) {
-                return CountriesService.query();
-              }]
-            }
+            controllerAs: 'vm'
           }
         }
       })

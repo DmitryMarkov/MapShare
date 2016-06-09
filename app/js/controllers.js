@@ -95,7 +95,7 @@
   }
 
   /* @ngInject */
-  function CountriesAddController($rootScope, continents) {
+  function CountriesAddController($rootScope, continents, UsersService) {
 
     $rootScope.header = $rootScope.init.messages.header_addcountries;
     $rootScope.tabSelect(1);
@@ -120,16 +120,20 @@
     }
 
     function addCountries(cid) {
-      if (vm.visited.indexOf(cid) == -1) {
+      var countryIndex = vm.visited.indexOf(cid);
+      if (countryIndex == -1) {
         vm.visited.push(cid);
-      } else {
-        var index = vm.visited.indexOf(cid); // TODO: remove double iSearch
+      }
+      else {
+        var index = countryIndex;
         vm.visited.splice(index, 1);
       }
-
+      console.log(vm.visited);
       $rootScope.user.visited = vm.visited;
 
-      console.log(vm.visited);
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
+
+
     }
 
   }
@@ -146,8 +150,6 @@
     vm.setTheme = setTheme;
     //vm.countries = $rootScope.user.visited;
     //vm.wishlist = $rootScope.user.wishlist;
-
-    //vm.continents = continents;
 
     // TODO: save visited to DB
 
@@ -201,7 +203,6 @@
       chart: {
         plotBackgroundImage: undefined
       }
-
     };
 
     Highcharts.theme3 = {
@@ -221,8 +222,6 @@
       Highcharts.setOptions(Highcharts.theme1);
       $rootScope.init.theme = 1;
     }
-
-
 
     $('#container').highcharts('Map', {
 
@@ -260,21 +259,20 @@
             headerFormat: '',
             pointFormat: '<b>{point.name}</b>: {series.name}'
           }
-
         }
       },
 
       series : [{
         name: $rootScope.init.messages.countries_visited,
         data: visitedData
-      }
-               ]
+        }
+      ]
     });
 
   }
 
   /* @ngInject */
-  function FinishController($rootScope, $scope) {
+  function FinishController($rootScope, $scope, UsersService) {
 
     $rootScope.header = $rootScope.init.messages.header_finish;
     $rootScope.tabSelect(1);
@@ -292,7 +290,6 @@
       $('.show-popover').popover('hide');
     });
 
-
     var vm = this;
 
     vm.saveMap = saveMap;
@@ -303,6 +300,7 @@
       chart.exportChart();
     }
 
+    // TODO: copy to clipboard
     function copyLink(url) {
       console.log(url);
     }
@@ -321,11 +319,34 @@
     }
 
     if ($rootScope.init.theme) {
-      if ($rootScope.init.theme == 2) Highcharts.setOptions(Highcharts.theme2);
-      else if ($rootScope.init.theme == 3) Highcharts.setOptions(Highcharts.theme3);
-      else Highcharts.setOptions(Highcharts.theme1);
 
       // TODO: save map to db, get mapID, assing to btn
+      var map = {};
+
+      // generates random ID
+      var result = '';
+      var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      for (var i = 32; i > 0; --i)
+        result += chars[Math.round(Math.random() * (chars.length - 1))];
+
+      map.id = result;
+      map.date = new Date().toISOString();
+      map.countries = $rootScope.user.visited;
+      map.wishlist = $rootScope.user.wishlist;
+      map.styleId = $rootScope.init.theme;
+
+      //TODO: save PNG map to server and paste link to map object
+
+      $rootScope.user.maps.push(map);
+
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
+
+      if ($rootScope.init.theme == 2)
+        Highcharts.setOptions(Highcharts.theme2);
+      else if ($rootScope.init.theme == 3)
+        Highcharts.setOptions(Highcharts.theme3);
+      else
+        Highcharts.setOptions(Highcharts.theme1);
     }
 
     $('#container').highcharts('Map', {
@@ -378,21 +399,17 @@
   }
 
   /* @ngInject */
-  function MapsController($rootScope, continents) {
+  function MapsController($rootScope) {
+
     $rootScope.header = $rootScope.init.messages.menu_maps;
     $rootScope.tabSelect(2);
 
     var vm = this;
-    vm.continents = continents;
-    //vm.user = user;
-
-    //console.log(user);
-
 
   }
 
   /* @ngInject */
-  function MapDetailsController($rootScope, $stateParams, continents) {
+  function MapDetailsController($rootScope, $stateParams) {
     $rootScope.header = $rootScope.init.messages.menu_maps;
     $rootScope.tabSelect(2);
 
@@ -401,7 +418,6 @@
     // or https://github.com/tinusn/ui-router-metatags
 
     var vm = this;
-    vm.continents = continents;
     // TODO: make variables local
     vm.id = $stateParams.id;
     vm.map = null;
