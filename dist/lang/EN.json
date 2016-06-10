@@ -6,8 +6,16 @@
   "home_caption": "or<br />download our app",
 
   "header_addcountries": "Add countries",
+  "header_addstyles": "Choose style",
+  "header_finish": "Share the map",
 
   "about" : "MapShare website and application.",
+  "version" : "Verison: ",
+
+  "btn_close": "close",
+  "btn_save": "save",
+  "btn_return": "return back",
+  "btn_share": "share",
 
   "menu_countries": "Countries",
   "menu_maps": "Maps",
@@ -17,5 +25,32 @@
   "side_settings": "Settings",
   "side_about": "About",
   "side_feedback": "Feedback",
-  "side_logout": "Logout"
+  "side_logout": "Logout",
+  "side_login": "Log in",
+
+  "countries_visited": "Visited",
+  "countries_wishlist": "Wishlist",
+  "countries_one": "country",
+  "countries_two": "countries",
+  "countries_many": "countries",
+
+  "countries_style1": "Style 1",
+  "countries_style2": "Style 2",
+  "countries_style3": "Style 3",
+
+  "map_share": "Share map",
+  "map_save": "Save as PNG",
+  "map_show": "Show link",
+
+  "feedback_title": "You can send us feedback",
+  "feebback_name": "Name",
+  "feedback_email": "E-mail",
+  "feedback_textarea": "Feedback",
+  "feedback_send": "Send",
+  "feedback_submitted": "Thank you for your feedback.",
+
+  "settings_title": "My settings",
+  "settings_name": "Your name",
+  "settings_country": "Home country",
+  "settings_language": "Choose Language"
 }

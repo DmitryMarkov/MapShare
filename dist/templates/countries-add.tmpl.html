@@ -1,1 +1,19 @@
-<section id="countries"><div class="container"><div class="row"><div class="col-xs-12"><div ng-repeat="continent in vm.continents" ng-init="vm.show[continent.id] = false"><p ng-click="vm.toggleContinent(continent.id)"><i class="icon ion-ios-plus-outline"></i> {{ ::continent.name }}</p><ul ng-repeat="country in continent.countries" ng-show="vm.show[{{ continent.id}}]" class="ng-hide animate-show"><li><input type="checkbox" class="filled-in" id="checkbox['{{ country.id}}']"><label for="checkbox['{{ country.id}}']">{{ ::country.name }}</label></li></ul></div></div></div></div></section>
+<section id="countries"><div class="container"><div class="row"><div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"><div ng-show="vm.visited.length" id="visitedLength"><p>{{ ::init.messages.countries_visited }}: {{ vm.visited.length }}<ng-pluralize count="vm.visited.length" when="{
+            'one': init.messages.countries_one,
+            '2': init.messages.countries_two,
+            '3': init.messages.countries_two,
+            '4': init.messages.countries_two,
+            'other': init.messages.countries_many
+            }"></ng-pluralize></p><p>{{ ::init.messages.countries_wishlist }}: {{ vm.wishlist.length }}<ng-pluralize count="vm.wishlist.length" when="{
+            'one': init.messages.countries_one,
+            '2': init.messages.countries_two,
+            '3': init.messages.countries_two,
+            '4': init.messages.countries_two,
+            'other': init.messages.countries_many
+            }"></ng-pluralize></p></div><div ng-repeat="continent in vm.continents | orderBy: continent.name" ng-init="vm.show[continent.id] = false"><p ng-click="vm.toggleContinent(continent.id)"><i class="ion" ng-class="{
+            'ion-ios-minus-outline': vm.show[continent.id],
+            'ion-ios-plus-outline': !vm.show[continent.id]
+            }"></i> {{ ::continent.name }}</p><ul ng-repeat="country in continent.countries | orderBy: country.name" ng-show="vm.show[{{ continent.id}}]" class="ng-hide animate-show"><li><input type="checkbox" class="filled-in" id="checkbox['{{ country.id}}']" ng-model="vm.countries[country.id]" ng-true-value="'{{ country.id }}'" ng-click="vm.addCountries(country.id)"><label for="checkbox['{{ country.id }}']">{{ ::country.name }}</label><a title="add to wishlist" class="addToWishlist" ng-show="!vm.countries[country.id]"><span class="pull-xs-right" ng-click="vm.addWishlist(country.id)"><i class="ion" ng-class="{
+            'ion-ios-heart-outline': !vm.isWishlisted[country.id],
+            'ion-ios-heart': vm.isWishlisted[country.id]
+            }"></i></span></a></li></ul></div><div class="fixed-action-btn" style=""><a class="btn-floating btn-small" ui-sref="app.addstyle"><i class="fa ion ion-arrow-right-c" ng-click="vm.chooseStyle(vm.visited)"></i></a></div></div></div></div></section>

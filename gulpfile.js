@@ -72,12 +72,17 @@ gulp.task('concat', function() {
       'bower_components/tether/dist/js/tether.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'static/mdb/js/mdbf2.min.js',
+      'bower_components/highcharts/highmaps.js',
+      'bower_components/highcharts/modules/data.js',
+      'bower_components/highcharts/modules/exporting.js',
+      //'static/world-robinson.js',
       'bower_components/angular/angular.min.js',
       'bower_components/angular-ui-router/release/angular-ui-router.min.js',
       'bower_components/angular-resource/angular-resource.min.js',
       'bower_components/ngstorage/ngStorage.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-animate/angular-animate.js',
+      'bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.js',
       'app/js/*.js'
   ])
 		.pipe(concat('app.min.js'))

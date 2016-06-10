@@ -1,1 +1,9 @@
-<section id="settings"><div class="container"><div class="row"><div class="col-xs-12"><div class="switch"><label>Test switch <input type="checkbox" onclick="toastr.info('Test mode on :-)', '', {positionClass: 'toast-bottom-center', timeOut: 1500})"> <span class="lever"></span></label></div></div></div></div></section>
+<section id="settings"><div class="container"><div class="row"><div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4"><form ng-submit="vm.doSettings()" ng-hide="vm.submitted" name="commentForm"><p>{{ ::init.messages.settings_title }}</p><div class="md-form"><label id="name" ng-class="{ active:vm.settingsData.name }">{{ ::init.messages.settings_name }}</label><input type="text" id="name" class="form-control" ng-model="vm.settingsData.name"></div><!--     TODO: Implement Search     --><!--
+          <div class="md-form">
+            <label id="country" ng-class="{ active:vm.settingsData.country }">{{ ::init.messages.settings_country }}</label>
+            <input type="text"
+                   id="country"
+                   class="form-control"
+                   ng-model="vm.settingsData.country">
+          </div>
+--><p>{{ ::init.messages.settings_language }}</p><input name="language" type="radio" id="language1" value="EN" ng-model="vm.settingsData.language" ng-click="vm.setLanguage('EN')"><label for="language1">English</label><br><input name="language" type="radio" id="language2" value="RU" ng-model="vm.settingsData.language" ng-click="vm.setLanguage('RU')"><label for="language2">Русский</label><button type="submit" class="btn btn-default btn-block waves-effect">{{ ::init.messages.btn_save }}</button></form></div></div></div></section>
