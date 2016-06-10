@@ -1,0 +1,56 @@
+{
+  "error" : "что-то пошло не так",
+
+  "home_title": "Создай и поделись<br /> своей уникальной<br /> картой путешествий!",
+  "home_button": "Начать",
+  "home_caption": "или<br />скачай приложение",
+
+  "header_addcountries": "Добавить страны",
+  "header_addstyles": "Выбрать стиль",
+  "header_finish": "Поделиться картой",
+
+  "about" : "Сайт и приложение MapShare.",
+  "version" : "Версия: ",
+
+  "btn_close": "закрыть",
+  "btn_save": "сохранить",
+  "btn_return": "вернуться",
+  "btn_share": "поделиться",
+
+  "menu_countries": "Страны",
+  "menu_maps": "Карты",
+  "menu_wishlist": "Вишлист",
+  "menu_stats": "Статистика",
+
+  "side_settings": "Настройки",
+  "side_about": "О программе",
+  "side_feedback": "Обратная связь",
+  "side_logout": "Выход",
+  "side_login": "Войти",
+
+  "countries_visited": "Посещено",
+  "countries_wishlist": "Вишлист",
+  "countries_one": "страна",
+  "countries_two": "страны",
+  "countries_many": "стран",
+
+  "countries_style1": "Стиль 1",
+  "countries_style2": "Стиль 2",
+  "countries_style3": "Стиль 3",
+
+  "map_share": "Поделиться картой",
+  "map_save": "Сохранить на диск",
+  "map_show": "Показать ссылку",
+
+  "feedback_title": "Отправьте нам сообщение",
+  "feedback_name": "Имя",
+  "feedback_email": "E-mail",
+  "feedback_textarea": "Текст сообщения",
+  "feedback_send": "Отправить",
+  "feedback_submitted": "Спасибо! Мы обязательно ответим.",
+
+  "settings_title": "Мои настройки",
+  "settings_name": "Ваше имя",
+  "settings_country": "Страна, где вы живете",
+  "settings_language": "Выберите язык"
+}

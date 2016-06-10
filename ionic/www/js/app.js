@@ -7,11 +7,22 @@
 angular.module('starter', [
   'ionic',
   'ionic.service.core',
+  'ngResource',
+  'ngStorage',
+  'easypiechart',
   'mapshare.controllers',
   'mapshare.services'
 ])
+.constant("CONFIG", {
 
-.run(function($ionicPlatform) {
+  "APPNAME"   : "MapShare",
+  "APPVER"    : "0.1.0",
+  "BASEURL"   : "http://localhost:3030/",
+  "IMAGEDIR"  : "images/",
+  "DOCDIR"    : "docs/"
+})
+
+.run(function($ionicPlatform, AuthorizeService, InitializeService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -25,6 +36,11 @@ angular.module('starter', [
       StatusBar.styleDefault();
     }
   });
+
+  AuthorizeService.initialize();
+
+  InitializeService.initialize();
+
 })
 .config(['$ionicConfigProvider', function($ionicConfigProvider) {
 
@@ -78,20 +94,36 @@ angular.module('starter', [
         'countries-tab': {
           templateUrl: 'templates/countries.html',
           controller: 'CountriesController',
-          controllerAs: 'vm'
+          controllerAs: 'vm',
+          resolve: {
+            continents: ['CountriesService', function(CountriesService) {
+              return CountriesService.query();
+            }]
+          }
         }
       }
     })
-    .state('app.maps', {
-      url: '/maps',
-      views: {
-        'maps-tab': {
-          templateUrl: 'templates/maps.html',
-          controller: 'MapsController',
-          controllerAs: 'vm'
-        }
+  .state('app.maps', {
+    url: '/maps',
+    views: {
+      'maps-tab': {
+        templateUrl: 'templates/maps.html',
+        controller: 'MapsController',
+        controllerAs: 'vm'
       }
-    })
+    }
+  })
+
+  .state('app.mapdetails', {
+    url: 'maps/:id',
+    views: {
+      'maps-tab': {
+        templateUrl : 'templates/map-details.html',
+        controller  : 'MapDetailsController',
+        controllerAs: 'vm'
+      }
+    }
+  })
 
   .state('app.wishlist', {
     url: '/wishlist',
@@ -99,7 +131,12 @@ angular.module('starter', [
       'wishlist-tab': {
         templateUrl: 'templates/wishlist.html',
         controller: 'WishlistController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          continents: ['CountriesService', function(CountriesService) {
+            return CountriesService.query();
+          }]
+        }
       }
     }
   })
@@ -114,6 +151,48 @@ angular.module('starter', [
       }
     }
   })
+
+  // route for add countries
+  .state('app.addcountries', {
+    url: 'addcountries',
+    views: {
+      'countries-tab': {
+        templateUrl : 'templates/add-countries.html',
+        controller  : 'CountriesAddController',
+        controllerAs: 'vm',
+        resolve: {
+          continents: ['CountriesService', function(CountriesService) {
+            return CountriesService.query();
+          }]
+        }
+      }
+    }
+  })
+  // route for choose style
+  .state('app.addstyle', {
+    url: 'addstyle',
+    views: {
+      'countries-tab': {
+        templateUrl : 'templates/add-style.html',
+        controller  : 'AddStyleController',
+        controllerAs: 'vm'
+      }
+    }
+  })
+  // route for finish
+  .state('app.finishmap', {
+    url: 'finishmap',
+    views: {
+      'countries-tab': {
+        templateUrl : 'templates/finish-map.html',
+        controller  : 'FinishController',
+        controllerAs: 'vm'
+      }
+    }
+  })
+
+
+  /*
    .state('app.single', {
     url: "/playlists/:playlistId",
     views: {
@@ -153,7 +232,8 @@ angular.module('starter', [
         controllerAs: 'vm'
       }
     }
-  });
+  })*/
+        ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/countries');
 });
