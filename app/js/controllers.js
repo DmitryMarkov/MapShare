@@ -20,7 +20,12 @@
     .controller('FeedbackController', FeedbackController);
 
   /* @ngInject */
-  function MainCtrl($rootScope) {
+  function MainCtrl($rootScope, $state) {
+
+    if($rootScope.user.visited.length) {
+      $state.go("app.countries", {}, {})
+    }
+
     var vm = this;
     vm.countries = [];
     $rootScope.header = '';
@@ -73,7 +78,11 @@
   }
 
   /* @ngInject */
-  function CountriesController($rootScope, continents) {
+  function CountriesController($rootScope, $state, continents) {
+
+    if(!$rootScope.user.visited.length) {
+      $state.go("app", {}, {})
+    }
 
     var vm = this;
     vm.continents = continents;
@@ -426,7 +435,11 @@
   }
 
   /* @ngInject */
-  function MapsController($rootScope) {
+  function MapsController($rootScope, $state) {
+
+    if(!$rootScope.user.visited.length) {
+      $state.go("app", {}, {})
+    }
 
     $rootScope.header = $rootScope.init.messages.menu_maps;
     $rootScope.tabSelect(2);
@@ -559,7 +572,12 @@
   }
 
   /* @ngInject */
-  function WishlistController($rootScope, continents, UsersService) {
+  function WishlistController($rootScope, $state, continents, UsersService) {
+
+    if(!$rootScope.user.visited.length) {
+      $state.go("app", {}, {})
+    }
+
     $rootScope.header = $rootScope.init.messages.menu_wishlist;
     $rootScope.tabSelect(3);
 
@@ -608,7 +626,12 @@
   }
 
   /* @ngInject */
-  function StatsController($rootScope, $scope) {
+  function StatsController($rootScope, $scope, $state) {
+
+    if(!$rootScope.user.visited.length) {
+      $state.go("app", {}, {})
+    }
+
     $rootScope.header = $rootScope.init.messages.menu_stats;
     $rootScope.tabSelect(4);
 

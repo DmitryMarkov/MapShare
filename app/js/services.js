@@ -35,15 +35,24 @@
       var auth = $localStorage.auth || {};
 
       $rootScope.isAuthenticated = false;
-
-      if (auth.token != undefined) {
+      //if (auth.token != undefined) {
+      if (auth.userId != undefined) {
         $rootScope.isAuthenticated = true;
         $http.defaults.headers.common['x-access-token'] = auth.token;
         console.log(auth);
       }
       else {
-        auth.userId = 1; // for test purposes only
-        //$rootScope.isAuthenticated = true; //for test only
+        //auth.userId = 1; // for test purposes only
+        $rootScope.isAuthenticated = false;
+
+        // generates random ID (10 characters)
+        var result = '';
+        var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for (var i = 28; i > 0; --i)
+          result += chars[Math.round(Math.random() * (chars.length - 1))];
+
+        auth.userId = result;
+        $localStorage.auth = auth;
 
         console.log(auth);
       }
@@ -51,13 +60,52 @@
       //var userId = 1;
 
       //TODO: throw exeption if not found
-      $http.get(CONFIG.BASEURL + 'users/' + auth.userId)
-       .then(function(response) {
-          $rootScope.user = response.data;
-        //console.log($rootScope.user.language);
-          if($rootScope.user.language)
-            $localStorage.language = $rootScope.user.language;
-        });
+      if ($rootScope.isAuthenticated) {
+        $http.get(CONFIG.BASEURL + 'users/' + auth.userId)
+         .then(function(response) {
+
+            $rootScope.user = response.data;
+
+            if($rootScope.user.language)
+              $localStorage.language = $rootScope.user.language;
+          },
+          function(response) {
+
+            console.log("Something went wrong");
+            console.log(response.data);
+          });
+        }
+      else {
+
+        // TODO: make localStorage saving if not authentificated and user service too
+        var user = {};
+
+        user.id = auth.userId;
+        user.visited = [];
+        user.wishlist = [];
+        user.settings = [];
+        user.maps = [];
+
+
+
+
+        $http.post(CONFIG.BASEURL + 'users/', user)
+          .then(function(response) {
+            console.log("User created");
+            $rootScope.user = response.data;
+
+            if($rootScope.user.language)
+              $localStorage.language = $rootScope.user.language;
+            else {
+              $localStorage.language = 'EN';
+            }
+          },
+          function(response) {
+
+            console.log("Something went wrong");
+            console.log(response.data);
+          });
+      }
     }
 
     function login(loginData) {

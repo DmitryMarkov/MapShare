@@ -193,6 +193,54 @@
           "styleId": 1
         }
       ]
+    },
+    {
+      "id": "pIwRNkXCydNaWuX63fg11od6Doob",
+      "maps": []
+    },
+    {
+      "id": "dXqMCFpzS9cTWW8dru5G2WklSsFk",
+      "visited": [
+        "AL"
+      ],
+      "wishlist": [
+        "BG"
+      ],
+      "settings": [],
+      "maps": [
+        {
+          "id": "yyt8VtvQzt",
+          "date": "2016-06-10T10:50:33.240Z",
+          "countries": [
+            "AL"
+          ],
+          "wishlist": [
+            "BG"
+          ],
+          "styleId": 2
+        }
+      ]
+    },
+    {
+      "id": "IAEFubnTdrpNY5VLxfvUUQScRS8D",
+      "visited": [
+        "AU"
+      ],
+      "wishlist": [],
+      "settings": [],
+      "maps": [
+        {
+          "id": "GkTOSEXmiL",
+          "date": "2016-06-10T11:21:23.073Z",
+          "countries": [
+            "AU"
+          ],
+          "wishlist": [],
+          "styleId": 1
+        }
+      ],
+      "language": "RU",
+      "name": ""
     }
   ]
 }

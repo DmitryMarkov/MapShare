@@ -17,7 +17,7 @@
   function initFn(AuthorizeService, InitializeService) {
 
     AuthorizeService.initialize();
-    // maybbe put user in scope?
+
     InitializeService.initialize();
 
   }
