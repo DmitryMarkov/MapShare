@@ -184,13 +184,13 @@ angular.module('mapshare.services', [])
           $rootScope.init = init;
       });
 
-      $rootScope.tabSelect = function (tab) {
+      /*$rootScope.tabSelect = function (tab) {
         $rootScope.tab = tab;
       }
 
       $rootScope.isSelected = function (tab) {
         return ($rootScope.tab === tab);
-      }
+      }*/
     }
 
   }

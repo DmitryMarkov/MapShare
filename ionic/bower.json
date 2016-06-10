@@ -8,6 +8,7 @@
   "dependencies": {
     "ngCordova": "~0.1.26-alpha",
     "ngstorage": "~0.3.10",
-    "jquery.easy-pie-chart": "~2.1.6"
+    "jquery.easy-pie-chart": "~2.1.6",
+    "highcharts": "~4.2.5"
   }
 }
