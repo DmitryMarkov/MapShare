@@ -105,11 +105,16 @@
     vm.countries = {};
     vm.visited = [];
     vm.wishlist = $rootScope.user.wishlist;
+    vm.isWishlisted = {};
 
     var values = vm.visited = $rootScope.user.visited;
     angular.forEach(values, function(value, key) {
       this[value] = value;
     }, vm.countries);
+
+    angular.forEach(vm.wishlist, function(value, key) {
+      this[value] = value;
+    }, vm.isWishlisted);
 
     vm.continents = continents;
     vm.toggleContinent = toggleContinent;
@@ -124,6 +129,11 @@
       var countryIndex = vm.visited.indexOf(cid);
       if (countryIndex == -1) {
         vm.visited.push(cid);
+        if (vm.wishlist.indexOf(cid) != -1) {
+          vm.wishlist.splice(vm.wishlist.indexOf(cid), 1);
+          vm.isWishlisted[cid] = undefined;
+          console.log(vm.wishlist);
+        }
       }
       else {
         var index = countryIndex;
@@ -136,7 +146,22 @@
     }
 
     function addWishlist(cid) {
-      console.log("Added to Wish");
+      var wishlistIndex = vm.wishlist.indexOf(cid);
+
+      if (wishlistIndex == -1) {
+        vm.wishlist.push(cid);
+        vm.isWishlisted[cid] = cid;
+      }
+      else {
+        var index = wishlistIndex;
+        vm.wishlist.splice(index, 1);
+        vm.isWishlisted[cid] = undefined;
+      }
+      console.log(vm.isWishlisted);
+
+
+      $rootScope.user.wishlist = vm.wishlist;
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
     }
 
   }

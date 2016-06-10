@@ -42,7 +42,11 @@
                  ng-show="!vm.countries[country.id]">
                 <span class="pull-xs-right"
                       ng-click="vm.addWishlist(country.id)">
-                  <i class="ion ion-ios-heart-outline"></i>
+                  <i class="ion"
+                     ng-class="{
+            'ion-ios-heart-outline': !vm.isWishlisted[country.id],
+            'ion-ios-heart': vm.isWishlisted[country.id]
+            }"></i>
                 </span>
               </a>
             </li>
