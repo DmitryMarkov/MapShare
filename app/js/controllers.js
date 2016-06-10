@@ -559,7 +559,7 @@
   }
 
   /* @ngInject */
-  function WishlistController($rootScope, continents) {
+  function WishlistController($rootScope, continents, UsersService) {
     $rootScope.header = $rootScope.init.messages.menu_wishlist;
     $rootScope.tabSelect(3);
 
@@ -576,24 +576,27 @@
     vm.checkCountry = checkCountry;
 
     function doVisited(visited) {
-      console.log('wish was released ' + visited);
-      //vm.visited.push(visited);
-      //vm.wishlist.splice(vm.wishlist.indexOf(visited),1);
+      vm.visited.push(visited);
+      vm.wishlist.splice(vm.wishlist.indexOf(visited),1);
 
-      //...
-      //$rootScope.user.wishlist = vm.wishlist;
-      //$rootScope.user.visited = vm.visited;
-      //currentUser.put($rootScope.user);
+
+      $rootScope.user.wishlist = vm.wishlist;
+      $rootScope.user.visited = vm.visited;
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
+
       vm.wish[visited] = true;
       toastr.info('Marked as visited', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
     }
 
     function justDelete(deleted) {
-      console.log('wish was deleted ' + deleted);
-      //vm.wishlist.splice(vm.wishlist.indexOf(deleted),1);
+
+      vm.wishlist.splice(vm.wishlist.indexOf(deleted),1);
+      $rootScope.user.wishlist = vm.wishlist;
+      UsersService.update({id: $rootScope.user.id}, $rootScope.user);
+
       vm.wish[deleted] = true;
-      toastr.info('Will be deleted, for sure', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
+      toastr.info('Wish was deleted', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
     }
 
@@ -606,19 +609,31 @@
 
   /* @ngInject */
   function StatsController($rootScope, $scope) {
+    $rootScope.header = $rootScope.init.messages.menu_stats;
+    $rootScope.tabSelect(4);
 
     var vm = this;
     // TODO fetch real data
-    vm.worldPercent = 22;
-    vm.europePercent = 56;
-    vm.americaPercent = 0;
+    var visitedTotal = $rootScope.user.visited.length;
+    var visitedEurope = 1;
+    var visitedAmerica = 3;
+    var totalCountries = 13;
+    var totalEurope = 2;
+    var totalAmerica = 4;
+    var totalUsers = 1;
+
+
+
+    vm.worldPercent = Math.round((100 / totalCountries) * visitedTotal);
+    vm.europePercent = Math.round((100 / totalEurope) * visitedEurope);
+    vm.americaPercent = Math.round((100 / totalAmerica) * visitedAmerica);
     vm.usersPercent = 100;
     //$scope.percent2 = 100;
 
     //$scope.percent = 65;
     $scope.options = {
       animate:{
-        duration:100,
+        duration:1000,
         enabled:true
       },
       barColor:'#41cd9e',
@@ -627,8 +642,6 @@
       lineCap:'circle'
     };
 
-    $rootScope.header = $rootScope.init.messages.menu_stats;
-    $rootScope.tabSelect(4);
 
   }
 
