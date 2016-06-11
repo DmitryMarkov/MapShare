@@ -1,6 +1,13 @@
 <ion-view view-title="Wishlist">
   <ion-content>
-    <div class="list" ng-repeat="continent in vm.continents">
+    <div class="row" ng-hide="vm.hasWishlist">
+      <div class="col text-center">
+        <h3>There are no countries in wishlist yet.</h3>
+      </div>
+    </div>
+    <div class="list"
+         ng-repeat="continent in vm.continents"
+         ng-show="vm.hasWishlist">
       <ion-list can-swipe="listCanSwipe">
         <ion-item
              ng-hide="vm.wish[country.id]"

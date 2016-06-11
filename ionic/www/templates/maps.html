@@ -1,7 +1,13 @@
 <ion-view view-title="Maps">
   <ion-content>
+    <div class="row" ng-hide="vm.hasMaps">
+      <div class="col text-center">
+        <h3>There are no maps yet.</h3>
+      </div>
+    </div>
     <div class="card"
-         ng-repeat="map in user.maps | orderBy: '-date'">
+         ng-repeat="map in user.maps | orderBy: '-date'"
+         ng-show="vm.hasMaps">
       <div class="item item-image">
         <a href="" ui-sref="app.mapdetails({id: map.id})"><img src="images/db/chart2.png" class="img-fluid" alt=""></a>
       </div>

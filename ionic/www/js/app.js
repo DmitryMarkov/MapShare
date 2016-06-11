@@ -22,7 +22,13 @@ angular.module('starter', [
   "DOCDIR"    : "docs/"
 })
 
-.run(function($ionicPlatform, AuthorizeService, InitializeService) {
+.run(function($ionicPlatform, $rootScope, AuthorizeService, InitializeService) {
+
+
+  AuthorizeService.initialize();
+
+  InitializeService.initialize();
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -35,11 +41,13 @@ angular.module('starter', [
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    if($rootScope.user) {
+      if($rootScope.user.visited.length) {
+        $state.go("app.countries", {}, {})
+      }
+    }
   });
-
-  AuthorizeService.initialize();
-
-  InitializeService.initialize();
 
 })
 .config(['$ionicConfigProvider', function($ionicConfigProvider) {
@@ -54,7 +62,8 @@ angular.module('starter', [
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    controller: 'AppCtrl',
+    controllerAs: 'vm'
   })
 
   .state('app.home', {
@@ -170,6 +179,7 @@ angular.module('starter', [
   })
   // route for choose style
   .state('app.addstyle', {
+    //cache: false,
     url: 'addstyle',
     views: {
       'countries-tab': {

@@ -9818,10 +9818,11 @@ a.button {
 body, .pane {
   background-image: linear-gradient(to bottom, #1345b7 0%, #1c85ee 100%);
   background-repeat: no-repeat;
-  color: white;
   background-attachment: fixed; }
+  body .pane, .pane .pane {
+    color: white; }
 
-.pane H2 {
+.pane H2, .pane H3 {
   color: white;
   margin-bottom: 1em; }
 
@@ -9879,3 +9880,27 @@ body, .pane {
     top: 0;
     left: 0;
     vertical-align: baseline; }
+
+.item {
+  background-color: transparent;
+  border-color: transparent;
+  color: white; }
+  .item .item-content {
+    background-color: transparent; }
+
+#countries small {
+  font-style: oblique;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 0.3em; }
+
+#stats p {
+  margin-top: 2em; }
+
+#sidemenu .item {
+  border-color: #ddd;
+  color: #444; }
+
+.msModal {
+  color: #444; }
+  .msModal .item {
+    color: #444; }

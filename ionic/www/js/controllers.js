@@ -1,14 +1,13 @@
 angular.module('mapshare.controllers', [])
 
-.controller('AppCtrl', function($rootScope, $scope, $ionicModal, $timeout, $state) {
+.controller('AppCtrl', function($rootScope, $scope, $ionicModal, $timeout, $state, CONFIG) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
 
+  var vm = this;
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -75,6 +74,9 @@ angular.module('mapshare.controllers', [])
   };
 
   // About modal
+  vm.version = CONFIG.APPVER;
+
+
   $ionicModal.fromTemplateUrl('templates/about.html', {
     scope: $scope
   }).then(function(modal) {
@@ -88,10 +90,15 @@ angular.module('mapshare.controllers', [])
     $scope.aboutModal.hide();
   };
 
+  ////////////////////
+  /*$scope.$on('$ionicView.enter', function(e) {
+    if($rootScope.user) {
+      if($rootScope.user.visited.length) {
+        $state.go("app.countries", {}, {})
+      }
+    }
+  });*/
 
-  if($rootScope.user.visited.length) {
-    $state.go("app.countries", {}, {})
-  }
 })
 
 
@@ -113,9 +120,11 @@ angular.module('mapshare.controllers', [])
   /* @ngInject */
   function CountriesController($rootScope, $scope, $state, continents) {
 
-    if(!$rootScope.user.visited.length) {
-      $state.go("app.home", {}, {})
-    }
+    $scope.$on('$ionicView.enter', function(e) {
+      if(!$rootScope.user.visited.length) {
+        $state.go("app.home", {}, {})
+      }
+    });
 
     $scope.listCanSwipe = true;
 
@@ -214,10 +223,15 @@ angular.module('mapshare.controllers', [])
   }
 
   /* @ngInject */
-  function AddStyleController($rootScope, $state) {
+  function AddStyleController($rootScope, $scope, $state, $ionicHistory) {
 
     //$rootScope.header = $rootScope.init.messages.header_addstyles;
     //$rootScope.tabSelect(1);
+
+    /*$scope.$on("$ionicView.enter", function () {
+       $ionicHistory.clearCache();
+       $ionicHistory.clearHistory();
+    });*/
 
     var vm = this;
     $rootScope.init.theme = $rootScope.init.theme || 0;
@@ -253,7 +267,11 @@ angular.module('mapshare.controllers', [])
       if (theme == 2) Highcharts.setOptions(Highcharts.theme2);
       else if (theme == 3) Highcharts.setOptions(Highcharts.theme3);
       else Highcharts.setOptions(Highcharts.theme1);
+      console.log($rootScope.init.theme);
+      //$ionicHistory.clearCache().then(function(){ $state.go($state.current, {}, {reload: true}) })
+      //$state.go($state.current, {}, {reload: true});
       $state.go($state.current, {}, { reload: true, inherit: true, notify: true });
+
     }
 
     Highcharts.theme1 = {
@@ -473,16 +491,25 @@ angular.module('mapshare.controllers', [])
   }
 
   /* @ngInject */
-  function MapsController($rootScope, $state) {
+  function MapsController($rootScope, $scope, $state) {
 
-    if(!$rootScope.user.visited.length) {
-      $state.go("app.home", {}, {})
-    }
+    $scope.$on('$ionicView.enter', function(e) {
+      if(!$rootScope.user.visited.length) {
+        $state.go("app.home", {}, {})
+      }
+    });
 
     //$rootScope.header = $rootScope.init.messages.menu_maps;
     //$rootScope.tabSelect(2);
 
     var vm = this;
+
+
+    if($rootScope.user.maps.length) {
+      vm.hasMaps = true;
+    } else {
+      vm.hasMaps = false;
+    }
 
   }
 
@@ -612,9 +639,11 @@ angular.module('mapshare.controllers', [])
   /* @ngInject */
   function WishlistController($rootScope, $scope, $state, continents, UsersService) {
 
-    if(!$rootScope.user.visited.length) {
-      $state.go("app.home", {}, {})
-    }
+    $scope.$on('$ionicView.enter', function(e) {
+      if(!$rootScope.user.visited.length) {
+        $state.go("app.home", {}, {})
+      }
+    });
 
 
     $scope.listCanSwipe = true;
@@ -627,8 +656,15 @@ angular.module('mapshare.controllers', [])
     vm.visited = $rootScope.user.visited;
     vm.continents = continents;
     vm.wish = [];
+    if(vm.wishlist.length) {
+      vm.hasWishlist = true;
+    } else {
+      vm.hasWishlist = false;
+    }
 
-    console.log(vm.wishlist);
+    //console.log(vm.hasWishlist);
+
+    //console.log(vm.wishlist);
 
     vm.doVisited = doVisited;
     vm.justDelete = justDelete;
@@ -669,9 +705,11 @@ angular.module('mapshare.controllers', [])
   /* @ngInject */
   function StatsController($rootScope, $scope, $state) {
 
-    if(!$rootScope.user.visited.length) {
-      $state.go("app.home", {}, {})
-    }
+    $scope.$on('$ionicView.enter', function(e) {
+      if(!$rootScope.user.visited.length) {
+        $state.go("app.home", {}, {})
+      }
+    });
 
     //$rootScope.header = $rootScope.init.messages.menu_stats;
     //$rootScope.tabSelect(4);

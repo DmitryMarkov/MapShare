@@ -27,12 +27,16 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 body, .pane {
   background-image: linear-gradient(to bottom, $positive 0%, $calm 100%);
   background-repeat: no-repeat;
-  color: white;
   background-attachment: fixed;
+
+  .pane {
+
+    color: white;
+  }
 }
 
 .pane {
-  H2 {
+  H2, H3 {
     color: white;
     margin-bottom: 1em;
   }
@@ -102,3 +106,41 @@ body, .pane {
   }
 }
 
+.item {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+
+  .item-content {
+    background-color: transparent;
+  }
+}
+
+#countries {
+  small {
+    font-style: oblique;
+    color: rgba(255,255,255,0.6);
+    padding-left: 0.3em;
+  }
+}
+
+#stats{
+  p {
+    margin-top: 2em;
+  }
+}
+
+#sidemenu {
+  .item {
+    border-color: #ddd;
+    color: #444;
+
+  }
+}
+
+.msModal {
+  color: #444;
+  .item {
+    color: #444;
+  }
+}
