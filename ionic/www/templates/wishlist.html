@@ -1,19 +1,22 @@
 <ion-view view-title="Wishlist">
   <ion-content>
-    <div class="list">
-
-      <div class="item item-button-right">
-        Albania
-        <button class="button button-balanced" ng-click="">
-          <i class="icon ion-trash-b"></i>
-        </button>
-        <button class="button button-balanced">
-          <i class="icon ion-checkmark"></i>
-        </button>
-      </div>
-
-      ...
-
+    <div class="list" ng-repeat="continent in vm.continents">
+      <ion-list can-swipe="listCanSwipe">
+        <ion-item
+             ng-hide="vm.wish[country.id]"
+             ng-repeat="country in continent.countries"
+             ng-if="vm.checkCountry(country.id)">
+          {{ ::country.name }}
+          <ion-option-button class="button-balanced"
+                             ng-click="vm.doVisited(country.id)">
+            <i class="ion-checkmark"></i>
+          </ion-option-button>
+          <ion-option-button class="button-assertive"
+                             ng-click="vm.justDelete(country.id)">
+            <i class="ion-trash-b"></i>
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
     </div>
   </ion-content>
 </ion-view>

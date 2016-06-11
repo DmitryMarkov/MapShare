@@ -1,21 +1,7 @@
 <ion-view view-title="Home">
-  <ion-content>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
-    <h1>Home</h1>
+  <ion-content class="text-center">
+    <img src="images/worldmap.png" class="home-img" />
+    <h2 ng-bind-html="init.messages.home_title"></h2>
+    <button ui-sref="app.addcountries" class="button button-block button-balanced" type="button">{{ ::init.messages.home_button }}</button>
   </ion-content>
 </ion-view>

@@ -1,10 +1,24 @@
 <ion-view view-title="MapShare">
   <ion-content>
     <div ng-if="noCountries">Start now</div>
-    <ion-list ng-if="!noCountries">
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
-    </ion-list>
+    <div ng-repeat="continent in vm.continents" ng-if="!noCountries">
+      <ion-list can-swipe="listCanSwipe">
+        <ion-item ng-repeat="country in continent.countries"
+               ng-if="vm.checkCountry(country.id)">
+          {{ ::country.name }} <small>{{ ::continent.name }}</small>
+          <ion-option-button class="button-assertive"
+                             ng-click="vm.deleteCountry(country.id)">
+            Delete
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
   </ion-content>
+  <div class="float-button">
+   <span class="height-fix">
+      <a class="content" ui-sref="app.addcountries">
+        <i class="ion-plus"></i>
+      </a>
+     </span>
+  </div>
 </ion-view>

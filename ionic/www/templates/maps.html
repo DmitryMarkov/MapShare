@@ -1,13 +1,12 @@
 <ion-view view-title="Maps">
   <ion-content>
-    <div class="card">
-
-
+    <div class="card"
+         ng-repeat="map in user.maps | orderBy: '-date'">
       <div class="item item-image">
-        <img src="cover.jpg">
+        <a href="" ui-sref="app.mapdetails({id: map.id})"><img src="images/db/chart2.png" class="img-fluid" alt=""></a>
       </div>
       <div class="item item-text-wrap">
-        This is a basic Card which contains an item that has wrapping text.
+        {{ map.date | date:'dd.MM.yyyy' }}
       </div>
     </div>
   </ion-content>

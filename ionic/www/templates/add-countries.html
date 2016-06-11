@@ -1,12 +1,53 @@
 <ion-view view-title="Add countries">
+
+  <ion-header-bar class="bar-positive">
+    <div class="buttons">
+      <button class="button" ui-sref="app.addstyle">
+          Next
+      </button>
+    </div>
+  </ion-header-bar>
   <ion-content>
-    <ion-list>
 
-      <ion-checkbox ng-model="filter.blue">Albania</ion-checkbox>
-      <ion-checkbox ng-model="filter.yellow">Russia</ion-checkbox>
-      <ion-checkbox ng-model="filter.pink">Bulgaria</ion-checkbox>
+    <div ng-repeat="continent in vm.continents | orderBy: continent.name"
+         ng-init="vm.show[continent.id] = false">
+      <h4 ng-click="vm.toggleContinent(continent.id)">
+        <i class="ion " ng-class="{
+        'ion-ios-minus-outline': vm.show[continent.id],
+        'ion-ios-plus-outline': !vm.show[continent.id]
+        }"></i> {{ ::continent.name }}</h4>
+      <ion-list ng-show="vm.show[{{ continent.id}}]"
+                class="ng-hide animate-show"
+                can-swipe="listCanSwipe">
 
-    </ion-list>
+          <ion-checkbox  ng-repeat="country in continent.countries | orderBy: country.name"
+                 id="checkbox['{{ country.id}}']"
+                 ng-model="vm.countries[country.id]"
+                 ng-true-value="'{{ country.id }}'"
+                 ng-click="vm.addCountries(country.id)">
+            {{ ::country.name }}
+
+          </ion-checkbox>
+        <ion-item>
+        <ion-option-button class="button-balanced"
+                               ng-show="!vm.countries[country.id]"
+                               ng-click="vm.addWishlist(country.id)">
+              <i class="ion"
+                   ng-class="{
+          'ion-ios-heart-outline': !vm.isWishlisted[country.id],
+          'ion-ios-heart': vm.isWishlisted[country.id]
+          }"></i>
+            </ion-option-button></ion-item>
+      </ion-list>
+    </div>
+
   </ion-content>
+  <div class="float-button">
+   <span class="height-fix">
+      <a class="content" ui-sref="app.addstyle">
+        <i class="ion-arrow-right-c"></i>
+      </a>
+     </span>
+  </div>
 </ion-view>
 

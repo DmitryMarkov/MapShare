@@ -1,17 +1,25 @@
 <ion-view view-title="Stats">
   <ion-content>
     <div class="row">
-      <div class="col col-50">Graph 1</div>
-      <div class="col col-50">Graph 2</div>
+      <div class="col col-50 text-center">
+        <p>Countries of the World</p>
+        <div easypiechart options="options" percent="vm.worldPercent" class="min-chart"><span class="percent">{{ vm.worldPercent }}</span></div>
+      </div>
+      <div class="col col-50 text-center">
+        <p>Countries of Europe</p>
+        <div easypiechart options="options" percent="vm.europePercent" class="min-chart"><span class="percent">{{ vm.europePercent }}</span></div>
+      </div>
     </div>
     <div class="row">
-      <div class="col col-50">Graph 3</div>
-      <div class="col col-50">Graph 4</div>
+      <div class="col col-50 text-center">
+        <p>Countries of America</p>
+        <div easypiechart options="options" percent="vm.americaPercent" class="min-chart"><span class="percent">{{ vm.americaPercent }}</span></div>
+      </div>
+      <div class="col col-50 text-center">
+        <p>Related to other users</p>
+        <div easypiechart options="options" percent="vm.usersPercent" class="min-chart"><span class="percent">{{ vm.usersPercent }}</span></div>
+      </div>
     </div>
-    <div class="row">
-      <label class="item">
-        <button class="button button-full button-balanced" type="submit">Share</button>
-      </label>
-    </div>
+        <button class="button button-block button-balanced" type="submit">Share</button>
   </ion-content>
 </ion-view>

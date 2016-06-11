@@ -251,10 +251,46 @@
     },
     {
       "id": "sDOTojH8JmhDUYM4EcOtipnQAkKG",
-      "visited": [],
+      "visited": [
+        "CN",
+        "AU",
+        "NZ",
+        "BR",
+        "AL",
+        "AQ"
+      ],
       "wishlist": [],
       "settings": [],
-      "maps": []
+      "maps": [
+        {
+          "id": "aAVQf55kdK",
+          "date": "2016-06-11T16:07:47.347Z",
+          "countries": [
+            "CN",
+            "AU",
+            "NZ",
+            "BR",
+            "AL",
+            "AQ"
+          ],
+          "wishlist": [],
+          "styleId": 3
+        },
+        {
+          "id": "pnmzrHeCcG",
+          "date": "2016-06-11T16:09:23.437Z",
+          "countries": [
+            "CN",
+            "AU",
+            "NZ",
+            "BR",
+            "AL",
+            "AQ"
+          ],
+          "wishlist": [],
+          "styleId": 3
+        }
+      ]
     }
   ]
 }

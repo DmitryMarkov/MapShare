@@ -1,0 +1,15 @@
+<ion-view view-title="Share map">
+  <ion-content>
+
+    <div id="container"></div>
+    <button class="button button-block button-balanced"
+            type="button">{{ ::init.messages.map_share }}</button>
+    <button ng-click="vm.saveMap()"
+            class="button button-block button-balanced"
+            type="button">{{ ::init.messages.map_save }}</button>
+    <button class="button button-block button-balanced show-popover"
+            type="button"
+            data-toggle="popover"
+            data-placement="bottom">{{ ::init.messages.map_show }}</button>
+  </ion-content>
+</ion-view>

@@ -111,11 +111,13 @@ angular.module('mapshare.controllers', [])
 
 
   /* @ngInject */
-  function CountriesController($rootScope, $state, continents) {
+  function CountriesController($rootScope, $scope, $state, continents) {
 
     if(!$rootScope.user.visited.length) {
       $state.go("app.home", {}, {})
     }
+
+    $scope.listCanSwipe = true;
 
     var vm = this;
     vm.continents = continents;
@@ -137,10 +139,13 @@ angular.module('mapshare.controllers', [])
   }
 
   /* @ngInject */
-  function CountriesAddController($rootScope, continents, UsersService) {
+  function CountriesAddController($rootScope, $scope, continents, UsersService) {
 
     //$rootScope.header = $rootScope.init.messages.header_addcountries;
     //$rootScope.tabSelect(1);
+
+
+    $scope.listCanSwipe = true;
 
     var vm = this;
     vm.show = [];
@@ -377,7 +382,7 @@ angular.module('mapshare.controllers', [])
       else
         Highcharts.setOptions(Highcharts.theme1);
     }
-
+/*
     $('.show-popover').popover({
       html: true,
       title: '',
@@ -388,7 +393,7 @@ angular.module('mapshare.controllers', [])
 
     $scope.$on("$locationChangeStart", function() {
       $('.show-popover').popover('hide');
-    });
+    });*/
 
     var vm = this;
 
@@ -605,11 +610,14 @@ angular.module('mapshare.controllers', [])
   }
 
   /* @ngInject */
-  function WishlistController($rootScope, $state, continents, UsersService) {
+  function WishlistController($rootScope, $scope, $state, continents, UsersService) {
 
     if(!$rootScope.user.visited.length) {
       $state.go("app.home", {}, {})
     }
+
+
+    $scope.listCanSwipe = true;
 
     //$rootScope.header = $rootScope.init.messages.menu_wishlist;
     //$rootScope.tabSelect(3);

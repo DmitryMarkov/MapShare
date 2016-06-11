@@ -9814,3 +9814,68 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+body, .pane {
+  background-image: linear-gradient(to bottom, #1345b7 0%, #1c85ee 100%);
+  background-repeat: no-repeat;
+  color: white;
+  background-attachment: fixed; }
+
+.pane H2 {
+  color: white;
+  margin-bottom: 1em; }
+
+.pane H4 {
+  color: white;
+  margin-left: 1em; }
+
+.pane .home-img {
+  margin-top: 2em; }
+
+.float-button {
+  background-color: #41CD9e;
+  opacity: 0.9;
+  color: white;
+  border-radius: 50%;
+  /*border-radius:15% 0 0 0;*/
+  width: 30px;
+  padding: 25px;
+  font-size: 20px;
+  position: fixed;
+  bottom: 3em;
+  /* Adjust height */
+  right: 5%;
+  /* Adjust position */
+  z-index: 1000; }
+  .float-button .height_fix {
+    margin-top: 100%;
+    border: 1px solid red; }
+  .float-button .content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin-top: -10px;
+    color: white; }
+
+.min-chart {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 110px;
+  height: 110px; }
+  .min-chart .percent {
+    z-index: 2;
+    line-height: 110px;
+    display: inline-block; }
+  .min-chart .percent:after {
+    content: '%';
+    margin-left: .1em;
+    font-size: .8em; }
+  .min-chart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: baseline; }
