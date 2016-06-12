@@ -47,8 +47,6 @@
         closeOnClick: true // Closes side-nav on <a> clicks
       });
 
-    //sideNav('hide');
-
     var vm = this;
     vm.setLang = setLang;
     vm.logout = logout;
@@ -72,9 +70,6 @@
   function FooterController($scope) {
     var vm = this;
 
-    //vm.tab;
-    //vm.select = select;
-    //vm.isSelected = isSelected;
   }
 
   /* @ngInject */
@@ -84,18 +79,16 @@
       $state.go("app", {}, {})
     }
 
+    $rootScope.header = $rootScope.init.messages.menu_countries;
+    $rootScope.tabSelect(1);
+
     var vm = this;
     vm.continents = continents;
     vm.visited = $rootScope.user.visited;
 
-    $rootScope.header = $rootScope.init.messages.menu_countries;
-    $rootScope.tabSelect(1);
-
-
     vm.checkCountry = checkCountry;
 
     function checkCountry(cid) {
-
       if(vm.visited.indexOf(cid) != -1) {
         return true;
       }
@@ -141,16 +134,14 @@
         if (vm.wishlist.indexOf(cid) != -1) {
           vm.wishlist.splice(vm.wishlist.indexOf(cid), 1);
           vm.isWishlisted[cid] = undefined;
-          console.log(vm.wishlist);
         }
       }
       else {
         var index = countryIndex;
         vm.visited.splice(index, 1);
       }
-      console.log(vm.visited);
+      // save to DB
       $rootScope.user.visited = vm.visited;
-
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
     }
 
@@ -166,8 +157,6 @@
         vm.wishlist.splice(index, 1);
         vm.isWishlisted[cid] = undefined;
       }
-      console.log(vm.isWishlisted);
-
 
       $rootScope.user.wishlist = vm.wishlist;
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
@@ -181,14 +170,11 @@
     $rootScope.header = $rootScope.init.messages.header_addstyles;
     $rootScope.tabSelect(1);
 
-    var vm = this;
     $rootScope.init.theme = $rootScope.init.theme || 0;
 
-    vm.setTheme = setTheme;
-    //vm.countries = $rootScope.user.visited;
-    //vm.wishlist = $rootScope.user.wishlist;
+    var vm = this;
 
-    // TODO: save visited to DB
+    vm.setTheme = setTheme;
 
     var visitedLength =  $rootScope.user.visited.length;
     var visited =  $rootScope.user.visited;
@@ -198,6 +184,7 @@
     var wishlist = $rootScope.user.wishlist;
     var wishlistData = [];
 
+    // convert data to HighMaps format
     for(var i = 0; i < visitedLength; ++i) {
       visitedData[i] = {
         "code": visited[i]
@@ -212,9 +199,14 @@
 
     function setTheme(theme) {
       $rootScope.init.theme = theme;
-      if (theme == 2) Highcharts.setOptions(Highcharts.theme2);
-      else if (theme == 3) Highcharts.setOptions(Highcharts.theme3);
-      else Highcharts.setOptions(Highcharts.theme1);
+      if (theme == 2)
+        Highcharts.setOptions(Highcharts.theme2);
+      else if (theme == 3)
+        Highcharts.setOptions(Highcharts.theme3);
+      else
+        Highcharts.setOptions(Highcharts.theme1);
+
+      // refresh the page after setting another theme
       $state.go($state.current, {}, { reload: true, inherit: true, notify: true });
     }
 
@@ -257,6 +249,7 @@
     // Apply the theme
     if (!$rootScope.init.theme) {
       Highcharts.setOptions(Highcharts.theme1);
+      // default theme
       $rootScope.init.theme = 1;
     }
 
@@ -277,7 +270,7 @@
       mapNavigation: {
         enabled: false,
         buttonOptions: {
-            verticalAlign: 'bottom'
+          verticalAlign: 'bottom'
         }
       },
 
@@ -334,7 +327,6 @@
       //TODO: save PNG map to server and paste link to map object
 
       $rootScope.user.maps.push(map);
-
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
 
       if ($rootScope.init.theme == 2)
@@ -353,6 +345,7 @@
       trigger: 'click'
     })
 
+    // forcing popover hiding
     $scope.$on("$locationChangeStart", function() {
       $('.show-popover').popover('hide');
     });
@@ -367,13 +360,13 @@
       chart.exportChart();
     }
 
-    // TODO: copy to clipboard
+    // TODO: copy to clipboard (that's not easy!)
     function copyLink(url) {
       console.log(url);
     }
 
-    console.log($rootScope.init.theme);
-    console.log(Highcharts.theme1);
+    //console.log($rootScope.init.theme);
+    //console.log(Highcharts.theme1);
 
     var visitedLength =  $rootScope.user.visited.length;
     var visited =  $rootScope.user.visited;
@@ -388,7 +381,7 @@
     $('#container').highcharts('Map', {
 
       title : {
-          text : ''
+        text : ''
       },
 
       credits: {
@@ -402,7 +395,7 @@
       mapNavigation: {
         enabled: true,
         buttonOptions: {
-            verticalAlign: 'bottom'
+          verticalAlign: 'bottom'
         }
       },
 
@@ -456,6 +449,7 @@
 
   /* @ngInject */
   function MapDetailsController($rootScope, $stateParams) {
+
     $rootScope.header = $rootScope.init.messages.menu_maps;
     $rootScope.tabSelect(2);
 
@@ -519,9 +513,12 @@
       }
     };
 
-    if (theme == 2) Highcharts.setOptions(Highcharts.theme2);
-    else if (theme == 3) Highcharts.setOptions(Highcharts.theme3);
-    else Highcharts.setOptions(Highcharts.theme1);
+    if (theme == 2)
+      Highcharts.setOptions(Highcharts.theme2);
+    else if (theme == 3)
+      Highcharts.setOptions(Highcharts.theme3);
+    else
+      Highcharts.setOptions(Highcharts.theme1);
 
     for(var i = 0; i < visitedLength; ++i) {
       visitedData[i] = {
@@ -532,7 +529,7 @@
     $('#container').highcharts('Map', {
 
       title : {
-          text : ''
+        text : ''
       },
 
       credits: {
@@ -546,7 +543,7 @@
       mapNavigation: {
         enabled: true,
         buttonOptions: {
-            verticalAlign: 'bottom'
+          verticalAlign: 'bottom'
         }
       },
 
@@ -593,14 +590,11 @@
     vm.continents = continents;
     vm.wish = [];
 
-
     if(vm.wishlist.length) {
       vm.hasWishlist = true;
     } else {
       vm.hasWishlist = false;
     }
-
-    console.log(vm.wishlist);
 
     vm.doVisited = doVisited;
     vm.justDelete = justDelete;
@@ -610,14 +604,12 @@
       vm.visited.push(visited);
       vm.wishlist.splice(vm.wishlist.indexOf(visited),1);
 
-
       $rootScope.user.wishlist = vm.wishlist;
       $rootScope.user.visited = vm.visited;
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
 
       vm.wish[visited] = true;
       toastr.info('Marked as visited', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
-
     }
 
     function justDelete(deleted) {
@@ -628,7 +620,6 @@
 
       vm.wish[deleted] = true;
       toastr.info('Wish was deleted', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
-
     }
 
     function checkCountry(cid) {
@@ -649,7 +640,6 @@
     $rootScope.tabSelect(4);
 
     var vm = this;
-    // TODO fetch real data
     var visitedTotal = $rootScope.user.visited.length;
     var visitedEurope = 1;
     var visitedAmerica = 3;
@@ -658,15 +648,11 @@
     var totalAmerica = 4;
     var totalUsers = 1;
 
-
-
     vm.worldPercent = Math.round((100 / totalCountries) * visitedTotal);
     vm.europePercent = Math.round((100 / totalEurope) * visitedEurope);
     vm.americaPercent = Math.round((100 / totalAmerica) * visitedAmerica);
     vm.usersPercent = 100;
-    //$scope.percent2 = 100;
 
-    //$scope.percent = 65;
     $scope.options = {
       animate:{
         duration:1000,
@@ -677,8 +663,6 @@
       lineWidth:4,
       lineCap:'circle'
     };
-
-
   }
 
 
@@ -712,7 +696,7 @@
       $rootScope.user.feedback.push(vm.feedbackData);
       // save data
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
-      // TODO: check if no error
+
       toastr.info('Feedback sent', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
       vm.submitted = true;
@@ -721,6 +705,7 @@
 
   /* @ngInject */
   function LoginController($rootScope) {
+
     $rootScope.header = $rootScope.init.messages.side_login;
     $rootScope.tabSelect(0);
 
@@ -734,10 +719,12 @@
     vm.openRegister = openRegister;
 
     function doLogin() {
+      // disabled for testing purposes
       console.log('do login');
     }
 
     function openRegister() {
+      // disabled for testing purposes
       console.log('open register');
     }
 
@@ -745,10 +732,11 @@
 
   /* @ngInject */
   function SettingsController($rootScope,
-                               $state,
-                               $localStorage,
-                               InitializeService,
-                               UsersService) {
+                              $state,
+                              $localStorage,
+                              InitializeService,
+                              UsersService) {
+
     $rootScope.header = $rootScope.init.messages.side_settings;
     $rootScope.tabSelect(0);
 
@@ -773,10 +761,6 @@
       InitializeService.initialize(lang);
 
       $state.go($state.current, {}, {reload: true});
-      /*$state.transitionTo(
-        $state.current,
-        $state.$current.params,
-        { reload: true, inherit: true, notify: true });*/
     }
 
     function doSettings() {
@@ -803,7 +787,6 @@
 
     $rootScope.header = $rootScope.init.messages.side_about;
     $rootScope.tabSelect(0);
-
   }
 
 })();

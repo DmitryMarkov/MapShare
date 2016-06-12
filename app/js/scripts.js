@@ -1,13 +1,7 @@
 function init() {
-
-  // Initialize collapsible
-  //$('.collapsible').collapsible();
-
-
-
+ // for 3rd-party plugins
 }
 
 $(document).ready(function() {
   init();
-
 });

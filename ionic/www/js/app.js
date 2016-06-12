@@ -74,29 +74,7 @@ angular.module('starter', [
       }
     }
   })
-  /*.state('tabs', {
-    url: "/tab",
-    abstract: true,
-    templateUrl: "templates/tabs.html"
-  })*/
-  /*.state('tabs.countries', {
-    url: "/countries",
-    views: {
-      'countries-tab': {
-        templateUrl: "templates/countries.html",
-        controller: 'CountriesController'
-      }
-    }
-  })
-  .state('tabs.maps', {
-    url: "/maps",
-    views: {
-      'mainContent': {
-        templateUrl: "templates/maps.html",
-        controller: 'MapsController'
-      }
-    }
-  })*/
+
   .state('app.countries', {
       url: '/countries',
       views: {
@@ -199,51 +177,7 @@ angular.module('starter', [
         controllerAs: 'vm'
       }
     }
-  })
-
-
-  /*
-   .state('app.single', {
-    url: "/playlists/:playlistId",
-    views: {
-      'countries-tab': {
-        templateUrl: "templates/stats.html"
-      }
-    }
-  })
-  .state('app.feedback', {
-    url: '/feedback',
-    views: {
-      'countries-tab': {
-        templateUrl: 'templates/feedback.html',
-        controller: 'StatsController',
-        controllerAs: 'vm'
-      }
-    }
-  })
-
-  .state('app.about', {
-    url: '/about',
-    views: {
-      'countries-tab': {
-        templateUrl: 'templates/about.html',
-        controller: 'StatsController',
-        controllerAs: 'vm'
-      }
-    }
-  })
-
-  .state('app.settings', {
-    url: '/settings',
-    views: {
-      'countries-tab': {
-        templateUrl: 'templates/settings.html',
-        controller: 'StatsController',
-        controllerAs: 'vm'
-      }
-    }
-  })*/
-        ;
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/countries');
 });

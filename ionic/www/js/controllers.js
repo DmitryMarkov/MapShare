@@ -132,10 +132,6 @@ angular.module('mapshare.controllers', [])
     vm.continents = continents;
     vm.visited = $rootScope.user.visited;
 
-    //$rootScope.header = $rootScope.init.messages.menu_countries;
-    //$rootScope.tabSelect(1);
-
-
     vm.checkCountry = checkCountry;
 
     function checkCountry(cid) {
@@ -149,10 +145,6 @@ angular.module('mapshare.controllers', [])
 
   /* @ngInject */
   function CountriesAddController($rootScope, $scope, continents, UsersService) {
-
-    //$rootScope.header = $rootScope.init.messages.header_addcountries;
-    //$rootScope.tabSelect(1);
-
 
     $scope.listCanSwipe = true;
 
@@ -188,14 +180,12 @@ angular.module('mapshare.controllers', [])
         if (vm.wishlist.indexOf(cid) != -1) {
           vm.wishlist.splice(vm.wishlist.indexOf(cid), 1);
           vm.isWishlisted[cid] = undefined;
-          console.log(vm.wishlist);
         }
       }
       else {
         var index = countryIndex;
         vm.visited.splice(index, 1);
       }
-      console.log(vm.visited);
       $rootScope.user.visited = vm.visited;
 
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
@@ -213,8 +203,6 @@ angular.module('mapshare.controllers', [])
         vm.wishlist.splice(index, 1);
         vm.isWishlisted[cid] = undefined;
       }
-      console.log(vm.isWishlisted);
-
 
       $rootScope.user.wishlist = vm.wishlist;
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
@@ -225,22 +213,10 @@ angular.module('mapshare.controllers', [])
   /* @ngInject */
   function AddStyleController($rootScope, $scope, $state, $ionicHistory) {
 
-    //$rootScope.header = $rootScope.init.messages.header_addstyles;
-    //$rootScope.tabSelect(1);
-
-    /*$scope.$on("$ionicView.enter", function () {
-       $ionicHistory.clearCache();
-       $ionicHistory.clearHistory();
-    });*/
-
     var vm = this;
     $rootScope.init.theme = $rootScope.init.theme || 0;
 
     vm.setTheme = setTheme;
-    //vm.countries = $rootScope.user.visited;
-    //vm.wishlist = $rootScope.user.wishlist;
-
-    // TODO: save visited to DB
 
     var visitedLength =  $rootScope.user.visited.length;
     var visited =  $rootScope.user.visited;
@@ -367,9 +343,6 @@ angular.module('mapshare.controllers', [])
   /* @ngInject */
   function FinishController($rootScope, $scope, UsersService) {
 
-    //$rootScope.header = $rootScope.init.messages.header_finish;
-    //$rootScope.tabSelect(1);
-
     if ($rootScope.init.theme) {
 
       // object to save
@@ -400,18 +373,6 @@ angular.module('mapshare.controllers', [])
       else
         Highcharts.setOptions(Highcharts.theme1);
     }
-/*
-    $('.show-popover').popover({
-      html: true,
-      title: '',
-      template: '<div class="popover" role="tooltip"><div class="popover-arrow"></div><div class="popover-content"></div></div>',
-      content: 'http://mapshare.me/#/maps/' + map.id,
-      trigger: 'click'
-    })
-
-    $scope.$on("$locationChangeStart", function() {
-      $('.show-popover').popover('hide');
-    });*/
 
     var vm = this;
 
@@ -499,9 +460,6 @@ angular.module('mapshare.controllers', [])
       }
     });
 
-    //$rootScope.header = $rootScope.init.messages.menu_maps;
-    //$rootScope.tabSelect(2);
-
     var vm = this;
 
 
@@ -515,15 +473,8 @@ angular.module('mapshare.controllers', [])
 
   /* @ngInject */
   function MapDetailsController($rootScope, $stateParams) {
-    //$rootScope.header = $rootScope.init.messages.menu_maps;
-    //$rootScope.tabSelect(2);
-
-    // TODO: change OG in header (meta)
-    // http://www.michaelbromley.co.uk/blog/171/enable-rich-social-sharing-in-your-angularjs-app
-    // or https://github.com/tinusn/ui-router-metatags
 
     var vm = this;
-    // TODO: make variables local
     vm.id = $stateParams.id;
     vm.map = null;
     vm.maps = $rootScope.user.maps;
@@ -541,7 +492,6 @@ angular.module('mapshare.controllers', [])
     var visitedData = [];
     var theme = vm.map.styleId;
 
-    // TODO: get rid of duplicate theme setting
     Highcharts.theme1 = {
       colors: ["#1c85ee", "#41CD9e", "#DF5353"],
       plotOptions: {
@@ -645,11 +595,7 @@ angular.module('mapshare.controllers', [])
       }
     });
 
-
     $scope.listCanSwipe = true;
-
-    //$rootScope.header = $rootScope.init.messages.menu_wishlist;
-    //$rootScope.tabSelect(3);
 
     var vm = this;
     vm.wishlist = $rootScope.user.wishlist;
@@ -661,10 +607,6 @@ angular.module('mapshare.controllers', [])
     } else {
       vm.hasWishlist = false;
     }
-
-    //console.log(vm.hasWishlist);
-
-    //console.log(vm.wishlist);
 
     vm.doVisited = doVisited;
     vm.justDelete = justDelete;
@@ -680,7 +622,6 @@ angular.module('mapshare.controllers', [])
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
 
       vm.wish[visited] = true;
-      toastr.info('Marked as visited', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
 
     }
 
@@ -691,8 +632,6 @@ angular.module('mapshare.controllers', [])
       UsersService.update({id: $rootScope.user.id}, $rootScope.user);
 
       vm.wish[deleted] = true;
-      toastr.info('Wish was deleted', '', {positionClass: 'toast-bottom-center', timeOut: 1500});
-
     }
 
     function checkCountry(cid) {
@@ -711,11 +650,7 @@ angular.module('mapshare.controllers', [])
       }
     });
 
-    //$rootScope.header = $rootScope.init.messages.menu_stats;
-    //$rootScope.tabSelect(4);
-
     var vm = this;
-    // TODO fetch real data
     var visitedTotal = $rootScope.user.visited.length;
     var visitedEurope = 1;
     var visitedAmerica = 3;
@@ -724,15 +659,11 @@ angular.module('mapshare.controllers', [])
     var totalAmerica = 4;
     var totalUsers = 1;
 
-
-
     vm.worldPercent = Math.round((100 / totalCountries) * visitedTotal);
     vm.europePercent = Math.round((100 / totalEurope) * visitedEurope);
     vm.americaPercent = Math.round((100 / totalAmerica) * visitedAmerica);
     vm.usersPercent = 100;
-    //$scope.percent2 = 100;
 
-    //$scope.percent = 65;
     $scope.options = {
       animate:{
         duration:1000,
@@ -750,9 +681,6 @@ angular.module('mapshare.controllers', [])
 
   /* @ngInject */
   function FeedbackController($rootScope, UsersService) {
-
-    //$rootScope.header = $rootScope.init.messages.side_feedback;
-    //$rootScope.tabSelect(0);
 
     var name = $rootScope.user.name || '';
     var email = $rootScope.user.email || '';
@@ -783,8 +711,6 @@ angular.module('mapshare.controllers', [])
 
   /* @ngInject */
   function LoginController($rootScope) {
-    //$rootScope.header = $rootScope.init.messages.side_login;
-    //$rootScope.tabSelect(0);
 
     var vm = this;
     vm.loginData = {
@@ -811,8 +737,6 @@ angular.module('mapshare.controllers', [])
                                $localStorage,
                                InitializeService,
                                UsersService) {
-    //$rootScope.header = $rootScope.init.messages.side_settings;
-    //$rootScope.tabSelect(0);
 
     var name = $rootScope.user.name || '';
     var country = $rootScope.user.home_country || '';
@@ -835,10 +759,6 @@ angular.module('mapshare.controllers', [])
       InitializeService.initialize(lang);
 
       $state.go($state.current, {}, {reload: true});
-      /*$state.transitionTo(
-        $state.current,
-        $state.$current.params,
-        { reload: true, inherit: true, notify: true });*/
     }
 
     function doSettings() {
@@ -862,8 +782,5 @@ angular.module('mapshare.controllers', [])
 
     var vm = this;
     vm.version = CONFIG.APPVER;
-
-    //$rootScope.header = $rootScope.init.messages.side_about;
-    //$rootScope.tabSelect(0);
 
   }

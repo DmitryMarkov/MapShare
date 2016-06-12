@@ -5,9 +5,7 @@
     .factory('AuthorizeService', AuthorizeService)
     .factory('InitializeService', InitializeService)
     .factory('CountriesService', CountriesService)
-    .factory('UsersService', UsersService)
-    .factory('MapsService', MapsService)
-    .factory('SampleHttpService', SampleHttpService);
+    .factory('UsersService', UsersService);
 
   /**
    * @name AuthorizeService
@@ -101,7 +99,6 @@
             }
           },
           function(response) {
-
             console.log("Something went wrong");
             console.log(response.data);
           });
@@ -174,12 +171,10 @@
       var init = {};
       var lang = lang || $localStorage.language || 'EN';
 
-      //console.log(lang);
       //TODO: make a check of imported value
-      //init.language = $localStorage.language || 'EN';
       init.language = lang;
 
-      //TODO: throw exseption if not found
+      //TODO: throw exception if not found
       $http.get('lang/' + init.language + '.json')
         .then(function(res) {
           init.messages = res.data;
@@ -222,85 +217,5 @@
         method: 'PUT'
       }
     });
-
-    /*return $resource(CONFIG.BASEURL + 'users/:id', null, {
-      'update': {
-          method: 'PUT'
-      }
-    });*/
-
-    /*var service = {
-      initialize: initialize
-    };
-
-    return service;*/
-    ////
-
-  }
-
-  /**
-   * @name MapsService
-   * @desc Retrieve map lists
-   */
-
-  /* @ngInject */
-  function MapsService($resource, CONFIG, $rootScope) {
-
-    return $resource(CONFIG.BASEURL + 'maps');
-
-  }
-
-  /* @ngInject */
-  function CountriesServiceOld($resource, CONFIG, $http, $rootScope) {
-    var service = {
-      getCountries: getCountries
-    };
-
-    return service;
-    ////
-
-    function getCountries() {
-      //var countries = ['Bulgaria','Albania','Estonia'];
-      var earth = {};
-
-      $http.get(CONFIG.BASEURL + $rootScope.init.language + '/1')
-       .then(function(res) {
-          earth = res.data;
-          console.log(res.data.continents);
-        });
-      console.log(earth);
-      return earth;
-    }
-  }
-
-  /* @ngInject */
-  function SampleHttpService($q, $http, $log, CONFIG) {
-    var service = {
-      getCustomer: getCustomer
-    };
-
-    return service;
-    ////
-
-
-    function getCustomer(id) {
-      return $http.get(CONFIG.BASEURL + '/api/customer/' + id)
-          .then(getCustomerComplete)
-          .catch(getCustomerFailed);
-
-      function getCustomerComplete(data, status, headers, config) {
-          return data.data;
-      }
-
-      function getCustomerFailed(e) {
-          var newMessage = 'XHR Failed for getCustomer'
-          if (e.data && e.data.description) {
-            newMessage = newMessage + '\n' + e.data.description;
-          }
-          e.data.description = newMessage;
-          $log.error(newMessage);
-          return $q.reject(e);
-      }
-    }
   }
 })();

@@ -172,9 +172,7 @@ angular.module('mapshare.services', [])
       var init = {};
       var lang = lang || $localStorage.language || 'EN';
 
-      //console.log(lang);
       //TODO: make a check of imported value
-      //init.language = $localStorage.language || 'EN';
       init.language = lang;
 
       //TODO: throw exseption if not found
@@ -183,16 +181,7 @@ angular.module('mapshare.services', [])
           init.messages = res.data;
           $rootScope.init = init;
       });
-
-      /*$rootScope.tabSelect = function (tab) {
-        $rootScope.tab = tab;
-      }
-
-      $rootScope.isSelected = function (tab) {
-        return ($rootScope.tab === tab);
-      }*/
     }
-
   }
 
   /**
@@ -204,7 +193,6 @@ angular.module('mapshare.services', [])
   function CountriesService($resource, CONFIG, $rootScope) {
 
     return $resource(CONFIG.BASEURL + 'continents');
-
   }
 
   /**
