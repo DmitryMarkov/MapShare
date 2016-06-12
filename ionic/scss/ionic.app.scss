@@ -18,6 +18,7 @@ $dark:                            #444 !default;
 $positive:                        #1345b7 !default; //my darkblue
 $calm:                            #1c85ee !default; //my lightblue
 $balanced:                        #41CD9e !default; //my green
+$dark:                            #777c84 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
@@ -64,6 +65,7 @@ body, .pane {
   bottom: 3em; /* Adjust height */
   right: 5%; /* Adjust position */
   z-index: 1000;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 
   .height_fix {
     margin-top: 100%;

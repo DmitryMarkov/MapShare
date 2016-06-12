@@ -10,10 +10,10 @@
       <p>{{ ::init.messages.feedback_title }}</p>
       <div class="list">
         <label class="item item-input item-floating-label">
-          <span class="input-label">{{ ::init.messages.feedback_name }}</span>
+          <span class="input-label">Name</span>
           <input type="text"
                  ng-model="feedbackData.username"
-                 placeholder="{{ ::init.messages.feedback_name }}">
+                 placeholder="Name">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">E-mail</span>
@@ -24,7 +24,7 @@
           <textarea ng-model="feedbackData.feedback"></textarea>
         </label>
         <label class="item">
-          <button class="button button-full button-balanced" type="submit">Send</button>
+          <button class="button button-full button-balanced" type="submit">{{ ::init.messages.feedback_send }}</button>
         </label>
       </div>
     </form>

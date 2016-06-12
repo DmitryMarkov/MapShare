@@ -1,19 +1,24 @@
 <ion-view view-title="Add style">
   <ion-content>
-
-    <div>
+    <div class="row">
+      <div class="col col-33 text-center">
       <button class="button"
               ng-click="vm.setTheme(1)"
               ng-class="{ active: init.theme == 1 }">
         <i class="ion ion-trophy"></i><br />{{ ::init.messages.countries_style1 }}</button>
+      </div>
+      <div class="col col-33 text-center">
       <button class="button"
               ng-click="vm.setTheme(2)"
               ng-class="{ active: init.theme == 2 }">
         <i class="ion ion-trophy"></i><br />{{ ::init.messages.countries_style2 }}</button>
+      </div>
+      <div class="col col-33 text-center">
       <button class="button"
               ng-click="vm.setTheme(3)"
               ng-class="{ active: init.theme == 3 }">
         <i class="ion ion-trophy"></i><br />{{ ::init.messages.countries_style3 }}</button>
+      </div>
     </div>
     <div id="container"></div>
 

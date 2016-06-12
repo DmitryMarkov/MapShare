@@ -34,21 +34,25 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left" id="sidemenu">
-    <ion-header-bar class="bar-stable">
+    <ion-header-bar class="bar-dark">
       <h1 class="title">Not logged in</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
         <ion-item menu-close ng-click="login()">
+          <i class="ion-log-in"></i>
           Login
         </ion-item>
         <ion-item menu-close ng-click="feedback()">
+          <i class="ion-chatboxes"></i>
           Feedback
         </ion-item>
         <ion-item menu-close ng-click="about()">
+          <i class="ion-help-circled"></i>
           About
         </ion-item>
         <ion-item menu-close ng-click="settings()">
+          <i class="ion-ios-gear"></i>
           Settings
         </ion-item>
       </ion-list>
