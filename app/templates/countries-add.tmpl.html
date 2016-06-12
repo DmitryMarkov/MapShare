@@ -4,14 +4,14 @@
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 
         <div ng-show="vm.visited.length" id="visitedLength">
-          <p>{{ ::init.messages.countries_visited }}: {{ vm.visited.length }} <ng-pluralize count="vm.visited.length" when="{
+          <p>{{ ::init.messages.countries_visited }}: {{ vm.visited.length }}&nbsp;<ng-pluralize count="vm.visited.length" when="{
             'one': init.messages.countries_one,
             '2': init.messages.countries_two,
             '3': init.messages.countries_two,
             '4': init.messages.countries_two,
             'other': init.messages.countries_many
             }"></ng-pluralize></p>
-          <p>{{ ::init.messages.countries_wishlist }}: {{ vm.wishlist.length }} <ng-pluralize count="vm.wishlist.length" when="{
+          <p>{{ ::init.messages.countries_wishlist }}: {{ vm.wishlist.length }}&nbsp<ng-pluralize count="vm.wishlist.length" when="{
             'one': init.messages.countries_one,
             '2': init.messages.countries_two,
             '3': init.messages.countries_two,

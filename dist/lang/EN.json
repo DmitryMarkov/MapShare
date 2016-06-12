@@ -38,6 +38,9 @@
   "countries_style2": "Style 2",
   "countries_style3": "Style 3",
 
+  "map_nomap": "There are no maps yet.",
+  "wishlist_nowishlist": "There are no countries in wishlist yet.",
+
   "map_share": "Share map",
   "map_save": "Save as PNG",
   "map_show": "Show link",

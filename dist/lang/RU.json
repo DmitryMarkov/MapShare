@@ -38,6 +38,9 @@
   "countries_style2": "Стиль 2",
   "countries_style3": "Стиль 3",
 
+  "map_nomap": "Вы не создали ни одной карты.",
+  "wishlist_nowishlist": "Список желаний пуст.",
+
   "map_share": "Поделиться картой",
   "map_save": "Сохранить на диск",
   "map_show": "Показать ссылку",
