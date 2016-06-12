@@ -9,6 +9,7 @@ ionic/node_modules/
 ionic/platforms/
 ionic/plugins/
 
+server/node_modules/
 
 .DS_Store*
 Thumbs.db
