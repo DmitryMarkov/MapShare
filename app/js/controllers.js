@@ -446,6 +446,12 @@
 
     var vm = this;
 
+    if($rootScope.user.maps.length) {
+      vm.hasMaps = true;
+    } else {
+      vm.hasMaps = false;
+    }
+
   }
 
   /* @ngInject */
@@ -587,6 +593,13 @@
     vm.continents = continents;
     vm.wish = [];
 
+
+    if(vm.wishlist.length) {
+      vm.hasWishlist = true;
+    } else {
+      vm.hasWishlist = false;
+    }
+
     console.log(vm.wishlist);
 
     vm.doVisited = doVisited;
@@ -691,6 +704,10 @@
 
     function doFeedback() {
       console.log(vm.feedbackData.textarea);
+
+      if(!$rootScope.user.feedback) {
+        $rootScope.user.feedback = [];
+      }
 
       $rootScope.user.feedback.push(vm.feedbackData);
       // save data

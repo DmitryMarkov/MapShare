@@ -2,7 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <ul class="list-group" ng-repeat="continent in vm.continents">
+        <p class="text-xs-center white"
+           ng-hide="vm.hasWishlist">{{ ::init.messages.wishlist_nowishlist }}</p>
+        <ul class="list-group"
+            ng-repeat="continent in vm.continents"
+            ng-show="vm.hasWishlist">
           <li class="list-group-item"
               ng-hide="vm.wish[country.id]"
               ng-repeat="country in continent.countries"
