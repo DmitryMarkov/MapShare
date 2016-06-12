@@ -10,8 +10,18 @@ var authenticate = require('./authenticate');
 
 var config = require('./config');
 
+mongoose.connect(config.mongoUrl);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+    // we're connected!
+    console.log("Connected correctly to server");
+});
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var countryRouter = require('./routes/countriesRouter');
+var usersRouter = require('./routes/usersRouter');
 
 var app = express();
 
@@ -25,10 +35,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(passport.initialize());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/auth', users);
+app.use('/users', usersRouter);
+app.use('/continents', countryRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
