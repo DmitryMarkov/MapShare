@@ -501,11 +501,25 @@
     {
       "id": "4rWAVxgj2W67pOd86fXvtjUZj7cw",
       "visited": [
-        "AQ"
+        "AQ",
+        "EG"
       ],
-      "wishlist": [],
+      "wishlist": [
+        "US"
+      ],
       "settings": [],
-      "maps": [],
+      "maps": [
+        {
+          "id": "Kp9szgnuNd",
+          "date": "2016-11-07T09:36:28.774Z",
+          "countries": [
+            "AQ",
+            "EG"
+          ],
+          "wishlist": [],
+          "styleId": 1
+        }
+      ],
       "language": "EN",
       "name": ""
     }

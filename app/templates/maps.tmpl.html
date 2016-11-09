@@ -1,11 +1,11 @@
 <section id="maps">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 col-xl-4 col-xl-offset-4 text-xs-center"
+      <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4 text-xs-center"
            ng-hide="vm.hasMaps">
         <p>{{ ::init.messages.map_nomap }}</p>
       </div>
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-0 col-xl-4 col-xl-offset-0"
+      <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-0 col-xl-4 offset-xl-0"
            ng-repeat="map in user.maps | orderBy: '-date'"
            ng-show="vm.hasMaps">
 

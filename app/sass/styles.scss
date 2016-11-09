@@ -1,7 +1,8 @@
 
 
-//@import "bootstrap/bootstrap";
-@import "mdb";
+@import "bootstrap";
+//@import "mdb";
+@import "mdb3";
 @import "ionicons";
 //@import "materialize";
 @import "../../static/mdb/mdbf2.min.css";
@@ -224,7 +225,7 @@ footer {
 
 #wishlist {
   color: #0275d8;
-  .label {
+  .tag {
     font-size: 100%;
     border-radius: 10rem;
     margin-left: 0.6em;
@@ -261,6 +262,13 @@ footer {
 #toast-container {
   margin-bottom: 80px;
 }
+
+/* Bootstrap rewriting */
+
+.form-control:focus {
+  background-color: transparent;
+}
+
 
 /* MDB rewriting */
 

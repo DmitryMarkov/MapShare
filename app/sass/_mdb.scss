@@ -1,12 +1,25 @@
 /*!
- * Material Design for Bootstrap
- * Version: MDB FREE: 3.3.3
+ * Material Design for Bootstrap 4
+ * Version: MDB PRO 4.1.1
  *
  *
  * Copyright: Material Design for Bootstrap
- * www.mdbootstrap.com
+ * http://mdbootstrap.com/
  *
- * Read the license: http://mdbootstrap.com/wp-content/uploads/2015/09/MDB-License.pdf
+ * Read the license: http://mdbootstrap.com/license/
+ *
+ *
+ * Documentation: http://mdbootstrap.com/
+ *
+ * Getting started: http://mdbootstrap.com/getting-started/
+ *
+ * Tutorials: http://mdbootstrap.com/bootstrap-tutorial/
+ *
+ * Templates: http://mdbootstrap.com/templates/
+ *
+ * Support: http://mdbootstrap.com/forums/forum/support/
+ *
+ * Contact: office@mdbootstrap.com
  *
  * Atribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js , Hammer.js
  *
@@ -15,48 +28,74 @@
 @charset "UTF-8";
 
 // MDB Framework //
+$roboto-font-path: "../../lib/MDB-Pro/font/roboto/" !default;
 
 // Mixins
-@import "mdb/free/prefixer";
-@import "mdb/free/mixins";
-
-@import "mdb/free/color";
+@import "../../lib/MDB-Pro/sass/mdb/free/data/prefixer";
+@import "../../lib/MDB-Pro/sass/mdb/free/data/mixins";
 
 // Variables
-@import "mdb/free/variables";
-
-// Reset
-@import "mdb/free/normalize";
+@import "custom";
+@import "../../lib/MDB-Pro/sass/mdb/free/data/colors";
+@import "../../lib/MDB-Pro/sass/mdb/free/data/variables-b4";
+@import "../../lib/MDB-Pro/sass/mdb/free/data/variables";
 
 //Global
-@import "mdb/free/global";
+@import "../../lib/MDB-Pro/sass/mdb/free/global";
 
-// Components
-@import "mdb/free/roboto";
-@import "mdb/free/buttons";
-@import "mdb/free/navbar";
-@import "mdb/free/shadows";
-@import "mdb/free/typography";
-@import "mdb/free/cards";
-@import "mdb/free/dropdown";
-//@import "mdb/free/tooltip";
-@import "mdb/free/scrollspy";
-@import "mdb/free/pagination";
-@import "mdb/free/panel";
-@import "mdb/free/carousel";
-@import "mdb/free/animations";
-@import "mdb/free/forms-basic";
-@import "mdb/free/video-background";
-@import "mdb/free/parallax";
-@import "mdb/free/hover-effects";
-@import "mdb/free/sections";
+// MDB Free
+@import "../../lib/MDB-Pro/sass/mdb/free/roboto";
+@import "../../lib/MDB-Pro/sass/mdb/free/typography";
+@import "../../lib/MDB-Pro/sass/mdb/free/animations";
+@import "../../lib/MDB-Pro/sass/mdb/free/waves";
+@import "../../lib/MDB-Pro/sass/mdb/free/helpers";
+@import "../../lib/MDB-Pro/sass/mdb/free/buttons";
+@import "../../lib/MDB-Pro/sass/mdb/free/forms-basic";
+@import "../../lib/MDB-Pro/sass/mdb/free/cards-basic";
+@import "../../lib/MDB-Pro/sass/mdb/free/navbars";
+@import "../../lib/MDB-Pro/sass/mdb/free/hover-effects";
+@import "../../lib/MDB-Pro/sass/mdb/free/footer";
+//@import "../../lib/MDB-Pro/sass/mdb/free/carousels-basic";
 
-// Animations
-@import "mdb/free/waves";
+// MDB Premium
+@import "../../lib/MDB-Pro/sass/mdb/pro/forms-pro";
+@import "../../lib/MDB-Pro/sass/mdb/pro/tabs";
+@import "../../lib/MDB-Pro/sass/mdb/pro/msc";
+@import "../../lib/MDB-Pro/sass/mdb/pro/progress";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/accordion";
+@import "../../lib/MDB-Pro/sass/mdb/pro/buttons-pro";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/social-buttons";
+@import "../../lib/MDB-Pro/sass/mdb/pro/cards-pro";
+@import "../../lib/MDB-Pro/sass/mdb/pro/dropdowns-pro";
+@import "../../lib/MDB-Pro/sass/mdb/pro/light-box";
+@import "../../lib/MDB-Pro/sass/mdb/pro/side-nav";
+@import "../../lib/MDB-Pro/sass/mdb/pro/navbars-pro";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/carousels-pro";
+@import "../../lib/MDB-Pro/sass/mdb/pro/modals-pro";
+@import "../../lib/MDB-Pro/sass/mdb/pro/toasts";
+@import "../../lib/MDB-Pro/sass/mdb/pro/scrollspy";
+@import "../../lib/MDB-Pro/sass/mdb/pro/charts-pro";
+@import "../../lib/MDB-Pro/sass/mdb/pro/animations-pro";
+@import "../../lib/MDB-Pro/sass/mdb/pro/scrollbar";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/ecommerce";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/skins";
+@import "../../lib/MDB-Pro/sass/mdb/pro/chips";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/parallax";
 
-// Helpers
-@import "mdb/free/helpers";
+// DATE & TIME PICKERS
+//@import "../../lib/MDB-Pro/sass/mdb/pro/date_picker/default.scss";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/date_picker/default.date.scss";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/date_picker/default.time.scss";
 
+// SECTIONS
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/blog";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/magazine";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/pricing";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/testimonials";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/features";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/team";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/form-sets";
+//@import "../../lib/MDB-Pro/sass/mdb/pro/sections/templates";
 
 
 

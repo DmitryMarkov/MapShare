@@ -2,18 +2,25 @@
 /*jslint node: true */
 'use strict';
 var gulp = require('gulp'),
+    sync = require('browser-sync'),
+
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    ngannotate = require('gulp-ng-annotate'),
     replace = require('gulp-html-replace'), // like gulp-usemin
-    sync = require('browser-sync'),
     htmlmin = require('gulp-htmlmin'),
+
+    ngannotate = require('gulp-ng-annotate'),
 
     sass = require('gulp-sass'),
     cleanCSS = require('gulp-clean-css'),
+
     notifier = require('node-notifier'),
     del = require('del');
 
+var paths = {
+  source: "app",
+  export: "dist"
+};
 
 var notify = function(error) {
   var message = 'In: ', title = 'Error: ';
@@ -71,7 +78,7 @@ gulp.task('concat', function() {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/tether/dist/js/tether.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
-      'static/mdb/js/mdbf2.min.js',
+      'lib/MDB-Pro/js/mdb.js',
       'bower_components/highcharts/highmaps.js',
       'bower_components/highcharts/modules/data.js',
       'bower_components/highcharts/modules/exporting.js',
@@ -109,8 +116,8 @@ gulp.task('sass', function() {
 gulp.task('css', function() {
   return gulp.src([
       'bower_components/font-awesome/css/font-awesome.css',
-      'bower_components/bootstrap/dist/css/bootstrap.css',
-      'static/mdb/mdbf2.min.css',
+      //'bower_components/bootstrap/dist/css/bootstrap.css',
+      //'static/mdb/mdbf2.min.css',
       'app/css/styles.css'
   ])
     .pipe(concat('styles.min.css'))
