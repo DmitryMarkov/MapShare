@@ -1,6 +1,6 @@
 {
   "name": "mapshare",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Share your beatiful-styled travel map!",
   "main": "app/index.html",
   "scripts": {
@@ -24,8 +24,8 @@
     "bootstrap": "4.0.0-alpha.5",
     "ionicons": "^2.0.1",
     "font-awesome": "~4.7",
-    "angular": "^1.6.0",
-    "angular-ui-router": "^0.2.18",
+    "angular": "^1.6.1",
+    "angular-ui-router": "^0.3.2",
     "angular-resource": "^1.6.0",
     "angular-mocks": "^1.6.0",
     "tether": "^1.3.7",
