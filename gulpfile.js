@@ -49,7 +49,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('copy', ['clean'], function() {
-  gulp.src(['app/fonts/**/*.{ttf,woff,eof,svg}*','bower_components/font-awesome/fonts/*.{ttf,woff,woff2,eof,svg}'])
+  gulp.src(['app/fonts/**/*.{ttf,woff,eof,svg}*'])
     .pipe(gulp.dest('./dist/fonts'));
   gulp.src('app/images/**/*')
     .pipe(gulp.dest('./dist/images'));
@@ -75,21 +75,21 @@ gulp.task('html', function() {
 
 gulp.task('concat', function() {
 	return gulp.src([
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/tether/dist/js/tether.js',
-      'bower_components/bootstrap/dist/js/bootstrap.js',
+      'node_modules/jquery/dist/jquery.js',
+      'node_modules/tether/dist/js/tether.js',
+      'node_modules/bootstrap/dist/js/bootstrap.js',
       'lib/MDB-Pro/js/mdb.js',
-      'bower_components/highcharts/highmaps.js',
-      'bower_components/highcharts/modules/data.js',
-      'bower_components/highcharts/modules/exporting.js',
+      'node_modules/highcharts/highmaps.js',
+      'node_modules/highcharts/modules/data.js',
+      'node_modules/highcharts/modules/exporting.js',
       //'static/world-robinson.js',
-      'bower_components/angular/angular.min.js',
-      'bower_components/angular-ui-router/release/angular-ui-router.min.js',
-      'bower_components/angular-resource/angular-resource.min.js',
-      'bower_components/ngstorage/ngStorage.js',
-      'bower_components/angular-sanitize/angular-sanitize.js',
-      'bower_components/angular-animate/angular-animate.js',
-      'bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.js',
+      'node_modules/angular/angular.min.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+      'node_modules/angular-resource/angular-resource.min.js',
+      'node_modules/ngstorage/ngStorage.js',
+      'node_modules/angular-sanitize/angular-sanitize.js',
+      'node_modules/angular-animate/angular-animate.js',
+      'lib/jquery.easy-pie-chart/dist/angular.easypiechart.js',
       'app/js/*.js'
   ])
 		.pipe(concat('app.min.js'))
@@ -115,7 +115,7 @@ gulp.task('sass', function() {
 
 gulp.task('css', function() {
   return gulp.src([
-      'bower_components/font-awesome/css/font-awesome.css',
+      //'node_modules/font-awesome/css/font-awesome.css',
       //'bower_components/bootstrap/dist/css/bootstrap.css',
       //'static/mdb/mdbf2.min.css',
       'app/css/styles.css'
