@@ -2,7 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-        <form ng-submit="vm.doFeedback()" ng-hide="vm.submitted" name="commentForm">
+        <form ng-submit="vm.doFeedback()"
+              ng-hide="vm.submitted"
+              name="commentForm"
+              novalidate="novalidate">
           <p>{{ ::init.messages.feedback_title }}</p>
           <div class="md-form">
             <label for="name" ng-class="{ active:vm.feedbackData.name }">{{ ::init.messages.feedback_name }}</label>
@@ -11,13 +14,17 @@
                    class="form-control"
                    ng-model="vm.feedbackData.name">
           </div>
-          <div class="md-form">
+          <div class="md-form"
+               ng-class="{
+                 'has-error': !commentForm.email.$valid && (!commentForm.$pristine || commentForm.$submitted),
+                 'has-success': commentForm.email.$valid && (!commentForm.$pristine || commentForm.$submitted)
+               }">
             <label for="email" ng-class="{ active:vm.feedbackData.email }">{{ ::init.messages.feedback_email }}</label>
             <input type="email"
+                   name="email"
                    id="email"
                    class="form-control"
-                   ng-model="vm.feedbackData.email"
-                   required>
+                   ng-model="vm.feedbackData.email">
           </div>
           <div class="md-form">
             <label for="text">{{ ::init.messages.feedback_textarea }}</label>
